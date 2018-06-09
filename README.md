@@ -1,2 +1,2 @@
 # Al-Go-Oh
-Trabajo practico grupal para la materia Algortimos y Programacion 3 FIUBA.
+Trabajo practico 2 para la materia Algortimos y Programacion 3 FIUBA.
