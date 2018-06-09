@@ -7,4 +7,9 @@ public class Prueba {
 		return 1;
 		
 		}
+
+	public String stringTest() {
+
+		return "anda todo bien";
+	}
 }
