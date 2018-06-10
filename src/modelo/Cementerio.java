@@ -6,13 +6,13 @@ import java.util.LinkedList;
 
 public class Cementerio {
 	
-	private LinkedList<CartaMonstruo> cartas = new LinkedList<>();
+	private LinkedList<CartaMonstruo> cartas = new LinkedList<CartaMonstruo>();
 	
 	public void destruirCarta(CartaMonstruo unaCarta) {
 		cartas.add(unaCarta);
 	}
 	
-	public boolean verificarCarta(CartaMonstruo unaCarta) {
+	public boolean seEncuentra(CartaMonstruo unaCarta) {
 		
 		boolean encontrada = false;
 		

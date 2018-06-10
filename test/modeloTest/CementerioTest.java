@@ -10,6 +10,7 @@ public class CementerioTest {
 
 	@Test
 	public void test01NoEstaLaCartaEnElCementerio() {
+		
 		CartaMonstruo unaCarta = new CartaMonstruo();
 		CartaMonstruo otraCarta = new CartaMonstruo();
 		
@@ -17,18 +18,19 @@ public class CementerioTest {
 		
 		cementerio.destruirCarta(unaCarta);
 		
-		assertFalse(cementerio.verificarCarta(otraCarta));
+		assertFalse(cementerio.seEncuentra(otraCarta));
 	}
 	
 	
 	@Test
 	public void test02LaCartaSeEnviaAlCementerio() {
+		
 		CartaMonstruo carta = new CartaMonstruo();
 	
 		Cementerio cementerio = new Cementerio();
 		
 		cementerio.destruirCarta(carta);
 		
-		assertTrue(cementerio.verificarCarta(carta));
+		assertTrue(cementerio.seEncuentra(carta));
 	}
 }
