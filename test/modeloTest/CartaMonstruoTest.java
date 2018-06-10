@@ -1,12 +1,12 @@
 package modeloTest;
-
+	
 import org.junit.Test;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 import modelo.CartaMonstruo;
-
+	
 public class CartaMonstruoTest {
-
+	
 	
 	@Test
 	public void test01UnaCartaMonstruoQueSeInvocaEnAtaqueEstaEnPosicionDeAtaque() {
@@ -51,4 +51,5 @@ public class CartaMonstruoTest {
 		assertFalse(monstruo.estaEnPosicionDeAtaque());
 	}
 	
-}
+}	
+	

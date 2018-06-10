@@ -6,8 +6,6 @@ public class CartaMonstruo {
 	protected PosicionDeMonstruo posicion;
 	
 	
-	
-	
 	public void invocarEnPosicionDeAtaque() {
 		
 		posicion = new PosicionDeAtaque();

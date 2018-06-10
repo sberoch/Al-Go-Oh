@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import junit.framework.Assert;
 import modelo.CartaTrampa;
 
 public class CartaTrampaTest {
@@ -15,9 +14,7 @@ public class CartaTrampaTest {
 		CartaTrampa trampa = new CartaTrampa();
 		trampa.invocarBocaAbajo();
 		
-		boolean esperado = true;
-		
-		Assert.assertEquals(esperado, trampa.estaBocaAbajo());
+		assertTrue(trampa.estaBocaAbajo());
 		
 	}
 

@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import junit.framework.Assert;
 import modelo.CartaMagica;
 
 public class CartaMagicaTest {
@@ -15,9 +14,7 @@ public class CartaMagicaTest {
 		CartaMagica magica = new CartaMagica();
 		magica.invocarBocaAbajo();
 		
-		boolean esperado = true;
-		
-		Assert.assertEquals(esperado, magica.estaBocaAbajo());
+		assertTrue(magica.estaBocaAbajo());
 		
 	}
 
