@@ -1,6 +1,7 @@
 package modeloTest;
 
-import modelo.*;
+import modelo.CartaMonstruo;
+import modelo.Cementerio;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 import static org.junit.Assert.assertFalse;
