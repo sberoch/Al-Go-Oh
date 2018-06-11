@@ -35,8 +35,8 @@ public class JugadorTest {
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
-		CartaMonstruo monstruoDelJugador = new CartaMonstruo(1000);
-		CartaMonstruo monstruoDelOponente = new CartaMonstruo(1200);
+		CartaMonstruo monstruoDelJugador = new CartaMonstruo(1000, 0);
+		CartaMonstruo monstruoDelOponente = new CartaMonstruo(1200, 0);
 		
 		jugador.invocarMonstruoEnPosicionDeAtaque(monstruoDelJugador);
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruoDelOponente);
@@ -55,8 +55,8 @@ public class JugadorTest {
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
-		CartaMonstruo monstruoDelJugador = new CartaMonstruo(1200);
-		CartaMonstruo monstruoDelOponente = new CartaMonstruo(1000);
+		CartaMonstruo monstruoDelJugador = new CartaMonstruo(1200, 0);
+		CartaMonstruo monstruoDelOponente = new CartaMonstruo(1000, 0);
 		
 		jugador.invocarMonstruoEnPosicionDeAtaque(monstruoDelJugador);
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruoDelOponente);
@@ -65,6 +65,64 @@ public class JugadorTest {
 		
 		int esperado = 8000 - 200;
 		assertEquals(esperado, oponente.getPuntosDeVida());
+		
+	}
+	
+	
+	@Test
+	public void test05MonstruoDeOponenteAtacaYSeDestruyenAmbosMonstruosSinPerdidaDeVida() {
+		
+		Jugador jugador = new Jugador();
+		Jugador oponente = new Jugador();
+		
+		CartaMonstruo monstruoDelJugador = new CartaMonstruo(1000, 0);
+		CartaMonstruo monstruoDelOponente = new CartaMonstruo(1000, 0);
+		
+		jugador.invocarMonstruoEnPosicionDeAtaque(monstruoDelJugador);
+		oponente.invocarMonstruoEnPosicionDeAtaque(monstruoDelOponente);
+		
+		oponente.atacar(monstruoDelOponente, monstruoDelJugador);
+		
+		assertEquals(8000, oponente.getPuntosDeVida());
+		assertEquals(8000, jugador.getPuntosDeVida());
+		
+	}
+	
+	
+	@Test
+	public void test06MonstruoDeOponenteAtacaAUnMonstruoConMenosDefensaYNoHayPardidaDeVida() {
+		
+		Jugador jugador = new Jugador();
+		Jugador oponente = new Jugador();
+		
+		CartaMonstruo monstruoDelJugador = new CartaMonstruo(0, 1000);
+		CartaMonstruo monstruoDelOponente = new CartaMonstruo(1200, 0);
+		
+		jugador.invocarMonstruoEnPosicionDeDefensa(monstruoDelJugador);
+		oponente.invocarMonstruoEnPosicionDeAtaque(monstruoDelOponente);
+		
+		oponente.atacar(monstruoDelOponente, monstruoDelJugador);
+		
+		assertEquals(8000, jugador.getPuntosDeVida());
+		
+	}
+	
+	
+	@Test
+	public void test07MonstruoDeOponenteAtacaAUnMonstruoConMasDefensaYNoHayPardidaDeVida() {
+		
+		Jugador jugador = new Jugador();
+		Jugador oponente = new Jugador();
+		
+		CartaMonstruo monstruoDelJugador = new CartaMonstruo(0, 1200);
+		CartaMonstruo monstruoDelOponente = new CartaMonstruo(1000, 0);
+		
+		jugador.invocarMonstruoEnPosicionDeDefensa(monstruoDelJugador);
+		oponente.invocarMonstruoEnPosicionDeAtaque(monstruoDelOponente);
+		
+		oponente.atacar(monstruoDelOponente, monstruoDelJugador);
+		
+		assertEquals(8000, oponente.getPuntosDeVida());
 		
 	}
 }

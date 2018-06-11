@@ -3,28 +3,33 @@ package modelo;
 public class CartaMonstruo {
 
 	private int ataque;
+	private int defensa;
 	private PosicionDeMonstruo posicion;
 	private Jugador duenio;
 	private boolean destruido;
 	
 	
-	public CartaMonstruo(int unAtaque) {
+	public CartaMonstruo(int unAtaque, int unaDefensa) {
 		
 		ataque = unAtaque;
+		
+		defensa = unaDefensa;
 	}
 	
 	
 	public void invocarEnPosicionDeAtaque(Jugador jugadorQueLoInvoca) {
 		
-		posicion = new PosicionDeAtaque();
+		posicion = new PosicionDeAtaque(ataque);
 		
 		duenio = jugadorQueLoInvoca;
 	}
 	
 	
-	public void invocarEnPosicionDeDefensa() {
+	public void invocarEnPosicionDeDefensa(Jugador jugadorQueLoInvoca) {
 		
-		posicion = new PosicionDeDefensa();
+		posicion = new PosicionDeDefensa(defensa);
+		
+		duenio = jugadorQueLoInvoca;
 	}
 	
 	
@@ -52,16 +57,12 @@ public class CartaMonstruo {
 	
 	public int recibirDanio(int unAtaque) {
 		
-		if (ataque < unAtaque) {
+		if (posicion.fuerzaDePelea() <= unAtaque) {
 			
-			this.destruirConDanio(unAtaque - ataque);
-			
-			return (-1);
-			
-		} else {
-			
-			return (ataque);
+			this.destruirConDanio(posicion.obtenerDanioDeAtaque(unAtaque));	
 		}
+		
+		return (posicion.fuerzaDeRetorno());
 	}
 	
 	

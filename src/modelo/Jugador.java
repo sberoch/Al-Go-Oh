@@ -20,6 +20,11 @@ public class Jugador {
 		monstruo.invocarEnPosicionDeAtaque(this);
 	}
 	
+	public void invocarMonstruoEnPosicionDeDefensa(CartaMonstruo monstruo) {
+		
+		monstruo.invocarEnPosicionDeDefensa(this);
+	}
+	
 	public void atacar(CartaMonstruo miMonstruo,CartaMonstruo otroMonstruo) {
 		
 		miMonstruo.atacarA(otroMonstruo);
