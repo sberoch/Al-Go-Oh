@@ -3,21 +3,22 @@ package modelo;
 public class CartaMonstruo {
 
 	private int ataque;
-	protected PosicionDeMonstruo posicion;
+	private PosicionDeMonstruo posicion;
+	private Jugador duenio;
+	private boolean destruido;
 	
 	
-	public void setAtaque(int ataque) {
-		this.ataque = ataque;
+	public CartaMonstruo(int unAtaque) {
+		
+		ataque = unAtaque;
 	}
 	
-	public int getAtaque() {
-		return ataque;
-	}
 	
-	
-	public void invocarEnPosicionDeAtaque() {
+	public void invocarEnPosicionDeAtaque(Jugador jugadorQueLoInvoca) {
 		
 		posicion = new PosicionDeAtaque();
+		
+		duenio = jugadorQueLoInvoca;
 	}
 	
 	
@@ -41,6 +42,42 @@ public class CartaMonstruo {
 	
 	public void atacarA(CartaMonstruo otroMonstruo) {
 		
+		int danioDeRetorno;
 		
+		danioDeRetorno = otroMonstruo.recibirDanio(ataque);
+		
+		this.recibirDanio(danioDeRetorno);
 	}
+	
+	
+	public int recibirDanio(int unAtaque) {
+		
+		if (ataque < unAtaque) {
+			
+			this.destruirConDanio(unAtaque - ataque);
+			
+			return (-1);
+			
+		} else {
+			
+			return (ataque);
+		}
+	}
+	
+	
+	public boolean fueDestruido() {
+		
+		return (destruido);
+	}
+	
+	
+	
+	
+	private void destruirConDanio(int unDanio) {
+		
+		destruido = true;
+		
+		duenio.recibirDanio(unDanio);
+	}
+	
 }

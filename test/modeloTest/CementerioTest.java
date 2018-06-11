@@ -9,10 +9,10 @@ public class CementerioTest {
 	
 
 	@Test
-	public void test01NoEstaLaCartaEnElCementerio() {
+	public void test01UnaCartaNoEnviadaAlCementerioNoEstaEnElCementerio() {
 		
-		CartaMonstruo unaCarta = new CartaMonstruo();
-		CartaMonstruo otraCarta = new CartaMonstruo();
+		CartaMonstruo unaCarta = new CartaMonstruo(0);
+		CartaMonstruo otraCarta = new CartaMonstruo(0);
 		
 		Cementerio cementerio = new Cementerio();
 		
@@ -23,9 +23,9 @@ public class CementerioTest {
 	
 	
 	@Test
-	public void test02LaCartaSeEnviaAlCementerio() {
+	public void test02UnaCartaEnviadaAlCementerioEstaEnElCementerio() {
 		
-		CartaMonstruo carta = new CartaMonstruo();
+		CartaMonstruo carta = new CartaMonstruo(0);
 	
 		Cementerio cementerio = new Cementerio();
 		

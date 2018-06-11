@@ -6,14 +6,22 @@ public class Jugador {
 	
 	
 	public int getPuntosDeVida() {
+		
 		return puntosDeVida;
 	}
 	
+	public void recibirDanio(int unDanio) {
+		
+		puntosDeVida = puntosDeVida - unDanio;
+	}
+	
 	public void invocarMonstruoEnPosicionDeAtaque(CartaMonstruo monstruo) {
-		monstruo.invocarEnPosicionDeAtaque();
+		
+		monstruo.invocarEnPosicionDeAtaque(this);
 	}
 	
 	public void atacar(CartaMonstruo miMonstruo,CartaMonstruo otroMonstruo) {
+		
 		miMonstruo.atacarA(otroMonstruo);
 	}
 	

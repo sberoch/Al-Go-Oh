@@ -9,25 +9,62 @@ import modelo.Jugador;
 
 public class JugadorTest {
 
+	
 	@Test
-	public void test01MonstruoDeOponenteAtacaYJugadorPierdeLaDiferenciaEnPuntosDeVida() {
+	public void test01UnJugadorComienzaCon8000DeVida() {
 		
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
+		Jugador jugador = new Jugador();
 		
-		CartaMonstruo monstruo1 = new CartaMonstruo();
-		monstruo1.setAtaque(1000);
+		assertEquals(8000, jugador.getPuntosDeVida());
+	}
+	
+	
+	@Test
+	public void test02UnJugadorRecibe1300PuntosDeDanio() {
 		
-		CartaMonstruo monstruo2 = new CartaMonstruo();
-		monstruo2.setAtaque(1200);
+		Jugador jugador = new Jugador();
 		
-		jugador1.invocarMonstruoEnPosicionDeAtaque(monstruo1);
-		jugador2.invocarMonstruoEnPosicionDeAtaque(monstruo2);
+		jugador.recibirDanio(1300);
 		
-		jugador2.atacar(monstruo2, monstruo1);
+		assertEquals(8000 - 1300, jugador.getPuntosDeVida());
+	}
+	
+	@Test
+	public void test03MonstruoDeOponenteAtacaYJugadorPierdeLaDiferenciaEnPuntosDeVida() {
+		
+		Jugador jugador = new Jugador();
+		Jugador oponente = new Jugador();
+		
+		CartaMonstruo monstruoDelJugador = new CartaMonstruo(1000);
+		CartaMonstruo monstruoDelOponente = new CartaMonstruo(1200);
+		
+		jugador.invocarMonstruoEnPosicionDeAtaque(monstruoDelJugador);
+		oponente.invocarMonstruoEnPosicionDeAtaque(monstruoDelOponente);
+		
+		oponente.atacar(monstruoDelOponente, monstruoDelJugador);
 		
 		int esperado = 8000 - 200;
-		assertEquals(esperado, jugador1.getPuntosDeVida());
+		assertEquals(esperado, jugador.getPuntosDeVida());
+		
+	}
+	
+	
+	@Test
+	public void test04MonstruoDeOponenteAtacaYOponentePierdeLaDiferenciaEnPuntosDeVida() {
+		
+		Jugador jugador = new Jugador();
+		Jugador oponente = new Jugador();
+		
+		CartaMonstruo monstruoDelJugador = new CartaMonstruo(1200);
+		CartaMonstruo monstruoDelOponente = new CartaMonstruo(1000);
+		
+		jugador.invocarMonstruoEnPosicionDeAtaque(monstruoDelJugador);
+		oponente.invocarMonstruoEnPosicionDeAtaque(monstruoDelOponente);
+		
+		oponente.atacar(monstruoDelOponente, monstruoDelJugador);
+		
+		int esperado = 8000 - 200;
+		assertEquals(esperado, oponente.getPuntosDeVida());
 		
 	}
 }
