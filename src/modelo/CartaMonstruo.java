@@ -59,7 +59,9 @@ public class CartaMonstruo {
 		
 		if (posicion.fuerzaDePelea() <= unAtaque) {
 			
-			this.destruirConDanio(posicion.obtenerDanioDeAtaque(unAtaque));	
+			this.destruir();
+			
+			duenio.recibirDanio(posicion.obtenerDanioDeAtaque(unAtaque));
 		}
 		
 		return (posicion.fuerzaDeRetorno());
@@ -79,13 +81,5 @@ public class CartaMonstruo {
 	}
 	
 	
-	
-	
-	private void destruirConDanio(int unDanio) {
-		
-		destruido = true;
-		
-		duenio.recibirDanio(unDanio);
-	}
 	
 }
