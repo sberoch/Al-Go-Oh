@@ -148,8 +148,8 @@ public class JugadorTest {
 		CartaMagica agujeroNegro = new AgujeroNegro();
 		jugador.invocarCartaMagicaBocaArriba(agujeroNegro);
 		
-		Assert.assertTrue(monstruoDelJugador.fueDestruido());
-		Assert.assertTrue(monstruoDelOponente.fueDestruido());
+		assertTrue(monstruoDelJugador.fueDestruido());
+		assertTrue(monstruoDelOponente.fueDestruido());
 		
 		
 	}
