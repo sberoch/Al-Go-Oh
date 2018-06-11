@@ -41,5 +41,6 @@ public class CartaMonstruo {
 	
 	public void atacarA(CartaMonstruo otroMonstruo) {
 		
+		
 	}
 }

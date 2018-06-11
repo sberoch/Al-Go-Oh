@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import junit.framework.Assert;
 import modelo.CartaMonstruo;
 import modelo.Jugador;
 
@@ -28,7 +27,7 @@ public class JugadorTest {
 		jugador2.atacar(monstruo2, monstruo1);
 		
 		int esperado = 8000 - 200;
-		Assert.assertEquals(esperado, jugador1.getPuntosDeVida());
+		assertEquals(esperado, jugador1.getPuntosDeVida());
 		
 	}
 }
