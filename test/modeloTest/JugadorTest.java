@@ -48,7 +48,7 @@ public class JugadorTest {
 		
 		int esperado = 8000 - 200;
 		assertEquals(esperado, jugador.getPuntosDeVida());
-		assertEquals(8000, oponente.getPuntosDeVida());
+		
 		
 	}
 	
@@ -69,7 +69,7 @@ public class JugadorTest {
 		
 		int esperado = 8000 - 200;
 		assertEquals(esperado, oponente.getPuntosDeVida());
-		assertEquals(8000, jugador.getPuntosDeVida());
+		
 	}
 	
 	
