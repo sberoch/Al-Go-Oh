@@ -87,6 +87,9 @@ public class JugadorTest {
 		
 		oponente.atacar(monstruoDelOponente, monstruoDelJugador);
 		
+		assertTrue(monstruoDelJugador.fueDestruido());
+		assertTrue(monstruoDelOponente.fueDestruido());
+		
 		assertEquals(8000, oponente.getPuntosDeVida());
 		assertEquals(8000, jugador.getPuntosDeVida());
 		
