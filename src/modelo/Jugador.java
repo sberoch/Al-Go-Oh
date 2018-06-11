@@ -18,11 +18,15 @@ public class Jugador {
 	public void invocarMonstruoEnPosicionDeAtaque(CartaMonstruo monstruo) {
 		
 		monstruo.invocarEnPosicionDeAtaque(this);
+		CampoDeJuego campo = CampoDeJuego.getInstancia();
+		campo.agregarAlCampo(monstruo);
 	}
 	
 	public void invocarMonstruoEnPosicionDeDefensa(CartaMonstruo monstruo) {
 		
 		monstruo.invocarEnPosicionDeDefensa(this);
+		CampoDeJuego campo = CampoDeJuego.getInstancia();
+		campo.agregarAlCampo(monstruo);
 	}
 	
 	public void atacar(CartaMonstruo miMonstruo,CartaMonstruo otroMonstruo) {
@@ -30,5 +34,9 @@ public class Jugador {
 		miMonstruo.atacarA(otroMonstruo);
 	}
 	
+	public void invocarCartaMagicaBocaArriba(CartaMagica cartaMagica) {
+		
+		cartaMagica.invocarBocaArriba();
+	}
 
 }

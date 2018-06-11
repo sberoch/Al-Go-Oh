@@ -12,5 +12,13 @@ public class CartaMagica {
 		return estado.estaBocaAbajo();
 	}
 	
+	public void invocarBocaArriba() {
+		estado = new EstadoBocaArriba();
+		this.activarEfecto();
+	}
+	
+	public void activarEfecto() {
+	}
+	
 	
 }

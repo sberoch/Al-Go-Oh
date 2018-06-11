@@ -72,6 +72,13 @@ public class CartaMonstruo {
 	}
 	
 	
+	public void destruir()  {
+		
+		destruido = true;
+		
+	}
+	
+	
 	
 	
 	private void destruirConDanio(int unDanio) {

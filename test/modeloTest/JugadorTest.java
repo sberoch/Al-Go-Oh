@@ -4,6 +4,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import junit.framework.Assert;
+import modelo.AgujeroNegro;
+import modelo.CartaMagica;
 import modelo.CartaMonstruo;
 import modelo.Jugador;
 
@@ -123,6 +126,27 @@ public class JugadorTest {
 		oponente.atacar(monstruoDelOponente, monstruoDelJugador);
 		
 		assertEquals(8000, oponente.getPuntosDeVida());
+		
+	}
+	
+	@Test
+	public void test08invocarAgujeroNegroDestruyeTodosLosMonstruos() {
+		
+		Jugador jugador  = new Jugador();
+		Jugador oponente  = new Jugador();
+		
+		CartaMonstruo monstruoDelJugador = new CartaMonstruo(1000, 0);
+		CartaMonstruo monstruoDelOponente = new CartaMonstruo(1000, 0);
+		
+		jugador.invocarMonstruoEnPosicionDeAtaque(monstruoDelJugador);
+		oponente.invocarMonstruoEnPosicionDeAtaque(monstruoDelOponente);
+		
+		CartaMagica agujeroNegro = new AgujeroNegro();
+		jugador.invocarCartaMagicaBocaArriba(agujeroNegro);
+		
+		Assert.assertTrue(monstruoDelJugador.fueDestruido());
+		Assert.assertTrue(monstruoDelOponente.fueDestruido());
+		
 		
 	}
 }
