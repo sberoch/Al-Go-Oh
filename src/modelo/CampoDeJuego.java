@@ -4,28 +4,60 @@ import java.util.LinkedList;
 
 public class CampoDeJuego {
 	
-	private static CampoDeJuego INSTANCIA = new CampoDeJuego();
 	private LinkedList<CartaMonstruo> monstruosEnJuego = new LinkedList<CartaMonstruo>();
 	
-
-	private CampoDeJuego() {
-	}
+	private CampoDeJuego campoEnemigo;
 	
 	
-	public static CampoDeJuego getInstancia() {
-		 return INSTANCIA;
+	
+	
+	public void asignarCampoEnemigo(CampoDeJuego campo) {
+		
+		campoEnemigo = campo;
 	}
 	
 	
 	public void agregarAlCampo(CartaMonstruo monstruo) {
+		
 		monstruosEnJuego.add(monstruo);
 	}
 	
 	
-	public void destruirTodos() {
+	public void destruirTodosLosMonstruos() {
+		
 		for (CartaMonstruo monstruo : monstruosEnJuego) {
+			
 			monstruo.destruir();
 		}
-		monstruosEnJuego = new LinkedList<CartaMonstruo>();
+		
+		monstruosEnJuego.clear();
+		
+		campoEnemigo.destruirMonstruosPropios();
+	}
+	
+	
+	public void destruirMonstruosPropios() {
+		
+		for (CartaMonstruo monstruo : monstruosEnJuego) {
+			
+			monstruo.destruir();
+		}
+		
+		monstruosEnJuego.clear();
+	}
+	
+	public void atacarConMonstruoAEnemigo(int posicionDeMonstruo, int posicionDeEnemigo) {
+		
+		CartaMonstruo atacante = monstruosEnJuego.get(posicionDeMonstruo - 1);
+		
+		campoEnemigo.atacarAMonstruoCon(posicionDeEnemigo, atacante);
+		
+	}
+	
+	public void atacarAMonstruoCon(int posicionDeMonstruo, CartaMonstruo atacante) {
+		
+		CartaMonstruo atacado = monstruosEnJuego.get(posicionDeMonstruo - 1);
+		
+		atacante.atacarA(atacado);
 	}
 }
