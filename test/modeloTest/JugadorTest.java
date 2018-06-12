@@ -36,14 +36,7 @@ public class JugadorTest {
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
-		CampoDeJuego campo = new CampoDeJuego();
-		CampoDeJuego campoEnemigo = new CampoDeJuego();
-		
-		campo.asignarCampoEnemigo(campoEnemigo);
-		campoEnemigo.asignarCampoEnemigo(campo);
-		
-		jugador.asignarCampo(campo);
-		oponente.asignarCampo(campoEnemigo);
+		this.darlesCamposAJugadores(jugador, oponente);
 		
 		CartaMonstruo monstruoDelJugador = new CartaMonstruo(1000, 0);
 		CartaMonstruo monstruoDelOponente = new CartaMonstruo(1200, 0);
@@ -65,14 +58,7 @@ public class JugadorTest {
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
-		CampoDeJuego campo = new CampoDeJuego();
-		CampoDeJuego campoEnemigo = new CampoDeJuego();
-		
-		campo.asignarCampoEnemigo(campoEnemigo);
-		campoEnemigo.asignarCampoEnemigo(campo);
-		
-		jugador.asignarCampo(campo);
-		oponente.asignarCampo(campoEnemigo);
+		this.darlesCamposAJugadores(jugador, oponente);
 		
 		CartaMonstruo monstruoDelJugador = new CartaMonstruo(1200, 0);
 		CartaMonstruo monstruoDelOponente = new CartaMonstruo(1000, 0);
@@ -94,14 +80,7 @@ public class JugadorTest {
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
-		CampoDeJuego campo = new CampoDeJuego();
-		CampoDeJuego campoEnemigo = new CampoDeJuego();
-		
-		campo.asignarCampoEnemigo(campoEnemigo);
-		campoEnemigo.asignarCampoEnemigo(campo);
-		
-		jugador.asignarCampo(campo);
-		oponente.asignarCampo(campoEnemigo);
+		this.darlesCamposAJugadores(jugador, oponente);
 		
 		CartaMonstruo monstruoDelJugador = new CartaMonstruo(1000, 0);
 		CartaMonstruo monstruoDelOponente = new CartaMonstruo(1000, 0);
@@ -123,14 +102,7 @@ public class JugadorTest {
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
-		CampoDeJuego campo = new CampoDeJuego();
-		CampoDeJuego campoEnemigo = new CampoDeJuego();
-		
-		campo.asignarCampoEnemigo(campoEnemigo);
-		campoEnemigo.asignarCampoEnemigo(campo);
-		
-		jugador.asignarCampo(campo);
-		oponente.asignarCampo(campoEnemigo);
+		this.darlesCamposAJugadores(jugador, oponente);
 		
 		CartaMonstruo monstruoDelJugador = new CartaMonstruo(0, 1000);
 		CartaMonstruo monstruoDelOponente = new CartaMonstruo(1200, 0);
@@ -151,14 +123,7 @@ public class JugadorTest {
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
-		CampoDeJuego campo = new CampoDeJuego();
-		CampoDeJuego campoEnemigo = new CampoDeJuego();
-		
-		campo.asignarCampoEnemigo(campoEnemigo);
-		campoEnemigo.asignarCampoEnemigo(campo);
-		
-		jugador.asignarCampo(campo);
-		oponente.asignarCampo(campoEnemigo);
+		this.darlesCamposAJugadores(jugador, oponente);
 		
 		CartaMonstruo monstruoDelJugador = new CartaMonstruo(0, 1200);
 		CartaMonstruo monstruoDelOponente = new CartaMonstruo(1000, 0);
@@ -199,6 +164,18 @@ public class JugadorTest {
 		assertTrue(monstruoDelJugador.fueDestruido());
 		assertTrue(monstruoDelOponente.fueDestruido());
 		
+	}
+	
+	
+	private void darlesCamposAJugadores(Jugador jugador, Jugador oponente) {
 		
+		CampoDeJuego campo = new CampoDeJuego();
+		CampoDeJuego campoEnemigo = new CampoDeJuego();
+		
+		campo.asignarCampoEnemigo(campoEnemigo);
+		campoEnemigo.asignarCampoEnemigo(campo);
+		
+		jugador.asignarCampo(campo);
+		oponente.asignarCampo(campoEnemigo);
 	}
 }
