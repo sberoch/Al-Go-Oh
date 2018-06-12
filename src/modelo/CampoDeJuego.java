@@ -52,6 +52,11 @@ public class CampoDeJuego {
 		
 		campoEnemigo.atacarAMonstruoCon(posicionDeEnemigo, atacante);
 		
+		if (atacante.fueDestruido()) {
+			
+			monstruosEnJuego.remove(posicionDeMonstruo - 1);
+		}
+		
 	}
 	
 	public void atacarAMonstruoCon(int posicionDeMonstruo, CartaMonstruo atacante) {
@@ -59,5 +64,10 @@ public class CampoDeJuego {
 		CartaMonstruo atacado = monstruosEnJuego.get(posicionDeMonstruo - 1);
 		
 		atacante.atacarA(atacado);
+		
+		if (atacado.fueDestruido()) {
+			
+			monstruosEnJuego.remove(posicionDeMonstruo - 1);
+		}
 	}
 }
