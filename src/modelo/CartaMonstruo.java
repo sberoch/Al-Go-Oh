@@ -6,7 +6,6 @@ public class CartaMonstruo {
 	private int defensa;
 	private PosicionDeMonstruo posicion;
 	private Jugador duenio;
-	private boolean destruido;
 	
 	
 	public CartaMonstruo(int unAtaque, int unaDefensa) {
@@ -70,13 +69,13 @@ public class CartaMonstruo {
 	
 	public boolean fueDestruido() {
 		
-		return (destruido);
+		return (duenio.verificarSiEstaEnElCementerio(this));
 	}
 	
 	
 	public void destruir()  {
 		
-		destruido = true;
+		duenio.enviarAlCementerio(this);
 		
 	}
 	

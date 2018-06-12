@@ -17,12 +17,17 @@ public class Cementerio {
 		boolean encontrada = false;
 		
 		Iterator<CartaMonstruo> iterador = cartas.iterator();
+		
 		while(iterador.hasNext()) {
+			
 			CartaMonstruo estaCarta = iterador.next();
+			
 			if(estaCarta == unaCarta) {
+				
 				encontrada = true;
 			}
 		}
-		return encontrada;
+		
+		return (encontrada);
 	}
 }

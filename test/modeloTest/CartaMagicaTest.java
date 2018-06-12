@@ -11,7 +11,7 @@ public class CartaMagicaTest {
 	@Test
 	public void test01invocarBocaAbajoLaDejaConEstadoBocaAbajo() {
 		
-		CartaMagica magica = new CartaMagica();
+		CartaMagica magica = CartaMagica.crearAgujeroNegro(null);
 		magica.invocarBocaAbajo();
 		
 		assertTrue(magica.estaBocaAbajo());

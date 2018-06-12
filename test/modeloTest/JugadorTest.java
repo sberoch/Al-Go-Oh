@@ -1,14 +1,12 @@
 package modeloTest;
 
-import static org.junit.Assert.*;
-
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 import org.junit.Test;
-
-import junit.framework.Assert;
-import modelo.AgujeroNegro;
 import modelo.CartaMagica;
 import modelo.CartaMonstruo;
 import modelo.Jugador;
+import modelo.CampoDeJuego;
 
 public class JugadorTest {
 
@@ -38,13 +36,15 @@ public class JugadorTest {
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
+		this.darlesCamposAJugadores(jugador, oponente);
+		
 		CartaMonstruo monstruoDelJugador = new CartaMonstruo(1000, 0);
 		CartaMonstruo monstruoDelOponente = new CartaMonstruo(1200, 0);
 		
 		jugador.invocarMonstruoEnPosicionDeAtaque(monstruoDelJugador);
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruoDelOponente);
 		
-		oponente.atacar(monstruoDelOponente, monstruoDelJugador);
+		oponente.atacarConMonstruoAMonstruoEnemigoConPosiciones(1, 1);
 		
 		int esperado = 8000 - 200;
 		assertEquals(esperado, jugador.getPuntosDeVida());
@@ -59,13 +59,15 @@ public class JugadorTest {
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
+		this.darlesCamposAJugadores(jugador, oponente);
+		
 		CartaMonstruo monstruoDelJugador = new CartaMonstruo(1200, 0);
 		CartaMonstruo monstruoDelOponente = new CartaMonstruo(1000, 0);
 		
 		jugador.invocarMonstruoEnPosicionDeAtaque(monstruoDelJugador);
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruoDelOponente);
 		
-		oponente.atacar(monstruoDelOponente, monstruoDelJugador);
+		oponente.atacarConMonstruoAMonstruoEnemigoConPosiciones(1, 1);
 		
 		int esperado = 8000 - 200;
 		assertEquals(esperado, oponente.getPuntosDeVida());
@@ -79,13 +81,15 @@ public class JugadorTest {
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
+		this.darlesCamposAJugadores(jugador, oponente);
+		
 		CartaMonstruo monstruoDelJugador = new CartaMonstruo(1000, 0);
 		CartaMonstruo monstruoDelOponente = new CartaMonstruo(1000, 0);
 		
 		jugador.invocarMonstruoEnPosicionDeAtaque(monstruoDelJugador);
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruoDelOponente);
 		
-		oponente.atacar(monstruoDelOponente, monstruoDelJugador);
+		oponente.atacarConMonstruoAMonstruoEnemigoConPosiciones(1, 1);
 		
 		assertTrue(monstruoDelJugador.fueDestruido());
 		assertTrue(monstruoDelOponente.fueDestruido());
@@ -102,13 +106,15 @@ public class JugadorTest {
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
+		this.darlesCamposAJugadores(jugador, oponente);
+		
 		CartaMonstruo monstruoDelJugador = new CartaMonstruo(0, 1000);
 		CartaMonstruo monstruoDelOponente = new CartaMonstruo(1200, 0);
 		
 		jugador.invocarMonstruoEnPosicionDeDefensa(monstruoDelJugador);
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruoDelOponente);
 		
-		oponente.atacar(monstruoDelOponente, monstruoDelJugador);
+		oponente.atacarConMonstruoAMonstruoEnemigoConPosiciones(1, 1);
 		
 		assertEquals(8000, jugador.getPuntosDeVida());
 		
@@ -121,13 +127,15 @@ public class JugadorTest {
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
+		this.darlesCamposAJugadores(jugador, oponente);
+		
 		CartaMonstruo monstruoDelJugador = new CartaMonstruo(0, 1200);
 		CartaMonstruo monstruoDelOponente = new CartaMonstruo(1000, 0);
 		
 		jugador.invocarMonstruoEnPosicionDeDefensa(monstruoDelJugador);
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruoDelOponente);
 		
-		oponente.atacar(monstruoDelOponente, monstruoDelJugador);
+		oponente.atacarConMonstruoAMonstruoEnemigoConPosiciones(1, 1);
 		
 		assertEquals(8000, oponente.getPuntosDeVida());
 		
@@ -136,8 +144,17 @@ public class JugadorTest {
 	@Test
 	public void test08invocarAgujeroNegroDestruyeTodosLosMonstruos() {
 		
-		Jugador jugador  = new Jugador();
-		Jugador oponente  = new Jugador();
+		Jugador jugador = new Jugador();
+		Jugador oponente = new Jugador();
+		
+		CampoDeJuego campo = new CampoDeJuego();
+		CampoDeJuego campoEnemigo = new CampoDeJuego();
+		
+		campo.asignarCampoEnemigo(campoEnemigo);
+		campoEnemigo.asignarCampoEnemigo(campo);
+		
+		jugador.asignarCampo(campo);
+		oponente.asignarCampo(campoEnemigo);
 		
 		CartaMonstruo monstruoDelJugador = new CartaMonstruo(1000, 0);
 		CartaMonstruo monstruoDelOponente = new CartaMonstruo(1000, 0);
@@ -145,12 +162,24 @@ public class JugadorTest {
 		jugador.invocarMonstruoEnPosicionDeAtaque(monstruoDelJugador);
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruoDelOponente);
 		
-		CartaMagica agujeroNegro = new AgujeroNegro();
+		CartaMagica agujeroNegro = CartaMagica.crearAgujeroNegro(campo);
 		jugador.invocarCartaMagicaBocaArriba(agujeroNegro);
 		
 		assertTrue(monstruoDelJugador.fueDestruido());
 		assertTrue(monstruoDelOponente.fueDestruido());
 		
+	}
+	
+	
+	private void darlesCamposAJugadores(Jugador jugador, Jugador oponente) {
 		
+		CampoDeJuego campo = new CampoDeJuego();
+		CampoDeJuego campoEnemigo = new CampoDeJuego();
+		
+		campo.asignarCampoEnemigo(campoEnemigo);
+		campoEnemigo.asignarCampoEnemigo(campo);
+		
+		jugador.asignarCampo(campo);
+		oponente.asignarCampo(campoEnemigo);
 	}
 }
