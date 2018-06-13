@@ -15,8 +15,7 @@ public class CartaMonstruo {
 		ataque = unAtaque;
 		defensa = unaDefensa;
 		
-		estrellas = new Estrellas();
-		estrellas.asignarEstrellas(unasEstrellas);
+		estrellas = new Estrellas(unasEstrellas);
 
 	}
 	
