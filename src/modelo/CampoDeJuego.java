@@ -17,9 +17,21 @@ public class CampoDeJuego {
 	}
 	
 	
-	public void agregarAlCampo(CartaMonstruo monstruo) {
+	public void agregarAlCampo(CartaMonstruo monstruo) throws Exception {
 		
+		int cantMonstruos = monstruosEnJuego.size();
+		int sacrificios = monstruo.sacrificiosRequeridos();
+		
+		if (sacrificios > cantMonstruos) {
+			throw new NoHaySuficientesMonstruosException();
+		}
+		
+		for(int i = 0; i < sacrificios; i++) {
+			monstruosEnJuego.getLast().destruir();
+			monstruosEnJuego.removeLast();
+		}
 		monstruosEnJuego.add(monstruo);
+		
 	}
 	
 	

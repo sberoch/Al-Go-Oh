@@ -4,15 +4,23 @@ public class CartaMonstruo {
 
 	private int ataque;
 	private int defensa;
+	private int cantEstrellas;
+	private int sacrificiosRequeridos;
 	private PosicionDeMonstruo posicion;
 	private Jugador duenio;
 	
+	private int[] tabulacionSacficios = {0,0,0,0,1,1,2,2,2};
 	
-	public CartaMonstruo(int unAtaque, int unaDefensa) {
+	
+	public CartaMonstruo(int unAtaque, int unaDefensa, int estrellas) {
 		
 		ataque = unAtaque;
 		
 		defensa = unaDefensa;
+		
+		cantEstrellas = estrellas;
+		
+		sacrificiosRequeridos = tabulacionSacficios[estrellas];
 	}
 	
 	
@@ -77,6 +85,11 @@ public class CartaMonstruo {
 		
 		duenio.enviarAlCementerio(this);
 		
+	}
+	
+	
+	public int sacrificiosRequeridos() {
+		return sacrificiosRequeridos;
 	}
 	
 	
