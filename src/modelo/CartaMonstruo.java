@@ -4,23 +4,20 @@ public class CartaMonstruo {
 
 	private int ataque;
 	private int defensa;
-	private int cantEstrellas;
-	private int sacrificiosRequeridos;
+	private Estrellas estrellas;
 	private PosicionDeMonstruo posicion;
 	private Jugador duenio;
 	
-	private int[] tabulacionSacficios = {0,0,0,0,1,1,2,2,2};
 	
 	
-	public CartaMonstruo(int unAtaque, int unaDefensa, int estrellas) {
+	public CartaMonstruo(int unAtaque, int unaDefensa, int unasEstrellas) {
 		
 		ataque = unAtaque;
-		
 		defensa = unaDefensa;
 		
-		cantEstrellas = estrellas;
-		
-		sacrificiosRequeridos = tabulacionSacficios[estrellas];
+		estrellas = new Estrellas();
+		estrellas.asignarEstrellas(unasEstrellas);
+
 	}
 	
 	
@@ -89,7 +86,7 @@ public class CartaMonstruo {
 	
 	
 	public int sacrificiosRequeridos() {
-		return sacrificiosRequeridos;
+		return estrellas.determinarSacrificios();
 	}
 	
 	
