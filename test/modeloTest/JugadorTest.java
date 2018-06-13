@@ -55,6 +55,7 @@ public class JugadorTest {
 		int esperado = 8000 - 200;
 		assertEquals(esperado, jugador.getPuntosDeVida());
 		
+		
 	}
 	
 	
@@ -81,7 +82,7 @@ public class JugadorTest {
 	
 	
 	@Test
-	public void test05MonstruoDeOponenteAtacaYSeDestruyenAmbosMonstruosSinPerdidaDeVida() throws Exception {
+	public void test05MonstruoDeOponenteAtacaYNoHayPerdidaDeVida() throws Exception {
 		
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
@@ -95,6 +96,9 @@ public class JugadorTest {
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruoDelOponente);
 		
 		oponente.atacarConMonstruoAMonstruoEnemigoConPosiciones(1, 1);
+		
+		assertTrue(monstruoDelJugador.fueDestruido());
+		assertTrue(monstruoDelOponente.fueDestruido());
 		
 		assertEquals(8000, oponente.getPuntosDeVida());
 		assertEquals(8000, jugador.getPuntosDeVida());
