@@ -198,7 +198,7 @@ public class JugadorTest {
 		jugador1.asignarCampo(campo);
 		
 		CartaMonstruo monstruo1 = new CartaMonstruo(1000,400,2);
-		CartaMonstruo monstruo2 = new CartaMonstruo(1000,400,3);
+		CartaMonstruo monstruo2 = new CartaMonstruo(1000,400,4);
 		CartaMonstruo monstruoQueRequiereDosSacrificios = new CartaMonstruo(1000,400,7);
 		
 		jugador1.invocarMonstruoEnPosicionDeAtaque(monstruo1);
