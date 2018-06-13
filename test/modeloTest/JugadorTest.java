@@ -1,11 +1,17 @@
 package modeloTest;
 
 import static org.junit.Assert.assertTrue;
+
+import org.junit.Rule;
+
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
+
 import modelo.CartaMagica;
 import modelo.CartaMonstruo;
 import modelo.Jugador;
+import modelo.NoHaySuficientesMonstruosException;
 import modelo.CampoDeJuego;
 
 public class JugadorTest {
@@ -31,15 +37,15 @@ public class JugadorTest {
 	}
 	
 	@Test
-	public void test03MonstruoDeOponenteAtacaYJugadorPierdeLaDiferenciaEnPuntosDeVida() {
+	public void test03MonstruoDeOponenteAtacaYJugadorPierdeLaDiferenciaEnPuntosDeVida() throws Exception {
 		
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
 		this.darlesCamposAJugadores(jugador, oponente);
 		
-		CartaMonstruo monstruoDelJugador = new CartaMonstruo(1000, 0);
-		CartaMonstruo monstruoDelOponente = new CartaMonstruo(1200, 0);
+		CartaMonstruo monstruoDelJugador = new CartaMonstruo(1000, 0, 1);
+		CartaMonstruo monstruoDelOponente = new CartaMonstruo(1200, 0, 1);
 		
 		jugador.invocarMonstruoEnPosicionDeAtaque(monstruoDelJugador);
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruoDelOponente);
@@ -54,15 +60,15 @@ public class JugadorTest {
 	
 	
 	@Test
-	public void test04MonstruoDeOponenteAtacaYOponentePierdeLaDiferenciaEnPuntosDeVida() {
+	public void test04MonstruoDeOponenteAtacaYOponentePierdeLaDiferenciaEnPuntosDeVida() throws Exception {
 		
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
 		this.darlesCamposAJugadores(jugador, oponente);
 		
-		CartaMonstruo monstruoDelJugador = new CartaMonstruo(1200, 0);
-		CartaMonstruo monstruoDelOponente = new CartaMonstruo(1000, 0);
+		CartaMonstruo monstruoDelJugador = new CartaMonstruo(1200, 0, 1);
+		CartaMonstruo monstruoDelOponente = new CartaMonstruo(1000, 0, 1);
 		
 		jugador.invocarMonstruoEnPosicionDeAtaque(monstruoDelJugador);
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruoDelOponente);
@@ -76,15 +82,15 @@ public class JugadorTest {
 	
 	
 	@Test
-	public void test05MonstruoDeOponenteAtacaYSeDestruyenAmbosMonstruosSinPerdidaDeVida() {
+	public void test05MonstruoDeOponenteAtacaYSeDestruyenAmbosMonstruosSinPerdidaDeVida() throws Exception {
 		
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
 		this.darlesCamposAJugadores(jugador, oponente);
 		
-		CartaMonstruo monstruoDelJugador = new CartaMonstruo(1000, 0);
-		CartaMonstruo monstruoDelOponente = new CartaMonstruo(1000, 0);
+		CartaMonstruo monstruoDelJugador = new CartaMonstruo(1000, 0, 1);
+		CartaMonstruo monstruoDelOponente = new CartaMonstruo(1000, 0, 1);
 		
 		jugador.invocarMonstruoEnPosicionDeAtaque(monstruoDelJugador);
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruoDelOponente);
@@ -101,15 +107,15 @@ public class JugadorTest {
 	
 	
 	@Test
-	public void test06MonstruoDeOponenteAtacaAUnMonstruoConMenosDefensaYNoHayPardidaDeVida() {
+	public void test06MonstruoDeOponenteAtacaAUnMonstruoConMenosDefensaYNoHayPardidaDeVida() throws Exception {
 		
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
 		this.darlesCamposAJugadores(jugador, oponente);
 		
-		CartaMonstruo monstruoDelJugador = new CartaMonstruo(0, 1000);
-		CartaMonstruo monstruoDelOponente = new CartaMonstruo(1200, 0);
+		CartaMonstruo monstruoDelJugador = new CartaMonstruo(0, 1000, 1);
+		CartaMonstruo monstruoDelOponente = new CartaMonstruo(1200, 0, 1);
 		
 		jugador.invocarMonstruoEnPosicionDeDefensa(monstruoDelJugador);
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruoDelOponente);
@@ -122,15 +128,15 @@ public class JugadorTest {
 	
 	
 	@Test
-	public void test07MonstruoDeOponenteAtacaAUnMonstruoConMasDefensaYNoHayPardidaDeVida() {
+	public void test07MonstruoDeOponenteAtacaAUnMonstruoConMasDefensaYNoHayPardidaDeVida() throws Exception {
 		
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
 		this.darlesCamposAJugadores(jugador, oponente);
 		
-		CartaMonstruo monstruoDelJugador = new CartaMonstruo(0, 1200);
-		CartaMonstruo monstruoDelOponente = new CartaMonstruo(1000, 0);
+		CartaMonstruo monstruoDelJugador = new CartaMonstruo(0, 1200, 1);
+		CartaMonstruo monstruoDelOponente = new CartaMonstruo(1000, 0, 1);
 		
 		jugador.invocarMonstruoEnPosicionDeDefensa(monstruoDelJugador);
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruoDelOponente);
@@ -142,7 +148,7 @@ public class JugadorTest {
 	}
 	
 	@Test
-	public void test08invocarAgujeroNegroDestruyeTodosLosMonstruos() {
+	public void test08invocarAgujeroNegroDestruyeTodosLosMonstruos() throws Exception {
 		
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
@@ -156,8 +162,8 @@ public class JugadorTest {
 		jugador.asignarCampo(campo);
 		oponente.asignarCampo(campoEnemigo);
 		
-		CartaMonstruo monstruoDelJugador = new CartaMonstruo(1000, 0);
-		CartaMonstruo monstruoDelOponente = new CartaMonstruo(1000, 0);
+		CartaMonstruo monstruoDelJugador = new CartaMonstruo(1000, 0, 1);
+		CartaMonstruo monstruoDelOponente = new CartaMonstruo(1000, 0, 1);
 		
 		jugador.invocarMonstruoEnPosicionDeAtaque(monstruoDelJugador);
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruoDelOponente);
@@ -168,6 +174,59 @@ public class JugadorTest {
 		assertTrue(monstruoDelJugador.fueDestruido());
 		assertTrue(monstruoDelOponente.fueDestruido());
 		
+	}
+	
+	@Test
+	public void test09MonstruoRequiereUnSacrificio() throws Exception {
+		
+		Jugador jugador1 = new Jugador();
+		CampoDeJuego campo = new CampoDeJuego();
+		jugador1.asignarCampo(campo);
+		
+		CartaMonstruo monstruo1 = new CartaMonstruo(1000,400,2);
+		CartaMonstruo monstruoQueRequiereUnSacrificio = new CartaMonstruo(1000,400,5);
+		
+		jugador1.invocarMonstruoEnPosicionDeAtaque(monstruo1);
+		jugador1.invocarMonstruoEnPosicionDeAtaque(monstruoQueRequiereUnSacrificio);
+		
+		assertTrue(monstruo1.fueDestruido());
+		
+		
+	}
+	
+	@Test
+	public void test10MonstruoRequiereDosSacrificios() throws Exception {
+		
+		Jugador jugador1 = new Jugador();
+		CampoDeJuego campo = new CampoDeJuego();
+		jugador1.asignarCampo(campo);
+		
+		CartaMonstruo monstruo1 = new CartaMonstruo(1000,400,2);
+		CartaMonstruo monstruo2 = new CartaMonstruo(1000,400,3);
+		CartaMonstruo monstruoQueRequiereDosSacrificios = new CartaMonstruo(1000,400,7);
+		
+		jugador1.invocarMonstruoEnPosicionDeAtaque(monstruo1);
+		jugador1.invocarMonstruoEnPosicionDeAtaque(monstruo2);
+		jugador1.invocarMonstruoEnPosicionDeAtaque(monstruoQueRequiereDosSacrificios);
+		
+		assertTrue(monstruo1.fueDestruido());
+		assertTrue(monstruo2.fueDestruido());
+	}
+	
+	@Rule
+	public ExpectedException thrown = ExpectedException.none();
+	
+	@Test
+	public void test11SiNoHayMonstruosParaElSacrificioSeLanzaExcepcion() throws Exception {
+		
+		Jugador jugador1 = new Jugador();
+		CampoDeJuego campo = new CampoDeJuego();
+		jugador1.asignarCampo(campo);
+		
+		CartaMonstruo monstruoQueRequiereDosSacrificios = new CartaMonstruo(1000,400,7);
+		
+		thrown.expect(NoHaySuficientesMonstruosException.class);
+		jugador1.invocarMonstruoEnPosicionDeAtaque(monstruoQueRequiereDosSacrificios);		
 	}
 	
 	

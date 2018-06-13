@@ -33,18 +33,20 @@ public class Jugador {
 		puntosDeVida = puntosDeVida - unDanio;
 	}
 	
-	public void invocarMonstruoEnPosicionDeAtaque(CartaMonstruo monstruo) {
+	public void invocarMonstruoEnPosicionDeAtaque(CartaMonstruo monstruo) throws Exception {
 		
-		monstruo.invocarEnPosicionDeAtaque(this);
-
 		campo.agregarAlCampo(monstruo);
+
+		monstruo.invocarEnPosicionDeAtaque(this);
+		
 	}
 	
-	public void invocarMonstruoEnPosicionDeDefensa(CartaMonstruo monstruo) {
+	public void invocarMonstruoEnPosicionDeDefensa(CartaMonstruo monstruo) throws Exception {
 		
+		campo.agregarAlCampo(monstruo);
+
 		monstruo.invocarEnPosicionDeDefensa(this);
 
-		campo.agregarAlCampo(monstruo);
 	}
 	
 	public void atacarConMonstruoAMonstruoEnemigoConPosiciones(int posicionAtacante, int posicionAtacado) {

@@ -12,7 +12,7 @@ public class CartaMonstruoTest {
 	@Test
 	public void test01UnaCartaMonstruoQueSeInvocaEnAtaqueEstaEnPosicionDeAtaque() {
 		
-		CartaMonstruo monstruo = new CartaMonstruo(0, 0);
+		CartaMonstruo monstruo = new CartaMonstruo(0, 0, 0);
 		
 		monstruo.invocarEnPosicionDeAtaque(null);
 		
@@ -23,7 +23,7 @@ public class CartaMonstruoTest {
 	@Test
 	public void test02UnaCartaMonstruoQueSeInvocaEnAtaqueNoEstaEnPosicionDeDefensa() {
 		
-		CartaMonstruo monstruo = new CartaMonstruo(0, 0);
+		CartaMonstruo monstruo = new CartaMonstruo(0, 0, 0);
 		
 		monstruo.invocarEnPosicionDeAtaque(null);
 		
@@ -34,7 +34,7 @@ public class CartaMonstruoTest {
 	@Test
 	public void test03UnaCartaMonstruoQueSeInvocaEnDefensaEstaEnPosicionDeDefensa() {
 		
-		CartaMonstruo monstruo = new CartaMonstruo(0, 0);
+		CartaMonstruo monstruo = new CartaMonstruo(0, 0, 0);
 		
 		monstruo.invocarEnPosicionDeDefensa(null);
 		
@@ -45,7 +45,7 @@ public class CartaMonstruoTest {
 	@Test
 	public void test04UnaCartaMonstruoQueSeInvocaEnDefensaNoEstaEnPosicionDeAtaque() {
 		
-		CartaMonstruo monstruo = new CartaMonstruo(0, 0);
+		CartaMonstruo monstruo = new CartaMonstruo(0, 0, 0);
 		
 		monstruo.invocarEnPosicionDeDefensa(null);
 		
@@ -58,8 +58,8 @@ public class CartaMonstruoTest {
 		
 		Jugador jugador = new Jugador();
 		
-		CartaMonstruo unMonstruo = new CartaMonstruo(1200, 0);
-		CartaMonstruo otroMonstruo = new CartaMonstruo(1000, 0);
+		CartaMonstruo unMonstruo = new CartaMonstruo(1200, 0, 0);
+		CartaMonstruo otroMonstruo = new CartaMonstruo(1000, 0, 0);
 		
 		unMonstruo.invocarEnPosicionDeAtaque(jugador);
 		otroMonstruo.invocarEnPosicionDeAtaque(jugador);
@@ -75,8 +75,8 @@ public class CartaMonstruoTest {
 		
 		Jugador jugador = new Jugador();
 		
-		CartaMonstruo unMonstruo = new CartaMonstruo(1000, 0);
-		CartaMonstruo otroMonstruo = new CartaMonstruo(1200, 0);
+		CartaMonstruo unMonstruo = new CartaMonstruo(1000, 0, 0);
+		CartaMonstruo otroMonstruo = new CartaMonstruo(1200, 0, 0);
 		
 		unMonstruo.invocarEnPosicionDeAtaque(jugador);
 		otroMonstruo.invocarEnPosicionDeAtaque(jugador);
@@ -92,8 +92,8 @@ public class CartaMonstruoTest {
 		
 		Jugador jugador = new Jugador();
 		
-		CartaMonstruo unMonstruo = new CartaMonstruo(1000, 0);
-		CartaMonstruo otroMonstruo = new CartaMonstruo(1000, 0);
+		CartaMonstruo unMonstruo = new CartaMonstruo(1000, 0, 0);
+		CartaMonstruo otroMonstruo = new CartaMonstruo(1000, 0, 0);
 		
 		unMonstruo.invocarEnPosicionDeAtaque(jugador);
 		otroMonstruo.invocarEnPosicionDeAtaque(jugador);
@@ -110,8 +110,8 @@ public class CartaMonstruoTest {
 		
 		Jugador jugador = new Jugador();
 		
-		CartaMonstruo unMonstruo = new CartaMonstruo(1200, 0);
-		CartaMonstruo otroMonstruo = new CartaMonstruo(0, 1000);
+		CartaMonstruo unMonstruo = new CartaMonstruo(1200, 0, 0);
+		CartaMonstruo otroMonstruo = new CartaMonstruo(0, 1000, 0);
 		
 		unMonstruo.invocarEnPosicionDeAtaque(jugador);
 		otroMonstruo.invocarEnPosicionDeDefensa(jugador);
@@ -127,8 +127,8 @@ public class CartaMonstruoTest {
 		
 		Jugador jugador = new Jugador();
 		
-		CartaMonstruo unMonstruo = new CartaMonstruo(1000, 0);
-		CartaMonstruo otroMonstruo = new CartaMonstruo(0, 1200);
+		CartaMonstruo unMonstruo = new CartaMonstruo(1000, 0, 0);
+		CartaMonstruo otroMonstruo = new CartaMonstruo(0, 1200, 0);
 		
 		unMonstruo.invocarEnPosicionDeAtaque(jugador);
 		otroMonstruo.invocarEnPosicionDeDefensa(jugador);
