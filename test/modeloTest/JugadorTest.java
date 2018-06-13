@@ -82,7 +82,7 @@ public class JugadorTest {
 	
 	
 	@Test
-	public void test05MonstruoDeOponenteAtacaYSeDestruyenAmbosMonstruosSinPerdidaDeVida() throws Exception {
+	public void test05MonstruoDeOponenteAtacaYNoHayPerdidaDeVida() throws Exception {
 		
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
