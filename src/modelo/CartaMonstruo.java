@@ -5,7 +5,7 @@ public class CartaMonstruo {
 	private int ataque;
 	private int defensa;
 	private Estrellas estrellas;
-	private PosicionDeMonstruo posicion;
+	private Modo modo;
 	private Jugador duenio;
 	
 	
@@ -23,7 +23,7 @@ public class CartaMonstruo {
 	
 	public void invocarEnPosicionDeAtaque(Jugador jugadorQueLoInvoca) {
 		
-		posicion = new PosicionDeAtaque(ataque);
+		modo = new ModoDeAtaque(ataque);
 		
 		duenio = jugadorQueLoInvoca;
 	}
@@ -31,7 +31,7 @@ public class CartaMonstruo {
 	
 	public void invocarEnPosicionDeDefensa(Jugador jugadorQueLoInvoca) {
 		
-		posicion = new PosicionDeDefensa(defensa);
+		modo = new ModoDeDefensa(defensa);
 		
 		duenio = jugadorQueLoInvoca;
 	}
@@ -39,13 +39,13 @@ public class CartaMonstruo {
 	
 	public boolean estaEnPosicionDeAtaque() {
 		
-		return (posicion.esPosicionDeAtaque());
+		return (modo.esModoDeAtaque());
 	}
 	
 	
 	public boolean estaEnPosicionDeDefensa() {
 		
-		return (posicion.esPosicionDeDefensa());
+		return (modo.esModoDeDefensa());
 	}
 	
 	
@@ -61,14 +61,14 @@ public class CartaMonstruo {
 	
 	public int recibirDanio(int unAtaque) {
 		
-		if (posicion.fuerzaDePelea() <= unAtaque) {
+		if (modo.fuerzaDePelea() <= unAtaque) {
 			
 			this.destruir();
 			
-			duenio.recibirDanio(posicion.obtenerDanioDeAtaque(unAtaque));
+			duenio.recibirDanio(modo.obtenerDanioDeAtaque(unAtaque));
 		}
 		
-		return (posicion.fuerzaDeRetorno());
+		return (modo.fuerzaDeRetorno());
 	}
 	
 	

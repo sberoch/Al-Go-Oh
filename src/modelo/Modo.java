@@ -1,11 +1,11 @@
 package modelo;
 
-public interface PosicionDeMonstruo {
+public interface Modo {
 
 	
-	public boolean esPosicionDeAtaque();
+	public boolean esModoDeAtaque();
 	
-	public boolean esPosicionDeDefensa();
+	public boolean esModoDeDefensa();
 	
 	public int fuerzaDePelea();
 	

@@ -4,7 +4,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertEquals;
-import modelo.PosicionDeAtaque;
+import modelo.ModoDeAtaque;
 
 public class PosicionDeAtaqueTest {
 
@@ -12,25 +12,25 @@ public class PosicionDeAtaqueTest {
 	@Test
 	public void test01UnaPosicionDeAtaqueEsDeAtaque() {
 		
-		PosicionDeAtaque posicion = new PosicionDeAtaque(0);
+		ModoDeAtaque posicion = new ModoDeAtaque(0);
 		
-		assertTrue(posicion.esPosicionDeAtaque());
+		assertTrue(posicion.esModoDeAtaque());
 	}
 	
 	
 	@Test
 	public void test02UnaPosicionDeDefensaNoEsDeAtaque() {
 		
-		PosicionDeAtaque posicion = new PosicionDeAtaque(0);
+		ModoDeAtaque posicion = new ModoDeAtaque(0);
 		
-		assertFalse(posicion.esPosicionDeDefensa());
+		assertFalse(posicion.esModoDeDefensa());
 	}
 	
 	
 	@Test
 	public void test03LaFuerzaDePeleaEsElAtaque() {
 		
-		PosicionDeAtaque posicion = new PosicionDeAtaque(1200);
+		ModoDeAtaque posicion = new ModoDeAtaque(1200);
 		
 		assertEquals(1200, posicion.fuerzaDePelea());
 	}
@@ -38,7 +38,7 @@ public class PosicionDeAtaqueTest {
 	@Test
 	public void test04LaFuerzaDeRetornoEsElAtaque() {
 		
-		PosicionDeAtaque posicion = new PosicionDeAtaque(1200);
+		ModoDeAtaque posicion = new ModoDeAtaque(1200);
 		
 		assertEquals(1200, posicion.fuerzaDeRetorno());
 	}
@@ -47,7 +47,7 @@ public class PosicionDeAtaqueTest {
 	@Test
 	public void test05ElDanioDeUnAtaqueEsElAtaqueEntranteMenosLaFuerzaDePelea() {
 		
-		PosicionDeAtaque posicion = new PosicionDeAtaque(1200);
+		ModoDeAtaque posicion = new ModoDeAtaque(1200);
 		
 		assertEquals(2000 - posicion.fuerzaDePelea(), posicion.obtenerDanioDeAtaque(2000));
 	}

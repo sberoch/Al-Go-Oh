@@ -1,25 +1,25 @@
 package modelo;
 
-public class PosicionDeDefensa implements PosicionDeMonstruo {
+public class ModoDeDefensa implements Modo {
 
 	
 	int defensa;
 	
 	
 	
-	public PosicionDeDefensa(int unaDefensa) {
+	public ModoDeDefensa(int unaDefensa) {
 		
 		defensa = unaDefensa;
 	}
 	
 	
-	public boolean esPosicionDeAtaque() {
+	public boolean esModoDeAtaque() {
 
 		return (false);
 	}
 
 	
-	public boolean esPosicionDeDefensa() {
+	public boolean esModoDeDefensa() {
 		
 		return (true);
 	}
