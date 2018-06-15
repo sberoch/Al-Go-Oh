@@ -65,11 +65,23 @@ public class _TestsSegundaSemana {
 		CartaMagica sogen = CartaMagica.crearSogen(campo);
 		jugador.invocarCartaMagicaBocaArriba(sogen);
 		
-		//WASTELAND: +200 ATK monstruos del jugador
-		//			 +300 DEF monstruos del oponente
+		//SOGEN: +500 DEF monstruos del jugador
+		//	     +200 ATK monstruos del oponente
 		assertTrue(monstruo1.defensa() == 700);
 		assertTrue(monstruo2.ataque() == 500);
 		
 	}
-
+	
+	@Test
+	public void test03OllaDeLaCodiciaTieneElEfectoEsperado() throws Exception {
+		Jugador jugador = new Jugador();
+		
+		CartaMagica ollaDeLaCodicia = CartaMagica.crearOllaDeLaCodicia(jugador);
+		jugador.invocarCartaMagicaBocaArriba(ollaDeLaCodicia);
+		
+		//OLLA DE LA CODICIA: +2 CARTAS A LA MANO DEL JUGADOR
+		assertTrue(jugador.cartasEnMano() == 2);
+		
+	}
+	
 }

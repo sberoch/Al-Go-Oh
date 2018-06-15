@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.LinkedList;
+
 public class Jugador {
 
 	private int puntosDeVida;
@@ -8,6 +10,9 @@ public class Jugador {
 	
 	private Cementerio cementerio;
 	
+	private LinkedList<CartaMonstruo> mano;
+	
+	
 	
 	
 	public Jugador() {
@@ -15,6 +20,8 @@ public class Jugador {
 		cementerio = new Cementerio();
 		
 		puntosDeVida = 8000;
+		
+		mano = new LinkedList<CartaMonstruo>();
 	}
 	
 	
@@ -46,7 +53,6 @@ public class Jugador {
 		campo.agregarAlCampo(monstruo);
 
 		monstruo.invocarEnPosicionDeDefensa(this);
-
 	}
 	
 	public void atacarConMonstruoAMonstruoEnemigoConPosiciones(int posicionAtacante, int posicionAtacado) {
@@ -71,4 +77,13 @@ public class Jugador {
 		return (cementerio.seEncuentra(monstruo));
 	}
 
+	public void tomarCartaDelMazo() {
+		
+		CartaMonstruo unaCarta = new CartaMonstruo(500, 500, 3);
+		mano.add(unaCarta);
+	}
+	
+	public int cartasEnMano() {
+		return (mano.size() );
+	}
 }
