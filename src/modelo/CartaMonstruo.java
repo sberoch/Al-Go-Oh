@@ -20,6 +20,15 @@ public class CartaMonstruo {
 	}
 	
 	
+	public int ataque() {
+		return (ataque);
+	}
+	
+	
+	public int defensa() {
+		return (defensa);
+	}
+	
 	public void invocarEnPosicionDeAtaque(Jugador jugadorQueLoInvoca) {
 		
 		modo = new ModoDeAtaque(ataque);
@@ -86,6 +95,15 @@ public class CartaMonstruo {
 	
 	public int sacrificiosRequeridos() {
 		return estrellas.determinarSacrificios();
+	}
+	
+	
+	public void aumentarAtaque(int aumento) {
+		ataque += aumento;
+	}
+	
+	public void aumentarDefensa(int aumento) {
+		defensa += aumento;
 	}
 	
 	

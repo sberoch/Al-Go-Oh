@@ -39,4 +39,11 @@ public class CartaMagica {
 		return (new CartaMagica(efecto));
 	}
 	
+	
+	public static CartaMagica crearWasteland(CampoDeJuego campo) {
+		
+		Efecto efecto = new EfectoWasteland(campo);
+		
+		return (new CartaMagica(efecto));
+	}
 }

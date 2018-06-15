@@ -17,6 +17,18 @@ public class CampoDeJuego {
 	}
 	
 	
+	public LinkedList<CartaMonstruo> monstruos() {
+		return (monstruosEnJuego);
+	}
+	
+	
+	
+	public CampoDeJuego obtenerCampoEnemigo() {
+		
+		return (campoEnemigo);
+	}
+	
+	
 	public void agregarAlCampo(CartaMonstruo monstruo) throws Exception {
 		
 		int cantMonstruos = monstruosEnJuego.size();
@@ -82,4 +94,21 @@ public class CampoDeJuego {
 			monstruosEnJuego.remove(posicionDeMonstruo - 1);
 		}
 	}
+
+
+	public void aumentarAtaqueDeLosMonstruos() {
+		for (CartaMonstruo monstruo : monstruosEnJuego) {
+			monstruo.aumentarAtaque(200);
+		}
+	}
+	
+	
+	public void aumentarDefensaDeLosMonstruos() {
+		for (CartaMonstruo monstruo : monstruosEnJuego) {
+			monstruo.aumentarDefensa(300);
+		}
+	}
+	
+	
+	
 }
