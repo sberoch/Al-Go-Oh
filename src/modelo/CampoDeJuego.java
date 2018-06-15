@@ -96,16 +96,16 @@ public class CampoDeJuego {
 	}
 
 
-	public void aumentarAtaqueDeLosMonstruos() {
+	public void aumentarAtaqueDeLosMonstruos(int valorATK) {
 		for (CartaMonstruo monstruo : monstruosEnJuego) {
-			monstruo.aumentarAtaque(200);
+			monstruo.aumentarAtaque(valorATK);
 		}
 	}
 	
 	
-	public void aumentarDefensaDeLosMonstruos() {
+	public void aumentarDefensaDeLosMonstruos(int valorDEF) {
 		for (CartaMonstruo monstruo : monstruosEnJuego) {
-			monstruo.aumentarDefensa(300);
+			monstruo.aumentarDefensa(valorDEF);
 		}
 	}
 	

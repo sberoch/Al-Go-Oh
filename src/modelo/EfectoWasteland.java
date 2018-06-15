@@ -10,7 +10,7 @@ public class EfectoWasteland implements Efecto {
 
 	@Override
 	public void activarse() {
-		campo.aumentarAtaqueDeLosMonstruos();
-		campo.obtenerCampoEnemigo().aumentarDefensaDeLosMonstruos();
+		campo.aumentarAtaqueDeLosMonstruos(200);
+		campo.obtenerCampoEnemigo().aumentarDefensaDeLosMonstruos(300);
 	}
 }

@@ -46,4 +46,11 @@ public class CartaMagica {
 		
 		return (new CartaMagica(efecto));
 	}
+	
+public static CartaMagica crearSogen(CampoDeJuego campo) {
+		
+		Efecto efecto = new EfectoSogen(campo);
+		
+		return (new CartaMagica(efecto));
+	}
 }
