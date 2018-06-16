@@ -107,5 +107,9 @@ public class CartaMonstruo {
 	}
 	
 	
+	public boolean tieneMenosAtaqueQue(CartaMonstruo otroMonstruo) {
+		return (ataque <= otroMonstruo.ataque());
+	}
+	
 	
 }

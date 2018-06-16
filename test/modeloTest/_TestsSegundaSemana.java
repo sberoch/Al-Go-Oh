@@ -79,8 +79,43 @@ public class _TestsSegundaSemana {
 		CartaMagica ollaDeLaCodicia = CartaMagica.crearOllaDeLaCodicia(jugador);
 		jugador.invocarCartaMagicaBocaArriba(ollaDeLaCodicia);
 		
-		//OLLA DE LA CODICIA: +2 CARTAS A LA MANO DEL JUGADOR
+		//OLLA DE LA CODICIA: +2 cartas a la mano del jugador
 		assertTrue(jugador.cartasEnMano() == 2);
+		
+	}
+	
+	
+	
+	@Test
+	public void test04FisuraTieneElEfectoEsperado() throws Exception {
+		
+		Jugador jugador = new Jugador();
+		Jugador oponente = new Jugador();
+		
+		CampoDeJuego campo = new CampoDeJuego();
+		CampoDeJuego campoEnemigo = new CampoDeJuego();
+		
+		campo.asignarCampoEnemigo(campoEnemigo);
+		campoEnemigo.asignarCampoEnemigo(campo);
+		
+		jugador.asignarCampo(campo);
+		oponente.asignarCampo(campoEnemigo);
+		
+		CartaMonstruo monstruo1 = new CartaMonstruo(200,0,3);
+		CartaMonstruo monstruo2 = new CartaMonstruo(500,0,3);
+		
+		oponente.invocarMonstruoEnPosicionDeAtaque(monstruo1);
+		oponente.invocarMonstruoEnPosicionDeAtaque(monstruo2);
+		
+		CartaMagica fisura = CartaMagica.crearFisura(campoEnemigo);
+		jugador.invocarCartaMagicaBocaArriba(fisura);
+		
+		
+		//FISURA: se destruye el monstruo de menor ataque del enemigo.
+		assertTrue(monstruo1.fueDestruido());
+		
+		
+		
 		
 	}
 	

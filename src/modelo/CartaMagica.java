@@ -61,4 +61,11 @@ public class CartaMagica {
 	
 		return (new CartaMagica(efecto));
 	}
+	
+	public static CartaMagica crearFisura(CampoDeJuego campoEnemigo) {
+		
+		Efecto efecto = new EfectoFisura(campoEnemigo);
+	
+		return (new CartaMagica(efecto));
+	}
 }
