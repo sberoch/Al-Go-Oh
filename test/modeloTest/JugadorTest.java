@@ -259,6 +259,84 @@ public class JugadorTest {
 		
 	}
 	
+	@Test
+	public void test13WastelandEsCartaDeCampoYPersisteSuEfecto() throws Exception {
+		Jugador jugador = new Jugador();
+		Jugador oponente = new Jugador();
+		
+		CampoDeJuego campo = new CampoDeJuego();
+		CampoDeJuego campoEnemigo = new CampoDeJuego();
+		
+		campo.asignarCampoEnemigo(campoEnemigo);
+		campoEnemigo.asignarCampoEnemigo(campo);
+		
+		jugador.asignarCampo(campo);
+		oponente.asignarCampo(campoEnemigo);
+		
+		CartaMagica wasteland = CartaMagica.crearWasteland(campo);
+		jugador.invocarCartaMagicaBocaArriba(wasteland);
+		
+		//Invocacion despues de jugar la carta campo.
+		CartaMonstruo monstruo1 = new CartaMonstruo(200,200,3);
+		jugador.invocarMonstruoEnPosicionDeAtaque(monstruo1);
+		assertTrue(monstruo1.ataque() == 400);
+	}
+	
+	@Test
+	public void test14SogenTieneElEfectoEsperado() throws Exception {
+		Jugador jugador = new Jugador();
+		Jugador oponente = new Jugador();
+		
+		CampoDeJuego campo = new CampoDeJuego();
+		CampoDeJuego campoEnemigo = new CampoDeJuego();
+		
+		campo.asignarCampoEnemigo(campoEnemigo);
+		campoEnemigo.asignarCampoEnemigo(campo);
+		
+		jugador.asignarCampo(campo);
+		oponente.asignarCampo(campoEnemigo);
+		
+		CartaMonstruo monstruo1 = new CartaMonstruo(200,200,3);
+		CartaMonstruo monstruo2 = new CartaMonstruo(300,300,3);
+		
+		jugador.invocarMonstruoEnPosicionDeAtaque(monstruo1);
+		oponente.invocarMonstruoEnPosicionDeAtaque(monstruo2);
+		
+		CartaMagica sogen = CartaMagica.crearSogen(campo);
+		jugador.invocarCartaMagicaBocaArriba(sogen);
+		
+		//SOGEN: +500 DEF monstruos del jugador
+		//	     +200 ATK monstruos del oponente
+		assertTrue(monstruo1.defensa() == 700);
+		assertTrue(monstruo2.ataque() == 500);
+		
+	}
+	
+	@Test
+	public void test15SogenEsCartaDeCampoYPersisteSuEfecto() throws Exception {
+		Jugador jugador = new Jugador();
+		Jugador oponente = new Jugador();
+		
+		CampoDeJuego campo = new CampoDeJuego();
+		CampoDeJuego campoEnemigo = new CampoDeJuego();
+		
+		campo.asignarCampoEnemigo(campoEnemigo);
+		campoEnemigo.asignarCampoEnemigo(campo);
+		
+		jugador.asignarCampo(campo);
+		oponente.asignarCampo(campoEnemigo);
+		
+		CartaMagica wasteland = CartaMagica.crearWasteland(campo);
+		jugador.invocarCartaMagicaBocaArriba(wasteland);
+		
+		//Invocacion despues de jugar la carta campo.
+		CartaMonstruo monstruo1 = new CartaMonstruo(200,200,3);
+		jugador.invocarMonstruoEnPosicionDeAtaque(monstruo1);
+		assertTrue(monstruo1.defensa() == 700);
+	}
+	
+	
+	
 	
 	private void darlesCamposAJugadores(Jugador jugador, Jugador oponente) {
 		

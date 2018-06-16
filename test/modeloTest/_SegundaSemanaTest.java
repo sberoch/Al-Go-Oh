@@ -9,7 +9,7 @@ import modelo.CartaMagica;
 import modelo.CartaMonstruo;
 import modelo.Jugador;
 
-public class _TestsSegundaSemana {
+public class _SegundaSemanaTest {
 	
 	@Test
 	public void test01WastelandTieneElEfectoEsperado() throws Exception {
@@ -43,7 +43,31 @@ public class _TestsSegundaSemana {
 	
 	
 	@Test
-	public void test02SogenTieneElEfectoEsperado() throws Exception {
+	public void test02WastelandEsCartaDeCampoYPersisteSuEfecto() throws Exception {
+		Jugador jugador = new Jugador();
+		Jugador oponente = new Jugador();
+		
+		CampoDeJuego campo = new CampoDeJuego();
+		CampoDeJuego campoEnemigo = new CampoDeJuego();
+		
+		campo.asignarCampoEnemigo(campoEnemigo);
+		campoEnemigo.asignarCampoEnemigo(campo);
+		
+		jugador.asignarCampo(campo);
+		oponente.asignarCampo(campoEnemigo);
+		
+		CartaMagica wasteland = CartaMagica.crearWasteland(campo);
+		jugador.invocarCartaMagicaBocaArriba(wasteland);
+		
+		//Invocacion despues de jugar la carta campo.
+		CartaMonstruo monstruo1 = new CartaMonstruo(200,200,3);
+		jugador.invocarMonstruoEnPosicionDeAtaque(monstruo1);
+		assertTrue(monstruo1.ataque() == 400);
+	}
+	
+	
+	@Test
+	public void test03SogenTieneElEfectoEsperado() throws Exception {
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
 		
@@ -73,7 +97,30 @@ public class _TestsSegundaSemana {
 	}
 	
 	@Test
-	public void test03OllaDeLaCodiciaTieneElEfectoEsperado() throws Exception {
+	public void test04SogenEsCartaDeCampoYPersisteSuEfecto() throws Exception {
+		Jugador jugador = new Jugador();
+		Jugador oponente = new Jugador();
+		
+		CampoDeJuego campo = new CampoDeJuego();
+		CampoDeJuego campoEnemigo = new CampoDeJuego();
+		
+		campo.asignarCampoEnemigo(campoEnemigo);
+		campoEnemigo.asignarCampoEnemigo(campo);
+		
+		jugador.asignarCampo(campo);
+		oponente.asignarCampo(campoEnemigo);
+		
+		CartaMagica wasteland = CartaMagica.crearWasteland(campo);
+		jugador.invocarCartaMagicaBocaArriba(wasteland);
+		
+		//Invocacion despues de jugar la carta campo.
+		CartaMonstruo monstruo1 = new CartaMonstruo(200,200,3);
+		jugador.invocarMonstruoEnPosicionDeAtaque(monstruo1);
+		assertTrue(monstruo1.defensa() == 700);
+	}
+	
+	@Test
+	public void test05OllaDeLaCodiciaTieneElEfectoEsperado() throws Exception {
 		Jugador jugador = new Jugador();
 		
 		CartaMagica ollaDeLaCodicia = CartaMagica.crearOllaDeLaCodicia(jugador);
@@ -87,7 +134,7 @@ public class _TestsSegundaSemana {
 	
 	
 	@Test
-	public void test04FisuraTieneElEfectoEsperado() throws Exception {
+	public void test06FisuraTieneElEfectoEsperado() throws Exception {
 		
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
@@ -113,10 +160,10 @@ public class _TestsSegundaSemana {
 		
 		//FISURA: se destruye el monstruo de menor ataque del enemigo.
 		assertTrue(monstruo1.fueDestruido());
-		
-		
-		
-		
 	}
+	
+	
+	
+	
 	
 }
