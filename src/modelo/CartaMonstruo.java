@@ -7,6 +7,7 @@ public class CartaMonstruo {
 	private Estrellas estrellas;
 	private Modo modo;
 	private Jugador duenio;
+	private boolean campoActivo;
 	
 	
 	
@@ -14,6 +15,7 @@ public class CartaMonstruo {
 		
 		ataque = unAtaque;
 		defensa = unaDefensa;
+		campoActivo = false;
 		
 		estrellas = new Estrellas(unasEstrellas);
 
@@ -99,7 +101,10 @@ public class CartaMonstruo {
 	
 	
 	public void aumentarAtaque(int aumento) {
-		ataque += aumento;
+		if(campoActivo == false) {
+			ataque += aumento;
+			campoActivo = true;
+			}
 	}
 	
 	public void aumentarDefensa(int aumento) {

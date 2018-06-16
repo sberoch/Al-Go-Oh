@@ -13,6 +13,7 @@ import modelo.CartaMonstruo;
 import modelo.Jugador;
 import modelo.NoHaySuficientesMonstruosException;
 import modelo.CampoDeJuego;
+import modelo.CartaDeCampo;
 
 public class JugadorTest {
 
@@ -249,8 +250,8 @@ public class JugadorTest {
 		jugador.invocarMonstruoEnPosicionDeAtaque(monstruo1);
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruo2);
 		
-		CartaMagica wasteland = CartaMagica.crearWasteland(campo);
-		jugador.invocarCartaMagicaBocaArriba(wasteland);
+		CartaDeCampo wasteland = CartaDeCampo.crearWasteland(campo);
+		jugador.invocarCartaDeCampoBocaArriba(wasteland);
 		
 		//WASTELAND: +200 ATK monstruos del jugador
 		//			 +300 DEF monstruos del oponente
@@ -273,8 +274,8 @@ public class JugadorTest {
 		jugador.asignarCampo(campo);
 		oponente.asignarCampo(campoEnemigo);
 		
-		CartaMagica wasteland = CartaMagica.crearWasteland(campo);
-		jugador.invocarCartaMagicaBocaArriba(wasteland);
+		CartaDeCampo wasteland = CartaDeCampo.crearWasteland(campo);
+		jugador.invocarCartaDeCampoBocaArriba(wasteland);
 		
 		//Invocacion despues de jugar la carta campo.
 		CartaMonstruo monstruo1 = new CartaMonstruo(200,200,3);
@@ -302,8 +303,8 @@ public class JugadorTest {
 		jugador.invocarMonstruoEnPosicionDeAtaque(monstruo1);
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruo2);
 		
-		CartaMagica sogen = CartaMagica.crearSogen(campo);
-		jugador.invocarCartaMagicaBocaArriba(sogen);
+		CartaDeCampo sogen = CartaDeCampo.crearSogen(campo);
+		jugador.invocarCartaDeCampoBocaArriba(sogen);
 		
 		//SOGEN: +500 DEF monstruos del jugador
 		//	     +200 ATK monstruos del oponente
@@ -326,8 +327,8 @@ public class JugadorTest {
 		jugador.asignarCampo(campo);
 		oponente.asignarCampo(campoEnemigo);
 		
-		CartaMagica wasteland = CartaMagica.crearWasteland(campo);
-		jugador.invocarCartaMagicaBocaArriba(wasteland);
+		CartaDeCampo sogen = CartaDeCampo.crearSogen(campo);
+		jugador.invocarCartaDeCampoBocaArriba(sogen);
 		
 		//Invocacion despues de jugar la carta campo.
 		CartaMonstruo monstruo1 = new CartaMonstruo(200,200,3);

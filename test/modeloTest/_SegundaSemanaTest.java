@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import modelo.CampoDeJuego;
+import modelo.CartaDeCampo;
 import modelo.CartaMagica;
 import modelo.CartaMonstruo;
 import modelo.Jugador;
@@ -31,8 +32,8 @@ public class _SegundaSemanaTest {
 		jugador.invocarMonstruoEnPosicionDeAtaque(monstruo1);
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruo2);
 		
-		CartaMagica wasteland = CartaMagica.crearWasteland(campo);
-		jugador.invocarCartaMagicaBocaArriba(wasteland);
+		CartaDeCampo wasteland = CartaDeCampo.crearWasteland(campo);
+		jugador.invocarCartaDeCampoBocaArriba(wasteland);
 		
 		//WASTELAND: +200 ATK monstruos del jugador
 		//			 +300 DEF monstruos del oponente
@@ -56,8 +57,8 @@ public class _SegundaSemanaTest {
 		jugador.asignarCampo(campo);
 		oponente.asignarCampo(campoEnemigo);
 		
-		CartaMagica wasteland = CartaMagica.crearWasteland(campo);
-		jugador.invocarCartaMagicaBocaArriba(wasteland);
+		CartaDeCampo wasteland = CartaDeCampo.crearWasteland(campo);
+		jugador.invocarCartaDeCampoBocaArriba(wasteland);
 		
 		//Invocacion despues de jugar la carta campo.
 		CartaMonstruo monstruo1 = new CartaMonstruo(200,200,3);
@@ -86,15 +87,15 @@ public class _SegundaSemanaTest {
 		jugador.invocarMonstruoEnPosicionDeAtaque(monstruo1);
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruo2);
 		
-		CartaMagica sogen = CartaMagica.crearSogen(campo);
-		jugador.invocarCartaMagicaBocaArriba(sogen);
+		CartaDeCampo sogen = CartaDeCampo.crearSogen(campo);
+		jugador.invocarCartaDeCampoBocaArriba(sogen);
 		
 		//SOGEN: +500 DEF monstruos del jugador
 		//	     +200 ATK monstruos del oponente
 		assertTrue(monstruo1.defensa() == 700);
-		assertTrue(monstruo2.ataque() == 500);
-		
+		assertTrue(monstruo2.ataque() == 500);	
 	}
+	
 	
 	@Test
 	public void test04SogenEsCartaDeCampoYPersisteSuEfecto() throws Exception {
@@ -110,8 +111,8 @@ public class _SegundaSemanaTest {
 		jugador.asignarCampo(campo);
 		oponente.asignarCampo(campoEnemigo);
 		
-		CartaMagica wasteland = CartaMagica.crearWasteland(campo);
-		jugador.invocarCartaMagicaBocaArriba(wasteland);
+		CartaDeCampo wasteland = CartaDeCampo.crearWasteland(campo);
+		jugador.invocarCartaDeCampoBocaArriba(wasteland);
 		
 		//Invocacion despues de jugar la carta campo.
 		CartaMonstruo monstruo1 = new CartaMonstruo(200,200,3);
@@ -161,8 +162,6 @@ public class _SegundaSemanaTest {
 		//FISURA: se destruye el monstruo de menor ataque del enemigo.
 		assertTrue(monstruo1.fueDestruido());
 	}
-	
-	
 	
 	
 	

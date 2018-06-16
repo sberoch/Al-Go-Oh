@@ -65,6 +65,11 @@ public class Jugador {
 		cartaMagica.invocarBocaArriba();
 	}
 	
+	public void invocarCartaDeCampoBocaArriba(CartaDeCampo cartaDeCampo) {
+		
+		cartaDeCampo.invocarBocaArriba();
+		
+	}
 	
 	public void enviarAlCementerio(CartaMonstruo unMonstruo) {
 		
@@ -86,4 +91,7 @@ public class Jugador {
 	public int cartasEnMano() {
 		return (mano.size() );
 	}
+
+
+		
 }
