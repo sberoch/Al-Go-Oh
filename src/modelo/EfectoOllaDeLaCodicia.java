@@ -13,5 +13,9 @@ public class EfectoOllaDeLaCodicia implements Efecto {
 		jugador.tomarCartaDelMazo();
 		jugador.tomarCartaDelMazo();
 	}
+	
+	public void desactivarse() {
+		
+	}
 
 }

@@ -7,9 +7,9 @@ public class CampoDeJuego {
 	private LinkedList<CartaMonstruo> monstruosEnJuego = new LinkedList<CartaMonstruo>();
 	
 	private CampoDeJuego campoEnemigo;
-	
-	
-	
+
+	private CartaDeCampo cartaCampo;
+	private boolean hayCartaDeCampo =  false;
 	
 	public void asignarCampoEnemigo(CampoDeJuego campo) {
 		
@@ -109,6 +109,34 @@ public class CampoDeJuego {
 		}
 	}
 	
+	public void disminuirAtaqueDeLosMonstruos(int valorATK) {
+		for (CartaMonstruo monstruo : monstruosEnJuego) {
+			monstruo.disminuirAtaque(valorATK);
+		}
+	}
+	
+	
+	public void disminuirDefensaDeLosMonstruos(int valorDEF) {
+		for (CartaMonstruo monstruo : monstruosEnJuego) {
+			monstruo.disminuirDefensa(valorDEF);
+		}
+	}
+
+
+	public CartaDeCampo cartaCampo() {
+		return cartaCampo;
+	}
+	
+	public void activarCartaDeCampo(CartaDeCampo cartaDeCampo) {
+		cartaCampo = cartaDeCampo;
+		hayCartaDeCampo = true;
+	}
+
+
+	public boolean hayCartaDeCampo() {
+		return hayCartaDeCampo;
+	}
+
 	
 	
 }

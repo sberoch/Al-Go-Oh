@@ -14,4 +14,8 @@ public class EfectoAgujeroNegro implements Efecto {
 		
 		campo.destruirTodosLosMonstruos();
 	}
+	
+	public void desactivarse() {
+		
+	}
 }

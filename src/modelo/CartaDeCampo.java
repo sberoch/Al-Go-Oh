@@ -31,6 +31,10 @@ public class CartaDeCampo {
 		efecto.activarse();
 	}
 	
+	public void desactivarEfectoTemporalmente() {
+		efecto.desactivarse();
+	}
+	
 	
 	public static CartaDeCampo crearWasteland(CampoDeJuego campo) {
 		

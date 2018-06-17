@@ -20,5 +20,9 @@ public class EfectoFisura implements Efecto {
 		
 		aDestruir.destruir();
 	}
+	
+	public void desactivarse() {
+		
+	}
 
 }

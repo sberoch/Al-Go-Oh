@@ -111,8 +111,8 @@ public class _SegundaSemanaTest {
 		jugador.asignarCampo(campo);
 		oponente.asignarCampo(campoEnemigo);
 		
-		CartaDeCampo wasteland = CartaDeCampo.crearWasteland(campo);
-		jugador.invocarCartaDeCampoBocaArriba(wasteland);
+		CartaDeCampo sogen = CartaDeCampo.crearSogen(campo);
+		jugador.invocarCartaDeCampoBocaArriba(sogen);
 		
 		//Invocacion despues de jugar la carta campo.
 		CartaMonstruo monstruo1 = new CartaMonstruo(200,200,3);

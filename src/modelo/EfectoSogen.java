@@ -13,4 +13,9 @@ public class EfectoSogen implements Efecto {
 		campo.obtenerCampoEnemigo().aumentarAtaqueDeLosMonstruos(200);
 	}
 	
+	public void desactivarse() {
+		campo.disminuirDefensaDeLosMonstruos(500);
+		campo.obtenerCampoEnemigo().disminuirAtaqueDeLosMonstruos(200);
+	}
+	
 }	
