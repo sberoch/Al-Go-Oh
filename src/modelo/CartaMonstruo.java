@@ -100,6 +100,8 @@ public class CartaMonstruo {
 	
 	public void aumentarAtaque(int aumento) {
 		ataque += aumento;
+		
+		
 	}
 	
 	public void aumentarDefensa(int aumento) {

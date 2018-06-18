@@ -43,4 +43,26 @@ public class ModoDeAtaque implements Modo {
 		return (unAtaque - ataque);
 	}
 	
+	
+	public void aumentarAtaque(int unAtaque) {
+		
+		ataque += unAtaque;
+	}
+	
+	
+	public void aumentarDefensa(int unaDefensa) {
+		
+	}
+	
+	
+	public void disminuirAtaque(int unAtaque) {
+		
+		ataque -= unAtaque;
+	}
+	
+	
+	public void disminuirDefensa(int unaDefensa) {
+		
+	}
+	
 }

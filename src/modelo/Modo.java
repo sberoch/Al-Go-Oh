@@ -13,4 +13,12 @@ public interface Modo {
 	
 	public int obtenerDanioDeAtaque(int unAtaque);
 	
+	public void aumentarAtaque(int unAtaque);
+	
+	public void aumentarDefensa(int unaDefensa);
+	
+	public void disminuirAtaque(int unAtaque);
+	
+	public void disminuirDefensa(int unaDefensa);
+	
 }
