@@ -180,17 +180,18 @@ public class JugadorTest {
 	@Test
 	public void test09MonstruoRequiereUnSacrificio() throws Exception {
 		
-		Jugador jugador1 = new Jugador();
-		CampoDeJuego campo = new CampoDeJuego();
-		jugador1.asignarCampo(campo);
+		Jugador jugador = new Jugador();
+		Jugador oponente = new Jugador();
 		
-		CartaMonstruo monstruo1 = new CartaMonstruo(1000,400,2);
+		this.darlesCamposAJugadores(jugador, oponente);
+		
+		CartaMonstruo unMonstruo = new CartaMonstruo(1000,400,2);
 		CartaMonstruo monstruoQueRequiereUnSacrificio = new CartaMonstruo(1000,400,5);
 		
-		jugador1.invocarMonstruoEnPosicionDeAtaque(monstruo1);
-		jugador1.invocarMonstruoEnPosicionDeAtaque(monstruoQueRequiereUnSacrificio);
+		jugador.invocarMonstruoEnPosicionDeAtaque(unMonstruo);
+		jugador.invocarMonstruoEnPosicionDeAtaque(monstruoQueRequiereUnSacrificio);
 		
-		assertTrue(monstruo1.fueDestruido());
+		assertTrue(unMonstruo.fueDestruido());
 		
 		
 	}
@@ -198,20 +199,21 @@ public class JugadorTest {
 	@Test
 	public void test10MonstruoRequiereDosSacrificios() throws Exception {
 		
-		Jugador jugador1 = new Jugador();
-		CampoDeJuego campo = new CampoDeJuego();
-		jugador1.asignarCampo(campo);
+		Jugador jugador = new Jugador();
+		Jugador oponente = new Jugador();
 		
-		CartaMonstruo monstruo1 = new CartaMonstruo(1000,400,2);
-		CartaMonstruo monstruo2 = new CartaMonstruo(1000,400,4);
+		this.darlesCamposAJugadores(jugador, oponente);
+		
+		CartaMonstruo unMonstruo = new CartaMonstruo(1000,400,2);
+		CartaMonstruo otroMonstruo = new CartaMonstruo(1000,400,4);
 		CartaMonstruo monstruoQueRequiereDosSacrificios = new CartaMonstruo(1000,400,7);
 		
-		jugador1.invocarMonstruoEnPosicionDeAtaque(monstruo1);
-		jugador1.invocarMonstruoEnPosicionDeAtaque(monstruo2);
-		jugador1.invocarMonstruoEnPosicionDeAtaque(monstruoQueRequiereDosSacrificios);
+		jugador.invocarMonstruoEnPosicionDeAtaque(unMonstruo);
+		jugador.invocarMonstruoEnPosicionDeAtaque(otroMonstruo);
+		jugador.invocarMonstruoEnPosicionDeAtaque(monstruoQueRequiereDosSacrificios);
 		
-		assertTrue(monstruo1.fueDestruido());
-		assertTrue(monstruo2.fueDestruido());
+		assertTrue(unMonstruo.fueDestruido());
+		assertTrue(otroMonstruo.fueDestruido());
 	}
 	
 	@Rule

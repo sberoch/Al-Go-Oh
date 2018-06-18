@@ -8,8 +8,7 @@ public class CampoDeJuego {
 	
 	private CampoDeJuego campoEnemigo;
 
-	private CartaDeCampo cartaCampo;
-	private boolean hayCartaDeCampo =  false;
+	private CartaDeCampo cartaCampo = CartaDeCampo.crearCampoInicial();
 	
 	public void asignarCampoEnemigo(CampoDeJuego campo) {
 		
@@ -18,6 +17,7 @@ public class CampoDeJuego {
 	
 	
 	public LinkedList<CartaMonstruo> monstruos() {
+		
 		return (monstruosEnJuego);
 	}
 	
@@ -32,6 +32,7 @@ public class CampoDeJuego {
 	public void agregarAlCampo(CartaMonstruo monstruo) throws Exception {
 		
 		int cantMonstruos = monstruosEnJuego.size();
+		
 		int sacrificios = monstruo.sacrificiosRequeridos();
 		
 		if (sacrificios > cantMonstruos) {
@@ -42,8 +43,19 @@ public class CampoDeJuego {
 			monstruosEnJuego.getLast().destruir();
 			monstruosEnJuego.removeLast();
 		}
+		
 		monstruosEnJuego.add(monstruo);
 		
+		cartaCampo.modificarAtaqueYDefensaDeMonstruoAliado(monstruo);
+		
+		campoEnemigo.modificarAtaqueYDefensaDeEnemigo(monstruo);
+		
+	}
+	
+	
+	public void modificarAtaqueYDefensaDeEnemigo(CartaMonstruo monstruoEnemigo) {
+		
+		cartaCampo.modificarAtaqueYDefensaDeMonstruoEnemigo(monstruoEnemigo);
 	}
 	
 	
@@ -117,6 +129,7 @@ public class CampoDeJuego {
 	
 	
 	public void disminuirDefensaDeLosMonstruos(int valorDEF) {
+		
 		for (CartaMonstruo monstruo : monstruosEnJuego) {
 			monstruo.disminuirDefensa(valorDEF);
 		}
@@ -128,14 +141,11 @@ public class CampoDeJuego {
 	}
 	
 	public void activarCartaDeCampo(CartaDeCampo cartaDeCampo) {
+		
 		cartaCampo = cartaDeCampo;
-		hayCartaDeCampo = true;
 	}
 
 
-	public boolean hayCartaDeCampo() {
-		return hayCartaDeCampo;
-	}
 
 	
 	

@@ -10,6 +10,7 @@ public class EfectoOllaDeLaCodicia implements Efecto {
 
 	@Override
 	public void activarse() {
+		
 		jugador.tomarCartaDelMazo();
 		jugador.tomarCartaDelMazo();
 	}

@@ -2,11 +2,11 @@ package modelo;
 
 public class CartaMonstruo {
 
-	private int ataque;
-	private int defensa;
-	private Estrellas estrellas;
-	private Modo modo;
-	private Jugador duenio;
+	protected int ataque;
+	protected int defensa;
+	protected Estrellas estrellas;
+	protected Modo modo;
+	protected Jugador duenio;
 	
 	
 	
@@ -67,7 +67,7 @@ public class CartaMonstruo {
 	}
 	
 	
-	public int recibirDanio(int unAtaque) {
+	protected int recibirDanio(int unAtaque) {
 		
 		if (modo.fuerzaDePelea() <= unAtaque) {
 			
@@ -94,29 +94,41 @@ public class CartaMonstruo {
 	
 	
 	public int sacrificiosRequeridos() {
+		
 		return estrellas.determinarSacrificios();
 	}
 	
 	
 	public void aumentarAtaque(int aumento) {
+		
 		ataque += aumento;
 		
-		
+		modo.aumentarAtaque(aumento);
 	}
 	
 	public void aumentarDefensa(int aumento) {
+		
 		defensa += aumento;
+		
+		modo.aumentarDefensa(aumento);
 	}
 	
 	public void disminuirAtaque(int disminucion) {
+		
 		ataque += disminucion;
+		
+		modo.disminuirAtaque(disminucion);
 	}
 	
 	public void disminuirDefensa(int disminucion) {
+		
 		defensa += disminucion;
+		
+		modo.disminuirDefensa(disminucion);
 	}
 	
 	public boolean tieneMenosAtaqueQue(CartaMonstruo otroMonstruo) {
+		
 		return (ataque <= otroMonstruo.ataque());
 	}
 	

@@ -42,38 +42,16 @@ public class Jugador {
 	
 	public void invocarMonstruoEnPosicionDeAtaque(CartaMonstruo monstruo) throws Exception {
 		
-		if(campo.hayCartaDeCampo()) {
-			
-			campo.cartaCampo().desactivarEfectoTemporalmente();
-			
-			monstruo.invocarEnPosicionDeAtaque(this);
-			campo.agregarAlCampo(monstruo);
-			
-			campo.cartaCampo().activarEfecto();
-			
-		} else {
-			
-			monstruo.invocarEnPosicionDeAtaque(this);
-			campo.agregarAlCampo(monstruo);
-		}
+		monstruo.invocarEnPosicionDeAtaque(this);
+		
+		campo.agregarAlCampo(monstruo);
 	}
 	
 	public void invocarMonstruoEnPosicionDeDefensa(CartaMonstruo monstruo) throws Exception {
 		
-		if(campo.hayCartaDeCampo()) {
-			
-			campo.cartaCampo().desactivarEfectoTemporalmente();
-			
-			monstruo.invocarEnPosicionDeDefensa(this);
-			campo.agregarAlCampo(monstruo);
-			
-			campo.cartaCampo().activarEfecto();
-			
-		} else {
-			
-			monstruo.invocarEnPosicionDeDefensa(this);
-			campo.agregarAlCampo(monstruo);
-		}
+		monstruo.invocarEnPosicionDeDefensa(this);
+		
+		campo.agregarAlCampo(monstruo);
 	}
 	
 	public void atacarConMonstruoAMonstruoEnemigoConPosiciones(int posicionAtacante, int posicionAtacado) {

@@ -4,11 +4,11 @@ public class CartaDeCampo {
 	
 	private EstadoCarta estado;
 	
-	private Efecto efecto;
+	private EfectoDeCartaCampo efecto;
 	
 	
 	
-	private CartaDeCampo(Efecto unEfecto) {
+	private CartaDeCampo(EfectoDeCartaCampo unEfecto) {
 		
 		efecto = unEfecto;
 	}
@@ -23,6 +23,7 @@ public class CartaDeCampo {
 	
 	public void invocarBocaArriba() {
 		estado = new EstadoBocaArriba();
+		
 		this.activarEfecto();
 	}
 	
@@ -36,16 +37,36 @@ public class CartaDeCampo {
 	}
 	
 	
+	public void modificarAtaqueYDefensaDeMonstruoAliado(CartaMonstruo monstruoAliado) {
+		
+		efecto.modificarAtaqueYDefensaDeMonstruoAliado(monstruoAliado);
+	}
+	
+	
+	public void modificarAtaqueYDefensaDeMonstruoEnemigo(CartaMonstruo monstruoEnemigo) {
+		
+		efecto.modificarAtaqueYDefensaDeMonstruoEnemigo(monstruoEnemigo);
+	}
+	
+	
+	public static CartaDeCampo crearCampoInicial() {
+		
+		EfectoDeCartaCampo efecto = new EfectoCampoInicial();
+		
+		return (new CartaDeCampo(efecto));
+	}
+	
+	
 	public static CartaDeCampo crearWasteland(CampoDeJuego campo) {
 		
-		Efecto efecto = new EfectoWasteland(campo);
+		EfectoDeCartaCampo efecto = new EfectoWasteland(campo);
 		
 		return (new CartaDeCampo(efecto));
 	}
 	
 	public static CartaDeCampo crearSogen(CampoDeJuego campo) {
 		
-		Efecto efecto = new EfectoSogen(campo);
+		EfectoDeCartaCampo efecto = new EfectoSogen(campo);
 		
 		return (new CartaDeCampo(efecto));
 	}
