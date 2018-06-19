@@ -133,9 +133,20 @@ public class CartaMonstruo {
 	}
 
 
-	public void atacarA(Jugador enemigo) {
+	public void atacarA(Jugador enemigo) throws NoSePuedeRealizarAtaqueException {
+		
+		if (!this.puedoAtacarDirectoA(enemigo)) {
+			
+			throw (new NoSePuedeRealizarAtaqueException());
+		}
 		
 		enemigo.recibirDanio(ataque);
+	}
+
+
+	protected boolean puedoAtacarDirectoA(Jugador enemigo) {
+		
+		return (!enemigo.tieneMonstruosEnElCampo());
 	}
 	
 	

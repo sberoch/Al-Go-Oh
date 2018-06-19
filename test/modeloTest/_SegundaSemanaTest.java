@@ -1,14 +1,14 @@
 package modeloTest;
 
-import static org.junit.Assert.*;
-
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 import org.junit.Test;
-
 import modelo.CampoDeJuego;
 import modelo.CartaDeCampo;
 import modelo.CartaMagica;
 import modelo.CartaMonstruo;
 import modelo.Jugador;
+import modelo.Jinzo7;
 
 public class _SegundaSemanaTest {
 	
@@ -163,6 +163,34 @@ public class _SegundaSemanaTest {
 		assertTrue(monstruo1.fueDestruido());
 	}
 	
+	
+	@Test
+	public void test07Jinzo7MePermiteAtacatLosPuntosDeVida() throws Exception {
+		
+		Jugador jugador = new Jugador();
+		Jugador oponente = new Jugador();
+		
+		CampoDeJuego campo = new CampoDeJuego();
+		CampoDeJuego campoEnemigo = new CampoDeJuego();
+		
+		campo.asignarCampoEnemigo(campoEnemigo);
+		campoEnemigo.asignarCampoEnemigo(campo);
+		
+		jugador.asignarCampo(campo);
+		oponente.asignarCampo(campoEnemigo);
+		
+		Jinzo7 jinzo7 = new Jinzo7();
+		CartaMonstruo unMonstruo = new CartaMonstruo(500,0,3);
+		
+		oponente.invocarMonstruoEnPosicionDeAtaque(unMonstruo);
+		
+		jugador.invocarMonstruoEnPosicionDeAtaque(jinzo7);
+		
+		jugador.atacarDirectoALaVidaCon(1);
+		//JINZO#7: Me permite atacar los puntos de vida del oponente directamente.
+		
+		assertEquals(7500, oponente.getPuntosDeVida());
+	}
 	
 	
 }

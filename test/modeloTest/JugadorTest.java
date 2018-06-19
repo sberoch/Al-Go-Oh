@@ -12,6 +12,7 @@ import modelo.CartaMagica;
 import modelo.CartaMonstruo;
 import modelo.Jugador;
 import modelo.NoHaySuficientesMonstruosException;
+import modelo.NoSePuedeRealizarAtaqueException;
 import modelo.CampoDeJuego;
 import modelo.CartaDeCampo;
 
@@ -344,9 +345,19 @@ public class JugadorTest {
 		
 		Jugador jugador = new Jugador();
 		
+		CampoDeJuego campo = new CampoDeJuego();
+		
+		jugador.asignarCampo(campo);
+		
 		CartaMonstruo unMonstruo = new CartaMonstruo(1000,400,2);
 		
-		unMonstruo.atacarA(jugador);
+		try {
+			
+			unMonstruo.atacarA(jugador);
+			
+		} catch (NoSePuedeRealizarAtaqueException error) {
+			
+		}
 		
 		assertEquals(7000, jugador.getPuntosDeVida());
 	}

@@ -153,7 +153,7 @@ public class CampoDeJuego {
 
 	public void atacarALaVidaConMonstruoEnPosicion(int posicionDeMonstruo) {
 		
-		CartaMonstruo atacante = monstruosEnJuego.get(posicionDeMonstruo);
+		CartaMonstruo atacante = monstruosEnJuego.get(posicionDeMonstruo - 1);
 		
 		campoEnemigo.recibirAtaqueDirectoDe(atacante);
 		
@@ -162,13 +162,26 @@ public class CampoDeJuego {
 
 	public void recibirAtaqueDirectoDe(CartaMonstruo atacante) {
 		
-		atacante.atacarA(duenio);
+		try {
+			
+			atacante.atacarA(duenio);
+			
+		} catch (NoSePuedeRealizarAtaqueException error) {
+		
+			//enviar cartel en UI
+		}
 	}
 
 
 	public void asignarDuenio(Jugador unJugador) {
 
 		duenio = unJugador;
+	}
+
+
+	public boolean hayMonstruos() {
+
+		return (!monstruosEnJuego.isEmpty());
 	}
 
 

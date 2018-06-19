@@ -98,5 +98,11 @@ public class Jugador {
 		
 		campo.atacarALaVidaConMonstruoEnPosicion(posicionDeMonstruo);
 	}
+
+
+	public boolean tieneMonstruosEnElCampo() {
+
+		return (campo.hayMonstruos());
+	}
 		
 }

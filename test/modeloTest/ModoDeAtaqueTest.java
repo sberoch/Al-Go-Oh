@@ -6,7 +6,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertEquals;
 import modelo.ModoDeAtaque;
 
-public class PosicionDeAtaqueTest {
+public class ModoDeAtaqueTest {
 
 	
 	@Test
