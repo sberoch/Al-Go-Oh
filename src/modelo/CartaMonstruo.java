@@ -131,6 +131,12 @@ public class CartaMonstruo {
 		
 		return (ataque <= otroMonstruo.ataque());
 	}
+
+
+	public void atacarA(Jugador enemigo) {
+		
+		enemigo.recibirDanio(ataque);
+	}
 	
 	
 }

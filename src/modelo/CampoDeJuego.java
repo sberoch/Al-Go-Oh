@@ -10,6 +10,11 @@ public class CampoDeJuego {
 
 	private CartaDeCampo cartaCampo = CartaDeCampo.crearCampoInicial();
 	
+	private Jugador duenio;
+	
+	
+	
+	
 	public void asignarCampoEnemigo(CampoDeJuego campo) {
 		
 		campoEnemigo = campo;
@@ -143,6 +148,27 @@ public class CampoDeJuego {
 	public void activarCartaDeCampo(CartaDeCampo cartaDeCampo) {
 		
 		cartaCampo = cartaDeCampo;
+	}
+
+
+	public void atacarALaVidaConMonstruoEnPosicion(int posicionDeMonstruo) {
+		
+		CartaMonstruo atacante = monstruosEnJuego.get(posicionDeMonstruo);
+		
+		campoEnemigo.recibirAtaqueDirectoDe(atacante);
+		
+	}
+
+
+	public void recibirAtaqueDirectoDe(CartaMonstruo atacante) {
+		
+		atacante.atacarA(duenio);
+	}
+
+
+	public void asignarDuenio(Jugador unJugador) {
+
+		duenio = unJugador;
 	}
 
 

@@ -33,6 +33,8 @@ public class Jugador {
 	public void asignarCampo(CampoDeJuego unCampo) {
 		
 		campo = unCampo;
+		
+		campo.asignarDuenio(this);
 	}
 	
 	public void recibirDanio(int unDanio) {
@@ -92,6 +94,9 @@ public class Jugador {
 		return (mano.size() );
 	}
 
-
+	public void atacarDirectoALaVidaCon(int posicionDeMonstruo) {
+		
+		campo.atacarALaVidaConMonstruoEnPosicion(posicionDeMonstruo);
+	}
 		
 }

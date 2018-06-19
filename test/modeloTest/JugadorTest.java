@@ -339,6 +339,19 @@ public class JugadorTest {
 	}
 	
 	
+	@Test
+	public void test16UnJugadorRecibeUnAtaqueDirecto() {
+		
+		Jugador jugador = new Jugador();
+		
+		CartaMonstruo unMonstruo = new CartaMonstruo(1000,400,2);
+		
+		unMonstruo.atacarA(jugador);
+		
+		assertEquals(7000, jugador.getPuntosDeVida());
+	}
+	
+	
 	
 	
 	private void darlesCamposAJugadores(Jugador jugador, Jugador oponente) {
