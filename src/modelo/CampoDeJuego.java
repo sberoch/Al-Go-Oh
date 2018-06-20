@@ -246,6 +246,12 @@ public class CampoDeJuego {
 	}
 
 
+	public void destruirMonstruoDeMenorAtaqueDelOponente() {
+		
+		campoEnemigo.destruirMonstruoDeMenorAtaque();
+	}
+
+
 	
 	
 }

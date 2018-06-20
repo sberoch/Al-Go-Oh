@@ -2,16 +2,16 @@ package modelo;
 
 public class EfectoFisura implements Efecto {
 
-	private CampoDeJuego campoEnemigo; 
+	private CampoDeJuego campo; 
 
-	public EfectoFisura(CampoDeJuego unCampoEnemigo) {
-		campoEnemigo = unCampoEnemigo;
+	public EfectoFisura(CampoDeJuego unCampo) {
+		campo = unCampo;
 	}
 	
 
 	public void activarse() {
 		
-		campoEnemigo.destruirMonstruoDeMenorAtaque();
+		campo.destruirMonstruoDeMenorAtaqueDelOponente();
 	}
 	
 

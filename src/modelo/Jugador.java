@@ -3,14 +3,16 @@ package modelo;
 import java.util.LinkedList;
 
 public class Jugador {
-
+	
 	private int puntosDeVida;
 	
 	private CampoDeJuego campo;
 	
 	private Cementerio cementerio;
 	
-	private LinkedList<CartaMonstruo> mano;
+	private LinkedList<Carta> mano;
+	
+	private MazoDeCartas mazo;
 	
 	
 	
@@ -21,7 +23,9 @@ public class Jugador {
 		
 		puntosDeVida = 8000;
 		
-		mano = new LinkedList<CartaMonstruo>();
+		mazo = new MazoDeCartas();
+		
+		mano = new LinkedList<Carta>();
 	}
 	
 	
@@ -36,6 +40,13 @@ public class Jugador {
 		
 		campo.asignarDuenio(this);
 	}
+	
+	
+	public void llenarMazo() {
+		
+		mazo.llenar(this, campo);
+	}
+	
 	
 	public void recibirDanio(int unDanio) {
 		
@@ -82,8 +93,13 @@ public class Jugador {
 
 	public void tomarCartaDelMazo() {
 		
-		CartaMonstruo unaCarta = new CartaMonstruo(500, 500, 3);
-		mano.add(unaCarta);
+		Carta cartaRobada = mazo.robar();
+		
+		mano.add(cartaRobada);
+		
+		if(mazo.estaVacio()) {
+			//mensaje de fin de partida. metodo de perder
+		}
 	}
 	
 	public int cartasEnMano() {

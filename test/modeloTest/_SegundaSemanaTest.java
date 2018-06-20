@@ -129,6 +129,8 @@ public class _SegundaSemanaTest {
 		
 		jugador.asignarCampo(campo);
 		
+		jugador.llenarMazo();
+		
 		CartaMagica ollaDeLaCodicia = CartaMagica.crearOllaDeLaCodicia(jugador);
 		jugador.invocarCartaMagicaBocaArriba(ollaDeLaCodicia);
 		
@@ -160,7 +162,7 @@ public class _SegundaSemanaTest {
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruo1);
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruo2);
 		
-		CartaMagica fisura = CartaMagica.crearFisura(campoEnemigo);
+		CartaMagica fisura = CartaMagica.crearFisura(campo);
 		jugador.invocarCartaMagicaBocaArriba(fisura);
 		
 		

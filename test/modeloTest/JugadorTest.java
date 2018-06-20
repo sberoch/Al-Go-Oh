@@ -355,6 +355,18 @@ public class JugadorTest {
 	}
 	
 	
+	@Test
+	public void test17JugadorRobaCartaDelMazoCorrectamente() {
+		
+		Jugador jugador = new Jugador();
+		
+		jugador.llenarMazo();
+		jugador.tomarCartaDelMazo();
+		
+		assertEquals(jugador.cartasEnMano(), 1);
+	}
+	
+	
 	
 	
 	private void darlesCamposAJugadores(Jugador jugador, Jugador oponente) {

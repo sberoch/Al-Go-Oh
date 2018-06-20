@@ -58,6 +58,7 @@ public class CartaDeCampo extends Carta {
 		return (new CartaDeCampo(efecto));
 	}
 	
+	
 	public static CartaDeCampo crearSogen() {
 		
 		EfectoDeCartaCampo efecto = new EfectoSogen();
