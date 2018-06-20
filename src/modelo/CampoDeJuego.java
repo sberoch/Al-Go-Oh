@@ -24,12 +24,6 @@ public class CampoDeJuego {
 	}
 	
 	
-	public LinkedList<CartaMonstruo> monstruos() {
-		
-		return (monstruosEnJuego);
-	}
-	
-	
 	
 	public void modificarAtaqueYDefensaDeEnemigo(CartaMonstruo monstruoEnemigo) {
 		

@@ -8,5 +8,12 @@ public class CartaTrampa extends CartaMagiaOTrampa {
 		
 		efecto.activarse();
 	}
+
+	@Override
+	public void invocarBocaArriba(Jugador unJugador, CampoDeJuego unCampo) throws ModoDeInvocacionInvalidoParaEstaCartaException {
+		
+		throw new ModoDeInvocacionInvalidoParaEstaCartaException();
+		
+	}
 	
 }

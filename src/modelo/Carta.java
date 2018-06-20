@@ -8,6 +8,7 @@ public abstract class Carta {
 	
 	public abstract void invocarBocaAbajo(Jugador unJugador, CampoDeJuego unCampo) throws Exception;
 	
+	public abstract void invocarBocaArriba(Jugador unJugador, CampoDeJuego unCampo) throws Exception;
 	
 	public boolean estaBocaAbajo() {
 		

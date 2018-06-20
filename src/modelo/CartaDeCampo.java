@@ -67,9 +67,10 @@ public class CartaDeCampo extends Carta {
 	}
 
 
-	public void invocarBocaAbajo(Jugador unJugador, CampoDeJuego unCampo) {
+	public void invocarBocaAbajo(Jugador unJugador, CampoDeJuego unCampo) throws ModoDeInvocacionInvalidoParaEstaCartaException {
 		
-		this.invocarBocaArriba(unJugador, unCampo);
+		throw new ModoDeInvocacionInvalidoParaEstaCartaException();
+		
 	}
 
 

@@ -93,19 +93,7 @@ public class CartaMonstruo extends Carta {
 		modo.aumentarDefensa(aumento);
 	}
 	
-	public void disminuirAtaque(int disminucion) {
-		
-		ataque += disminucion;
-		
-		modo.disminuirAtaque(disminucion);
-	}
-	
-	public void disminuirDefensa(int disminucion) {
-		
-		defensa += disminucion;
-		
-		modo.disminuirDefensa(disminucion);
-	}
+
 	
 	public boolean tieneMenosAtaqueQue(int unAtaque) {
 		

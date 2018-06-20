@@ -52,16 +52,6 @@ public class ModoDeDefensa implements Modo {
 		
 		defensa += unaDefensa;
 	}
-	
-	
-	public void disminuirAtaque(int unAtaque) {
-		
-	}
-	
-	
-	public void disminuirDefensa(int unaDefensa) {
-		
-		defensa -= unaDefensa;
-	}
+
 
 }

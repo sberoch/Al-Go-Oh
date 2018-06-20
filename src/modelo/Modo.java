@@ -16,9 +16,6 @@ public interface Modo {
 	public void aumentarAtaque(int unAtaque);
 	
 	public void aumentarDefensa(int unaDefensa);
-	
-	public void disminuirAtaque(int unAtaque);
-	
-	public void disminuirDefensa(int unaDefensa);
+
 	
 }

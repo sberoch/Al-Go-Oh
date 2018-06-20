@@ -55,14 +55,4 @@ public class ModoDeAtaque implements Modo {
 	}
 	
 	
-	public void disminuirAtaque(int unAtaque) {
-		
-		ataque -= unAtaque;
-	}
-	
-	
-	public void disminuirDefensa(int unaDefensa) {
-		
-	}
-	
 }
