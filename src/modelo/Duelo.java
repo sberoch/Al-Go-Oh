@@ -3,14 +3,14 @@ package modelo;
 public class Duelo {
 
 	
-	private Jugador unJugador;
+	private Turno turnoDeUnJugador;
 	
-	private Jugador otroJugador;
+	private Turno turnoDeOtroJugador;
 	
 	public Duelo() {
 		
-		unJugador = new Jugador();
-		otroJugador = new Jugador();
+		Jugador unJugador = new Jugador();
+		Jugador otroJugador = new Jugador();
 		
 		CampoDeJuego campo = new CampoDeJuego();
 		CampoDeJuego campoEnemigo = new CampoDeJuego();
@@ -23,6 +23,28 @@ public class Duelo {
 		
 		unJugador.llenarMazo();
 		otroJugador.llenarMazo();
+		
+		turnoDeUnJugador = new Turno(unJugador);
+		turnoDeOtroJugador = new Turno(otroJugador);
+		
+	}
+	
+	
+	
+	public void iniciarDuelo() {
+		
+		while(!this.dueloTerminado()) {
+			
+			turnoDeUnJugador.jugar();
+			turnoDeOtroJugador.jugar();
+		}
+	}
+
+
+
+	public boolean dueloTerminado() {
+
+		return (turnoDeUnJugador.seTerminoElJuego());
 	}
 	
 }

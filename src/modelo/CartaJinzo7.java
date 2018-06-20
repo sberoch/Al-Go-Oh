@@ -1,9 +1,9 @@
 package modelo;
 
-public class CartaMonstruoJinzo7 extends CartaMonstruo {
+public class CartaJinzo7 extends CartaMonstruo {
 	
 	
-	public CartaMonstruoJinzo7() {
+	public CartaJinzo7() {
 		
 		super(500, 400, 2);
 	}

@@ -2,7 +2,7 @@ package modelo;
 
 public class CartaMagica extends CartaMagiaOTrampa {
 	
-
+	private Efecto efecto;
 	
 	public CartaMagica(Efecto unEfecto) {
 		

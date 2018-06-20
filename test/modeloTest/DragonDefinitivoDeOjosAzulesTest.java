@@ -4,7 +4,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 import modelo.CampoDeJuego;
 import modelo.CartaMonstruo;
-import modelo.CartaMonstruoDragonDefinitivoDeOjosAzules;
+import modelo.CartaDragonDefinitivoDeOjosAzules;
 import modelo.Jugador;
 
 public class DragonDefinitivoDeOjosAzulesTest {
@@ -29,7 +29,7 @@ public class DragonDefinitivoDeOjosAzulesTest {
 		this.invocarDosMonstruos(jugador);
 		jugador.invocarMonstruoEnPosicionDeAtaque(tercerDragon);
 		
-		jugador.invocarMonstruoEnPosicionDeAtaque(new CartaMonstruoDragonDefinitivoDeOjosAzules());
+		jugador.invocarMonstruoEnPosicionDeAtaque(new CartaDragonDefinitivoDeOjosAzules());
 		
 		assertTrue(primerDragon.fueDestruida());
 		assertTrue(segundoDragon.fueDestruida());

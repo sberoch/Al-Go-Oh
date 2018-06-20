@@ -73,7 +73,12 @@ public class Jugador {
 		cartaMagica.invocarBocaArriba(this, campo);
 	}
 	
-	public void invocarCartaDeCampoBocaArriba(CartaDeCampo cartaDeCampo) {
+	public void invocarCartaTrampa(CartaTrampa trampa) {
+		
+		trampa.invocarBocaAbajo(this, campo);
+	}
+	
+	public void invocarCartaDeCampo(CartaDeCampo cartaDeCampo) {
 		
 		cartaDeCampo.invocarBocaArriba(this, campo);
 	}
@@ -113,6 +118,12 @@ public class Jugador {
 	public boolean tieneMonstruosEnElCampo() {
 
 		return (campo.hayMonstruos());
+	}
+
+
+	public boolean gano() {
+		
+		return (mano.estaExodiaCompleto());
 	}
 		
 }

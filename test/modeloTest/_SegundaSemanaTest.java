@@ -4,13 +4,16 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import modelo.CampoDeJuego;
+import modelo.CartaCilindroMagico;
 import modelo.CartaDeCampo;
 import modelo.CartaMagica;
 import modelo.CartaMonstruo;
-import modelo.CartaMonstruoDragonDefinitivoDeOjosAzules;
-import modelo.CartaMonstruoInsectoComeHombres;
+import modelo.CartaDragonDefinitivoDeOjosAzules;
+import modelo.CartaInsectoComeHombres;
 import modelo.Jugador;
-import modelo.CartaMonstruoJinzo7;
+import modelo.Mano;
+import modelo.CartaJinzo7;
+import modelo.CartaTrampa;
 
 public class _SegundaSemanaTest {
 	
@@ -35,7 +38,7 @@ public class _SegundaSemanaTest {
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruo2);
 		
 		CartaDeCampo wasteland = CartaDeCampo.crearWasteland();
-		jugador.invocarCartaDeCampoBocaArriba(wasteland);
+		jugador.invocarCartaDeCampo(wasteland);
 		
 		//WASTELAND: +200 ATK monstruos del jugador
 		//			 +300 DEF monstruos del oponente
@@ -60,7 +63,7 @@ public class _SegundaSemanaTest {
 		oponente.asignarCampo(campoEnemigo);
 		
 		CartaDeCampo wasteland = CartaDeCampo.crearWasteland();
-		jugador.invocarCartaDeCampoBocaArriba(wasteland);
+		jugador.invocarCartaDeCampo(wasteland);
 		
 		//Invocacion despues de jugar la carta campo.
 		CartaMonstruo monstruo1 = new CartaMonstruo(200,200,3);
@@ -90,7 +93,7 @@ public class _SegundaSemanaTest {
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruo2);
 		
 		CartaDeCampo sogen = CartaDeCampo.crearSogen();
-		jugador.invocarCartaDeCampoBocaArriba(sogen);
+		jugador.invocarCartaDeCampo(sogen);
 		
 		//SOGEN: +500 DEF monstruos del jugador
 		//	     +200 ATK monstruos del oponente
@@ -114,7 +117,7 @@ public class _SegundaSemanaTest {
 		oponente.asignarCampo(campoEnemigo);
 		
 		CartaDeCampo sogen = CartaDeCampo.crearSogen();
-		jugador.invocarCartaDeCampoBocaArriba(sogen);
+		jugador.invocarCartaDeCampo(sogen);
 		
 		//Invocacion despues de jugar la carta campo.
 		CartaMonstruo monstruo1 = new CartaMonstruo(200,200,3);
@@ -186,7 +189,7 @@ public class _SegundaSemanaTest {
 		jugador.asignarCampo(campo);
 		oponente.asignarCampo(campoEnemigo);
 		
-		CartaMonstruoJinzo7 jinzo7 = new CartaMonstruoJinzo7();
+		CartaJinzo7 jinzo7 = new CartaJinzo7();
 		CartaMonstruo unMonstruo = new CartaMonstruo(500,0,3);
 		
 		oponente.invocarMonstruoEnPosicionDeDefensa(unMonstruo);
@@ -222,7 +225,7 @@ public class _SegundaSemanaTest {
 		this.invocarDosMonstruos(jugador);
 		jugador.invocarMonstruoEnPosicionDeAtaque(tercerDragon);
 		
-		jugador.invocarMonstruoEnPosicionDeAtaque(new CartaMonstruoDragonDefinitivoDeOjosAzules());
+		jugador.invocarMonstruoEnPosicionDeAtaque(new CartaDragonDefinitivoDeOjosAzules());
 		
 		assertTrue(primerDragon.fueDestruida());
 		assertTrue(segundoDragon.fueDestruida());
@@ -231,7 +234,7 @@ public class _SegundaSemanaTest {
 	
 	
 	@Test
-	public void test01ElEfectoDelInsectoSeActiva() throws Exception {
+	public void test09ElEfectoDelInsectoComeHombresSeActiva() throws Exception {
 		
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
@@ -240,7 +243,7 @@ public class _SegundaSemanaTest {
 		
 		CartaMonstruo monstruoOponente = new CartaMonstruo(2000, 1300, 4);
 		
-		jugador.invocarMonstruoEnPosicionDeDefensa(new CartaMonstruoInsectoComeHombres());
+		jugador.invocarMonstruoEnPosicionDeDefensa(new CartaInsectoComeHombres());
 		
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruoOponente);
 		
@@ -250,6 +253,42 @@ public class _SegundaSemanaTest {
 		
 		assertEquals(8000, oponente.getPuntosDeVida());
 	}
+	
+	@Test
+	public void test10CilindroMagicoNiegaElAtaqueYLoDevuelveAlJugador() throws Exception {
+		
+		Jugador jugador = new Jugador();
+		Jugador oponente = new Jugador();
+		
+		this.darlesCamposAJugadores(jugador, oponente);
+		
+		CartaMonstruo monstruoOponente = new CartaMonstruo(2000, 1300, 4);
+		
+		CartaTrampa cilindroMagico = new CartaCilindroMagico();
+		jugador.invocarCartaTrampa(cilindroMagico);
+		
+		oponente.invocarMonstruoEnPosicionDeAtaque(monstruoOponente);
+		oponente.atacarDirectoALaVidaCon(1);
+		
+		assertEquals(6000, oponente.getPuntosDeVida());
+		
+	}
+	
+	
+	@Test
+	public void test13DevuelveTrueCuandoTieneExodiaCompleto() {
+		
+		Mano mano = new Mano();
+		
+		mano.agregarCarta(CartaMonstruo.crearBrazoIzquierdoExodia());
+		mano.agregarCarta(CartaMonstruo.crearBrazoDerechoExodia());
+		mano.agregarCarta(CartaMonstruo.crearCabezaDeExodia());
+		mano.agregarCarta(CartaMonstruo.crearPiernaDerechaExodia());
+		mano.agregarCarta(CartaMonstruo.crearPiernaIzquierdaExodia());
+		
+		assertTrue(mano.estaExodiaCompleto());
+	}
+	
 	
 	
 	

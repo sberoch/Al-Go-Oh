@@ -1,9 +1,9 @@
 package modelo;
 
-public class CartaMonstruoInsectoComeHombres extends CartaMonstruo {
+public class CartaInsectoComeHombres extends CartaMonstruo {
 
 	
-	public CartaMonstruoInsectoComeHombres() {
+	public CartaInsectoComeHombres() {
 		
 		super(450, 600, 2, "Insecto Come Hombres");
 	}

@@ -71,15 +71,47 @@ public class CampoDeJuego {
 		
 		CartaMonstruo cartaAtacada = monstruosEnJuego.get(posicionDeMonstruo - 1);
 		
-		atacante.atacarA(cartaAtacada);
-		
-		if (cartaAtacada.fueDestruida()) {
+		if (!activarTrampaEnAtaque(atacante, cartaAtacada)) {
 			
-			monstruosEnJuego.remove(posicionDeMonstruo - 1);
+			atacante.atacarA(cartaAtacada);
 		}
 	}
 
 	
+	private boolean activarTrampaEnAtaque(CartaMonstruo atacante, CartaMonstruo atacado) {
+		
+		Iterator<CartaMagiaOTrampa> iterator = magiasYTrampasEnJuego.iterator();
+		
+		boolean seActivo = false;
+		
+		while (iterator.hasNext() && !seActivo) {
+			
+			CartaMagiaOTrampa cartaActual = iterator.next();
+			
+			seActivo = cartaActual.activarEnAtaqueAMonstruo(atacante, atacado);
+		}
+		
+		return (seActivo);
+	}
+
+	
+	private boolean activarTrampaEnAtaqueDirecto(CartaMonstruo atacante) {
+		
+		Iterator<CartaMagiaOTrampa> iterator = magiasYTrampasEnJuego.iterator();
+		
+		boolean seActivo = false;
+		
+		while (iterator.hasNext() && !seActivo) {
+			
+			CartaMagiaOTrampa cartaActual = iterator.next();
+			
+			seActivo = cartaActual.activarEnAtaqueDirecto(atacante);
+		}
+		
+		return (seActivo);
+	}
+
+
 	public void jugarBocaArriba(CartaDeCampo cartaDeCampo) {
 		
 		cartaCampo = cartaDeCampo;
@@ -116,7 +148,11 @@ public class CampoDeJuego {
 		
 		try {
 			
-			atacante.atacarA(duenio);
+			if (!this.activarTrampaEnAtaqueDirecto(atacante)) {
+				
+				atacante.atacarA(duenio);
+			}
+			
 			
 		} catch (NoSePuedeRealizarAtaqueException error) {
 		

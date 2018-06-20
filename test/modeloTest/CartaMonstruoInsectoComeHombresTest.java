@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import modelo.CampoDeJuego;
 import modelo.CartaMonstruo;
-import modelo.CartaMonstruoInsectoComeHombres;
+import modelo.CartaInsectoComeHombres;
 import modelo.Jugador;
 
 public class CartaMonstruoInsectoComeHombresTest {
@@ -22,7 +22,7 @@ public class CartaMonstruoInsectoComeHombresTest {
 		
 		CartaMonstruo monstruoOponente = new CartaMonstruo(2000, 1300, 4);
 		
-		jugador.invocarMonstruoEnPosicionDeDefensa(new CartaMonstruoInsectoComeHombres());
+		jugador.invocarMonstruoEnPosicionDeDefensa(new CartaInsectoComeHombres());
 		
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruoOponente);
 		

@@ -1,17 +1,25 @@
 package modelo;
 
 public abstract class CartaMagiaOTrampa extends Carta {
-
-	protected Efecto efecto;
 	
 	public void invocarBocaAbajo(Jugador unJugador, CampoDeJuego unCampo) {
 		
 		duenio = unJugador;
 		
 		estado = new EstadoBocaAbajo();
+		
 		unCampo.jugarBocaAbajo(this);
 	}
+
+	public boolean activarEnAtaqueAMonstruo(CartaMonstruo atacante, CartaMonstruo atacado) {
+		
+		return (false);
+	}
 	
-	public abstract void activar();
+	
+	public boolean activarEnAtaqueDirecto(CartaMonstruo atacante) {
+		
+		return (false);
+	}
 
 }

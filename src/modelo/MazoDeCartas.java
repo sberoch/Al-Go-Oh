@@ -17,12 +17,17 @@ public class MazoDeCartas {
 		pilaDeCartas.push(CartaMonstruo.crearDragonBlancoDeOjosAzules());
 		pilaDeCartas.push(CartaMonstruo.crearDragonBlancoDeOjosAzules());
 		pilaDeCartas.push(CartaMonstruo.crearDragonBlancoDeOjosAzules());
-		pilaDeCartas.push(new CartaMonstruoDragonDefinitivoDeOjosAzules());
-		pilaDeCartas.push(new CartaMonstruoJinzo7());
-		pilaDeCartas.push(new CartaMonstruoInsectoComeHombres());
+		pilaDeCartas.push(new CartaDragonDefinitivoDeOjosAzules());
+		pilaDeCartas.push(new CartaJinzo7());
+		pilaDeCartas.push(new CartaInsectoComeHombres());
 		pilaDeCartas.push(CartaMagica.crearOllaDeLaCodicia(duenioDelMazo));
 		pilaDeCartas.push(CartaMagica.crearAgujeroNegro(campoDelDuenio));
 		pilaDeCartas.push(CartaMagica.crearFisura(campoDelDuenio));
+		pilaDeCartas.push(CartaMonstruo.crearCabezaDeExodia());
+		pilaDeCartas.push(CartaMonstruo.crearBrazoDerechoExodia());
+		pilaDeCartas.push(CartaMonstruo.crearBrazoIzquierdoExodia());
+		pilaDeCartas.push(CartaMonstruo.crearPiernaDerechaExodia());
+		pilaDeCartas.push(CartaMonstruo.crearPiernaIzquierdaExodia());
 		
 		
 		Collections.shuffle(pilaDeCartas);

@@ -178,6 +178,11 @@ public class CartaMonstruo extends Carta {
 		}
 	}
 
+	public void atacarATuDuenio() {
+		
+		duenio.recibirDanio(ataque);
+	}
+	
 	
 	public static CartaMonstruo crearDragonBlancoDeOjosAzules() {
 		
@@ -210,7 +215,8 @@ public class CartaMonstruo extends Carta {
 		CartaMonstruo piernaDerecha = new CartaMonstruo(200, 300, 1, "Pierna Derecha del Prohibido");
 		return piernaDerecha;
 	}
-	
+
+
 	
 	
 	
