@@ -6,7 +6,7 @@ public class CampoDeJuego {
 	
 	private LinkedList<CartaMonstruo> monstruosEnJuego = new LinkedList<CartaMonstruo>();
 	
-	private LinkedList<Carta> magiasYTrampasEnJuego = new LinkedList<Carta>();
+	private LinkedList<CartaMagiaOTrampa> magiasYTrampasEnJuego = new LinkedList<CartaMagiaOTrampa>();
 	
 	private CampoDeJuego campoEnemigo;
 
@@ -33,30 +33,6 @@ public class CampoDeJuego {
 	public CampoDeJuego obtenerCampoEnemigo() {
 		
 		return (campoEnemigo);
-	}
-	
-	
-	public void agregarAlCampo(CartaMonstruo monstruo) throws Exception {
-		
-		int cantMonstruos = monstruosEnJuego.size();
-		
-		int sacrificios = monstruo.sacrificiosRequeridos();
-		
-		if (sacrificios > cantMonstruos) {
-			throw new NoHaySuficientesMonstruosException();
-		}
-		
-		for(int i = 0; i < sacrificios; i++) {
-			monstruosEnJuego.getLast().destruir();
-			monstruosEnJuego.removeLast();
-		}
-		
-		monstruosEnJuego.add(monstruo);
-		
-		cartaCampo.modificarAtaqueYDefensaDeMonstruoAliado(monstruo);
-		
-		campoEnemigo.modificarAtaqueYDefensaDeEnemigo(monstruo);
-		
 	}
 	
 	
@@ -91,11 +67,11 @@ public class CampoDeJuego {
 	
 	public void atacarConMonstruoAEnemigo(int posicionDeMonstruo, int posicionDeEnemigo) {
 		
-		CartaMonstruo atacante = monstruosEnJuego.get(posicionDeMonstruo - 1);
+		CartaMonstruo cartaAtacante = monstruosEnJuego.get(posicionDeMonstruo - 1);
 		
-		campoEnemigo.atacarAMonstruoCon(posicionDeEnemigo, atacante);
+		campoEnemigo.atacarAMonstruoCon(posicionDeEnemigo, cartaAtacante);
 		
-		if (atacante.fueDestruido()) {
+		if (cartaAtacante.fueDestruida()) {
 			
 			monstruosEnJuego.remove(posicionDeMonstruo - 1);
 		}
@@ -104,11 +80,11 @@ public class CampoDeJuego {
 	
 	public void atacarAMonstruoCon(int posicionDeMonstruo, CartaMonstruo atacante) {
 		
-		CartaMonstruo atacado = monstruosEnJuego.get(posicionDeMonstruo - 1);
+		CartaMonstruo cartaAtacada = monstruosEnJuego.get(posicionDeMonstruo - 1);
 		
-		atacante.atacarA(atacado);
+		atacante.atacarA(cartaAtacada);
 		
-		if (atacado.fueDestruido()) {
+		if (cartaAtacada.fueDestruida()) {
 			
 			monstruosEnJuego.remove(posicionDeMonstruo - 1);
 		}
@@ -144,6 +120,7 @@ public class CampoDeJuego {
 
 
 	public CartaDeCampo cartaCampo() {
+		
 		return cartaCampo;
 	}
 	
@@ -189,6 +166,40 @@ public class CampoDeJuego {
 
 	public void jugarBocaAbajo(CartaMagiaOTrampa cartaTrampa) {
 		
+		magiasYTrampasEnJuego.add(cartaTrampa);
+	}
+
+
+	public void jugarBocaArriba(CartaMagica cartaMagica) {
+		
+		magiasYTrampasEnJuego.add(cartaMagica);
+		
+		cartaMagica.activar();
+		
+		cartaMagica.destruir();
+	}
+
+
+	public void jugarMonstruo(CartaMonstruo monstruo) throws NoHaySuficientesMonstruosException {
+		
+		int cantMonstruos = monstruosEnJuego.size();
+		
+		int sacrificios = monstruo.sacrificiosRequeridos();
+		
+		if (sacrificios > cantMonstruos) {
+			throw new NoHaySuficientesMonstruosException();
+		}
+		
+		for(int i = 0; i < sacrificios; i++) {
+			monstruosEnJuego.getLast().destruir();
+			monstruosEnJuego.removeLast();
+		}
+		
+		monstruosEnJuego.add(monstruo);
+		
+		cartaCampo.modificarAtaqueYDefensaDeMonstruoAliado(monstruo);
+		
+		campoEnemigo.modificarAtaqueYDefensaDeEnemigo(monstruo);
 		
 	}
 

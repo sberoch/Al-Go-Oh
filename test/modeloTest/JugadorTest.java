@@ -99,8 +99,8 @@ public class JugadorTest {
 		
 		oponente.atacarConMonstruoAMonstruoEnemigoConPosiciones(1, 1);
 		
-		assertTrue(monstruoDelJugador.fueDestruido());
-		assertTrue(monstruoDelOponente.fueDestruido());
+		assertTrue(monstruoDelJugador.fueDestruida());
+		assertTrue(monstruoDelOponente.fueDestruida());
 		
 		assertEquals(8000, oponente.getPuntosDeVida());
 		assertEquals(8000, jugador.getPuntosDeVida());
@@ -173,8 +173,8 @@ public class JugadorTest {
 		CartaMagica agujeroNegro = CartaMagica.crearAgujeroNegro(campo);
 		jugador.invocarCartaMagicaBocaArriba(agujeroNegro);
 		
-		assertTrue(monstruoDelJugador.fueDestruido());
-		assertTrue(monstruoDelOponente.fueDestruido());
+		assertTrue(monstruoDelJugador.fueDestruida());
+		assertTrue(monstruoDelOponente.fueDestruida());
 		
 	}
 	
@@ -192,7 +192,7 @@ public class JugadorTest {
 		jugador.invocarMonstruoEnPosicionDeAtaque(unMonstruo);
 		jugador.invocarMonstruoEnPosicionDeAtaque(monstruoQueRequiereUnSacrificio);
 		
-		assertTrue(unMonstruo.fueDestruido());
+		assertTrue(unMonstruo.fueDestruida());
 		
 		
 	}
@@ -213,8 +213,8 @@ public class JugadorTest {
 		jugador.invocarMonstruoEnPosicionDeAtaque(otroMonstruo);
 		jugador.invocarMonstruoEnPosicionDeAtaque(monstruoQueRequiereDosSacrificios);
 		
-		assertTrue(unMonstruo.fueDestruido());
-		assertTrue(otroMonstruo.fueDestruido());
+		assertTrue(unMonstruo.fueDestruida());
+		assertTrue(otroMonstruo.fueDestruida());
 	}
 	
 	@Rule

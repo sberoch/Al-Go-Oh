@@ -123,6 +123,9 @@ public class _SegundaSemanaTest {
 	@Test
 	public void test05OllaDeLaCodiciaTieneElEfectoEsperado() throws Exception {
 		Jugador jugador = new Jugador();
+		CampoDeJuego campo = new CampoDeJuego();
+		
+		jugador.asignarCampo(campo);
 		
 		CartaMagica ollaDeLaCodicia = CartaMagica.crearOllaDeLaCodicia(jugador);
 		jugador.invocarCartaMagicaBocaArriba(ollaDeLaCodicia);
@@ -160,7 +163,7 @@ public class _SegundaSemanaTest {
 		
 		
 		//FISURA: se destruye el monstruo de menor ataque del enemigo.
-		assertTrue(monstruo1.fueDestruido());
+		assertTrue(monstruo1.fueDestruida());
 	}
 	
 	

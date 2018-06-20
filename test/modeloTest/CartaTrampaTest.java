@@ -14,7 +14,7 @@ public class CartaTrampaTest {
 		
 		CampoDeJuego unCampo = new CampoDeJuego();
 		CartaTrampa trampa = new CartaTrampa();
-		trampa.invocarBocaAbajo(unCampo);
+		trampa.invocarBocaAbajo(null, unCampo);
 		
 		assertTrue(trampa.estaBocaAbajo());
 		

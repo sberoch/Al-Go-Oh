@@ -44,16 +44,14 @@ public class Jugador {
 	
 	public void invocarMonstruoEnPosicionDeAtaque(CartaMonstruo monstruo) throws Exception {
 		
-		monstruo.invocarEnPosicionDeAtaque(this);
+		monstruo.invocarBocaArriba(this, campo);
 		
-		campo.agregarAlCampo(monstruo);
 	}
 	
 	public void invocarMonstruoEnPosicionDeDefensa(CartaMonstruo monstruo) throws Exception {
 		
-		monstruo.invocarEnPosicionDeDefensa(this);
+		monstruo.invocarBocaAbajo(this, campo);
 		
-		campo.agregarAlCampo(monstruo);
 	}
 	
 	public void atacarConMonstruoAMonstruoEnemigoConPosiciones(int posicionAtacante, int posicionAtacado) {
@@ -63,7 +61,7 @@ public class Jugador {
 	
 	public void invocarCartaMagicaBocaArriba(CartaMagica cartaMagica) {
 		
-		cartaMagica.invocarBocaArriba();
+		cartaMagica.invocarBocaArriba(this, campo);
 	}
 	
 	public void invocarCartaDeCampoBocaArriba(CartaDeCampo cartaDeCampo) {
@@ -73,15 +71,15 @@ public class Jugador {
 		
 	}
 	
-	public void enviarAlCementerio(CartaMonstruo unMonstruo) {
+	public void enviarAlCementerio(Carta unaCarta) {
 		
-		cementerio.destruirCarta(unMonstruo);
+		cementerio.destruirCarta(unaCarta);
 	}
 	
 	
-	public boolean verificarSiEstaEnElCementerio(CartaMonstruo monstruo) {
+	public boolean verificarSiEstaEnElCementerio(Carta unaCarta) {
 		
-		return (cementerio.seEncuentra(monstruo));
+		return (cementerio.seEncuentra(unaCarta));
 	}
 
 	public void tomarCartaDelMazo() {

@@ -1,12 +1,11 @@
 package modelo;
 
-public class CartaMonstruo {
+public class CartaMonstruo extends Carta {
 
 	protected int ataque;
 	protected int defensa;
 	protected Estrellas estrellas;
 	protected Modo modo;
-	protected Jugador duenio;
 	protected String nombre;
 	
 	
@@ -14,7 +13,6 @@ public class CartaMonstruo {
 		
 		ataque = unAtaque;
 		defensa = unaDefensa;
-		
 		estrellas = new Estrellas(unasEstrellas);
 
 	}
@@ -38,21 +36,7 @@ public class CartaMonstruo {
 	public int defensa() {
 		return (defensa);
 	}
-	
-	public void invocarEnPosicionDeAtaque(Jugador jugadorQueLoInvoca) {
-		
-		modo = new ModoDeAtaque(ataque);
-		
-		duenio = jugadorQueLoInvoca;
-	}
-	
-	
-	public void invocarEnPosicionDeDefensa(Jugador jugadorQueLoInvoca) {
-		
-		modo = new ModoDeDefensa(defensa);
-		
-		duenio = jugadorQueLoInvoca;
-	}
+
 	
 	
 	public boolean estaEnPosicionDeAtaque() {
@@ -87,19 +71,6 @@ public class CartaMonstruo {
 		}
 		
 		return (modo.fuerzaDeRetorno());
-	}
-	
-	
-	public boolean fueDestruido() {
-		
-		return (duenio.verificarSiEstaEnElCementerio(this));
-	}
-	
-	
-	public void destruir()  {
-		
-		duenio.enviarAlCementerio(this);
-		
 	}
 	
 	
@@ -163,6 +134,30 @@ public class CartaMonstruo {
 		
 		CartaMonstruo dragonBlancoDeOjosAzules = new CartaMonstruo(3000, 2500, 8, "Dragon Blanco de Ojos Azules");
 		return dragonBlancoDeOjosAzules;
+	}
+
+
+	public void invocarBocaAbajo(Jugador unJugador, CampoDeJuego unCampo) throws NoHaySuficientesMonstruosException {
+
+		duenio = unJugador;
+		
+		estado = new EstadoBocaAbajo();
+		
+		modo = new ModoDeDefensa(defensa);
+		
+		unCampo.jugarMonstruo(this);
+	}
+
+
+	public void invocarBocaArriba(Jugador unJugador, CampoDeJuego unCampo) throws NoHaySuficientesMonstruosException {
+		
+		duenio = unJugador;
+		
+		estado = new EstadoBocaArriba();
+		
+		modo = new ModoDeAtaque(ataque);
+		
+		unCampo.jugarMonstruo(this);
 	}
 	
 	

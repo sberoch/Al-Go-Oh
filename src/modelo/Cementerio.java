@@ -6,21 +6,21 @@ import java.util.LinkedList;
 
 public class Cementerio {
 	
-	private LinkedList<CartaMonstruo> cartas = new LinkedList<CartaMonstruo>();
+	private LinkedList<Carta> cartas = new LinkedList<Carta>();
 	
-	public void destruirCarta(CartaMonstruo unaCarta) {
+	public void destruirCarta(Carta unaCarta) {
 		cartas.add(unaCarta);
 	}
 	
-	public boolean seEncuentra(CartaMonstruo unaCarta) {
+	public boolean seEncuentra(Carta unaCarta) {
 		
 		boolean encontrada = false;
 		
-		Iterator<CartaMonstruo> iterador = cartas.iterator();
+		Iterator<Carta> iterador = cartas.iterator();
 		
 		while(iterador.hasNext()) {
 			
-			CartaMonstruo estaCarta = iterador.next();
+			Carta estaCarta = iterador.next();
 			
 			if(estaCarta == unaCarta) {
 				

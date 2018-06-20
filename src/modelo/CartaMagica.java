@@ -2,25 +2,22 @@ package modelo;
 
 public class CartaMagica extends CartaMagiaOTrampa {
 	
-	private EstadoCarta estado;
-	
 
 	
-	
-	
-	private CartaMagica(Efecto unEfecto) {
+	public CartaMagica(Efecto unEfecto) {
 		
 		efecto = unEfecto;
 	}
 	
 	
-	public boolean estaBocaAbajo() {
-		return estado.estaBocaAbajo();
-	}
-	
-	public void invocarBocaArriba() {
+
+	public void invocarBocaArriba(Jugador unJugador, CampoDeJuego unCampo) {
+		
+		duenio = unJugador;
+		
 		estado = new EstadoBocaArriba();
-		this.activar();
+		
+		unCampo.jugarBocaArriba(this);
 	}
 	
 	public void activar() {
