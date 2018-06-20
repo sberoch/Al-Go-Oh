@@ -1,6 +1,6 @@
 package modelo;
 
-public interface EfectoDeCartaCampo extends Efecto {
+public interface EfectoDeCartaCampo {
 	
 	
 	public void modificarAtaqueYDefensaDeMonstruoAliado(CartaMonstruo monstruoAliado);

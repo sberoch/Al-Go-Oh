@@ -6,10 +6,6 @@ public class EfectoCampoInicial implements EfectoDeCartaCampo {
 
 	}
 
-	public void desactivarse() {
-
-	}
-
 	
 	public void modificarAtaqueYDefensaDeMonstruoAliado(CartaMonstruo monstruoAliado) {
 

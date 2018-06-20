@@ -74,12 +74,6 @@ public class CartaMonstruo extends Carta {
 	}
 	
 	
-	public int sacrificiosRequeridos() {
-		
-		return estrellas.determinarSacrificios();
-	}
-	
-	
 	public void aumentarAtaque(int aumento) {
 		
 		ataque += aumento;
@@ -108,9 +102,22 @@ public class CartaMonstruo extends Carta {
 		modo.disminuirDefensa(disminucion);
 	}
 	
-	public boolean tieneMenosAtaqueQue(CartaMonstruo otroMonstruo) {
+	public boolean tieneMenosAtaqueQue(int unAtaque) {
 		
-		return (ataque <= otroMonstruo.ataque());
+		return (ataque <= unAtaque);
+	}
+	
+	
+	public CartaMonstruo cartaConMenosAtaqueCon(CartaMonstruo otroMonstruo) {
+		
+		if (otroMonstruo.tieneMenosAtaqueQue(ataque)) {
+			
+			return (otroMonstruo);
+			
+		} else {
+			
+			return (this);
+		}
 	}
 
 
@@ -139,6 +146,8 @@ public class CartaMonstruo extends Carta {
 
 	public void invocarBocaAbajo(Jugador unJugador, CampoDeJuego unCampo) throws NoHaySuficientesMonstruosException {
 
+		this.realizarSacrificios(unCampo);
+		
 		duenio = unJugador;
 		
 		estado = new EstadoBocaAbajo();
@@ -151,6 +160,8 @@ public class CartaMonstruo extends Carta {
 
 	public void invocarBocaArriba(Jugador unJugador, CampoDeJuego unCampo) throws NoHaySuficientesMonstruosException {
 		
+		this.realizarSacrificios(unCampo);
+		
 		duenio = unJugador;
 		
 		estado = new EstadoBocaArriba();
@@ -158,6 +169,30 @@ public class CartaMonstruo extends Carta {
 		modo = new ModoDeAtaque(ataque);
 		
 		unCampo.jugarMonstruo(this);
+	}
+	
+	
+	
+	protected void realizarSacrificios(CampoDeJuego campo) throws NoHaySuficientesMonstruosException {
+		
+		int cantMonstruos = campo.obtenerCantidadDeMonstruos();
+		
+		int sacrificios = estrellas.determinarSacrificios();
+		
+		if (sacrificios > cantMonstruos) {
+			throw new NoHaySuficientesMonstruosException();
+		}
+		
+		for(int i = 0; i < sacrificios; i++) {
+			
+			campo.destruirUnMonstruo();
+		}
+	}
+
+
+	public boolean tieneDeNombre(String unNombre) {
+		
+		return (nombre == unNombre);
 	}
 	
 	

@@ -66,9 +66,7 @@ public class Jugador {
 	
 	public void invocarCartaDeCampoBocaArriba(CartaDeCampo cartaDeCampo) {
 		
-		cartaDeCampo.invocarBocaArriba();
-		campo.activarCartaDeCampo(cartaDeCampo);
-		
+		cartaDeCampo.invocarBocaArriba(this, campo);
 	}
 	
 	public void enviarAlCementerio(Carta unaCarta) {

@@ -7,6 +7,7 @@ import modelo.CampoDeJuego;
 import modelo.CartaDeCampo;
 import modelo.CartaMagica;
 import modelo.CartaMonstruo;
+import modelo.CartaMonstruoDragonDefinitivoDeOjosAzules;
 import modelo.Jugador;
 import modelo.CartaMonstruoJinzo7;
 
@@ -32,7 +33,7 @@ public class _SegundaSemanaTest {
 		jugador.invocarMonstruoEnPosicionDeAtaque(monstruo1);
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruo2);
 		
-		CartaDeCampo wasteland = CartaDeCampo.crearWasteland(campo);
+		CartaDeCampo wasteland = CartaDeCampo.crearWasteland();
 		jugador.invocarCartaDeCampoBocaArriba(wasteland);
 		
 		//WASTELAND: +200 ATK monstruos del jugador
@@ -57,7 +58,7 @@ public class _SegundaSemanaTest {
 		jugador.asignarCampo(campo);
 		oponente.asignarCampo(campoEnemigo);
 		
-		CartaDeCampo wasteland = CartaDeCampo.crearWasteland(campo);
+		CartaDeCampo wasteland = CartaDeCampo.crearWasteland();
 		jugador.invocarCartaDeCampoBocaArriba(wasteland);
 		
 		//Invocacion despues de jugar la carta campo.
@@ -87,7 +88,7 @@ public class _SegundaSemanaTest {
 		jugador.invocarMonstruoEnPosicionDeAtaque(monstruo1);
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruo2);
 		
-		CartaDeCampo sogen = CartaDeCampo.crearSogen(campo);
+		CartaDeCampo sogen = CartaDeCampo.crearSogen();
 		jugador.invocarCartaDeCampoBocaArriba(sogen);
 		
 		//SOGEN: +500 DEF monstruos del jugador
@@ -111,7 +112,7 @@ public class _SegundaSemanaTest {
 		jugador.asignarCampo(campo);
 		oponente.asignarCampo(campoEnemigo);
 		
-		CartaDeCampo sogen = CartaDeCampo.crearSogen(campo);
+		CartaDeCampo sogen = CartaDeCampo.crearSogen();
 		jugador.invocarCartaDeCampoBocaArriba(sogen);
 		
 		//Invocacion despues de jugar la carta campo.
@@ -197,5 +198,54 @@ public class _SegundaSemanaTest {
 		assertEquals(7500, oponente.getPuntosDeVida());
 	}
 	
+	
+	@Test
+	public void test08InvocarDragonDefinitivoDeOjosAzulesSacrifica3DragonesBlancosDeOjosAzules() throws Exception {
+		
+		Jugador jugador = new Jugador();
+		
+		this.darleCampoA(jugador);
+		
+		CartaMonstruo primerDragon = CartaMonstruo.crearDragonBlancoDeOjosAzules();
+		CartaMonstruo segundoDragon = CartaMonstruo.crearDragonBlancoDeOjosAzules();
+		CartaMonstruo tercerDragon = CartaMonstruo.crearDragonBlancoDeOjosAzules();
+		
+		this.invocarDosMonstruos(jugador);
+		jugador.invocarMonstruoEnPosicionDeAtaque(primerDragon);
+		
+		this.invocarDosMonstruos(jugador);
+		jugador.invocarMonstruoEnPosicionDeAtaque(segundoDragon);
+		
+		this.invocarDosMonstruos(jugador);
+		jugador.invocarMonstruoEnPosicionDeAtaque(tercerDragon);
+		
+		jugador.invocarMonstruoEnPosicionDeAtaque(new CartaMonstruoDragonDefinitivoDeOjosAzules());
+		
+		assertTrue(primerDragon.fueDestruida());
+		assertTrue(segundoDragon.fueDestruida());
+		assertTrue(tercerDragon.fueDestruida());
+	}
+	
+	
+	
+	
+	private void darleCampoA(Jugador jugador) {
+
+		CampoDeJuego campo = new CampoDeJuego();
+		CampoDeJuego campoEnemigo = new CampoDeJuego();
+		
+		campo.asignarCampoEnemigo(campoEnemigo);
+		
+		jugador.asignarCampo(campo);
+		
+	}
+	
+	
+	private void invocarDosMonstruos(Jugador jugador) throws Exception {
+		
+		jugador.invocarMonstruoEnPosicionDeAtaque(new CartaMonstruo(0, 0, 3));
+		
+		jugador.invocarMonstruoEnPosicionDeAtaque(new CartaMonstruo(0, 0, 3));
+	}
 	
 }

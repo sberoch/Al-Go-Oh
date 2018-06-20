@@ -1,5 +1,6 @@
 package modelo;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 
 public class CampoDeJuego {
@@ -28,12 +29,6 @@ public class CampoDeJuego {
 		return (monstruosEnJuego);
 	}
 	
-	
-	
-	public CampoDeJuego obtenerCampoEnemigo() {
-		
-		return (campoEnemigo);
-	}
 	
 	
 	public void modificarAtaqueYDefensaDeEnemigo(CartaMonstruo monstruoEnemigo) {
@@ -90,43 +85,27 @@ public class CampoDeJuego {
 		}
 	}
 
-
-	public void aumentarAtaqueDeLosMonstruos(int valorATK) {
-		for (CartaMonstruo monstruo : monstruosEnJuego) {
-			monstruo.aumentarAtaque(valorATK);
-		}
-	}
 	
-	
-	public void aumentarDefensaDeLosMonstruos(int valorDEF) {
-		for (CartaMonstruo monstruo : monstruosEnJuego) {
-			monstruo.aumentarDefensa(valorDEF);
-		}
-	}
-	
-	public void disminuirAtaqueDeLosMonstruos(int valorATK) {
-		for (CartaMonstruo monstruo : monstruosEnJuego) {
-			monstruo.disminuirAtaque(valorATK);
-		}
-	}
-	
-	
-	public void disminuirDefensaDeLosMonstruos(int valorDEF) {
-		
-		for (CartaMonstruo monstruo : monstruosEnJuego) {
-			monstruo.disminuirDefensa(valorDEF);
-		}
-	}
-
-
-	public CartaDeCampo cartaCampo() {
-		
-		return cartaCampo;
-	}
-	
-	public void activarCartaDeCampo(CartaDeCampo cartaDeCampo) {
+	public void jugarBocaArriba(CartaDeCampo cartaDeCampo) {
 		
 		cartaCampo = cartaDeCampo;
+		
+		for (CartaMonstruo monstruo : monstruosEnJuego) {
+			
+			cartaCampo.modificarAtaqueYDefensaDeMonstruoAliado(monstruo);
+		}
+		
+		campoEnemigo.modificarAtaqueYDefensaDeMonstruos();
+		
+	}
+
+
+	public void modificarAtaqueYDefensaDeMonstruos() {
+	
+		for (CartaMonstruo monstruo : monstruosEnJuego) {
+			
+			campoEnemigo.modificarAtaqueYDefensaDeEnemigo(monstruo);
+		}
 	}
 
 
@@ -162,7 +141,7 @@ public class CampoDeJuego {
 
 		return (!monstruosEnJuego.isEmpty());
 	}
-
+	
 
 	public void jugarBocaAbajo(CartaMagiaOTrampa cartaTrampa) {
 		
@@ -177,23 +156,13 @@ public class CampoDeJuego {
 		cartaMagica.activar();
 		
 		cartaMagica.destruir();
+		
+		magiasYTrampasEnJuego.removeLast();
 	}
 
 
 	public void jugarMonstruo(CartaMonstruo monstruo) throws NoHaySuficientesMonstruosException {
 		
-		int cantMonstruos = monstruosEnJuego.size();
-		
-		int sacrificios = monstruo.sacrificiosRequeridos();
-		
-		if (sacrificios > cantMonstruos) {
-			throw new NoHaySuficientesMonstruosException();
-		}
-		
-		for(int i = 0; i < sacrificios; i++) {
-			monstruosEnJuego.getLast().destruir();
-			monstruosEnJuego.removeLast();
-		}
 		
 		monstruosEnJuego.add(monstruo);
 		
@@ -201,6 +170,79 @@ public class CampoDeJuego {
 		
 		campoEnemigo.modificarAtaqueYDefensaDeEnemigo(monstruo);
 		
+	}
+	
+	
+	public int obtenerCantidadDeMonstruos() {
+		
+		return (monstruosEnJuego.size());
+	}
+	
+	
+	public void destruirUnMonstruo() {
+		
+		monstruosEnJuego.getLast().destruir();
+		monstruosEnJuego.removeLast();
+	}
+
+
+	public int obtenerCantidadDeMonstruosConNombre(String unNombre) {
+		
+		int cantidad = 0;
+		
+		Iterator<CartaMonstruo> iterator = monstruosEnJuego.iterator();
+		
+		while (iterator.hasNext()) {
+			
+			CartaMonstruo monstruoActual = iterator.next();
+			
+			if (monstruoActual.tieneDeNombre(unNombre)) {
+				
+				cantidad++;
+			}
+		}
+		
+		return (cantidad);
+	}
+
+
+	public void destruirUnMonstruoConNombre(String unNombre) {
+		
+		Iterator<CartaMonstruo> iterator = monstruosEnJuego.iterator();
+		
+		boolean fueDestruido = false;
+		
+		while (iterator.hasNext() && !fueDestruido) {
+			
+			CartaMonstruo monstruoActual = iterator.next();
+			
+			if (monstruoActual.tieneDeNombre(unNombre)) {
+				
+				monstruoActual.destruir();
+				
+				monstruosEnJuego.remove(monstruoActual);
+				
+				fueDestruido = true;
+			}
+		}
+	}
+
+
+	public void destruirMonstruoDeMenorAtaque() {
+		
+		if (this.hayMonstruos()) {
+			
+			CartaMonstruo monstruoADestruir = monstruosEnJuego.getFirst();
+			
+			for (CartaMonstruo monstruo : monstruosEnJuego) {
+				
+				monstruoADestruir = monstruo.cartaConMenosAtaqueCon(monstruoADestruir);
+			}
+			
+			monstruoADestruir.destruir();
+			
+			monstruosEnJuego.remove(monstruoADestruir);
+		}
 	}
 
 

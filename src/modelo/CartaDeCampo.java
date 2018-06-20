@@ -1,6 +1,6 @@
 package modelo;
 
-public class CartaDeCampo {
+public class CartaDeCampo extends Carta {
 	
 	private EstadoCarta estado;
 	
@@ -13,28 +13,22 @@ public class CartaDeCampo {
 		efecto = unEfecto;
 	}
 	
-	public void invocarBocaAbajo() {
-		estado = new EstadoBocaAbajo();
-	}
 	
 	public boolean estaBocaAbajo() {
+		
 		return estado.estaBocaAbajo();
 	}
 	
-	public void invocarBocaArriba() {
+	public void invocarBocaArriba(Jugador unJugador, CampoDeJuego unCampo) {
+		
 		estado = new EstadoBocaArriba();
 		
-		this.activarEfecto();
-	}
-	
-	public void activarEfecto() {
+		duenio = unJugador;
 		
-		efecto.activarse();
+		unCampo.jugarBocaArriba(this);
+		
 	}
-	
-	public void desactivarEfectoTemporalmente() {
-		efecto.desactivarse();
-	}
+
 	
 	
 	public void modificarAtaqueYDefensaDeMonstruoAliado(CartaMonstruo monstruoAliado) {
@@ -57,18 +51,24 @@ public class CartaDeCampo {
 	}
 	
 	
-	public static CartaDeCampo crearWasteland(CampoDeJuego campo) {
+	public static CartaDeCampo crearWasteland() {
 		
-		EfectoDeCartaCampo efecto = new EfectoWasteland(campo);
+		EfectoDeCartaCampo efecto = new EfectoWasteland();
 		
 		return (new CartaDeCampo(efecto));
 	}
 	
-	public static CartaDeCampo crearSogen(CampoDeJuego campo) {
+	public static CartaDeCampo crearSogen() {
 		
-		EfectoDeCartaCampo efecto = new EfectoSogen(campo);
+		EfectoDeCartaCampo efecto = new EfectoSogen();
 		
 		return (new CartaDeCampo(efecto));
+	}
+
+
+	public void invocarBocaAbajo(Jugador unJugador, CampoDeJuego unCampo) {
+		
+		this.invocarBocaArriba(unJugador, unCampo);
 	}
 
 

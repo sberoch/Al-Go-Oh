@@ -253,7 +253,7 @@ public class JugadorTest {
 		jugador.invocarMonstruoEnPosicionDeAtaque(monstruo1);
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruo2);
 		
-		CartaDeCampo wasteland = CartaDeCampo.crearWasteland(campo);
+		CartaDeCampo wasteland = CartaDeCampo.crearWasteland();
 		jugador.invocarCartaDeCampoBocaArriba(wasteland);
 		
 		//WASTELAND: +200 ATK monstruos del jugador
@@ -277,7 +277,7 @@ public class JugadorTest {
 		jugador.asignarCampo(campo);
 		oponente.asignarCampo(campoEnemigo);
 		
-		CartaDeCampo wasteland = CartaDeCampo.crearWasteland(campo);
+		CartaDeCampo wasteland = CartaDeCampo.crearWasteland();
 		jugador.invocarCartaDeCampoBocaArriba(wasteland);
 		
 		//Invocacion despues de jugar la carta campo.
@@ -306,7 +306,7 @@ public class JugadorTest {
 		jugador.invocarMonstruoEnPosicionDeAtaque(monstruo1);
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruo2);
 		
-		CartaDeCampo sogen = CartaDeCampo.crearSogen(campo);
+		CartaDeCampo sogen = CartaDeCampo.crearSogen();
 		jugador.invocarCartaDeCampoBocaArriba(sogen);
 		
 		//SOGEN: +500 DEF monstruos del jugador
@@ -330,7 +330,7 @@ public class JugadorTest {
 		jugador.asignarCampo(campo);
 		oponente.asignarCampo(campoEnemigo);
 		
-		CartaDeCampo sogen = CartaDeCampo.crearSogen(campo);
+		CartaDeCampo sogen = CartaDeCampo.crearSogen();
 		jugador.invocarCartaDeCampoBocaArriba(sogen);
 		
 		//Invocacion despues de jugar la carta campo.
