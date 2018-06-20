@@ -63,6 +63,11 @@ public class CartaMonstruo extends Carta {
 	
 	protected int recibirDanio(int unAtaque) {
 		
+		if (estado.estaBocaAbajo()) {
+			
+			estado = new EstadoBocaArriba();
+		}
+		
 		if (modo.fuerzaDePelea() <= unAtaque) {
 			
 			this.destruir();
