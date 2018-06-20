@@ -8,7 +8,7 @@ import modelo.CartaDeCampo;
 import modelo.CartaMagica;
 import modelo.CartaMonstruo;
 import modelo.Jugador;
-import modelo.Jinzo7;
+import modelo.CartaMonstruoJinzo7;
 
 public class _SegundaSemanaTest {
 	
@@ -168,7 +168,7 @@ public class _SegundaSemanaTest {
 	
 	
 	@Test
-	public void test07Jinzo7MePermiteAtacatLosPuntosDeVida() throws Exception {
+	public void test07Jinzo7MePermiteAtacarLosPuntosDeVida() throws Exception {
 		
 		Jugador jugador = new Jugador();
 		Jugador oponente = new Jugador();
@@ -182,14 +182,16 @@ public class _SegundaSemanaTest {
 		jugador.asignarCampo(campo);
 		oponente.asignarCampo(campoEnemigo);
 		
-		Jinzo7 jinzo7 = new Jinzo7();
+		CartaMonstruoJinzo7 jinzo7 = new CartaMonstruoJinzo7();
 		CartaMonstruo unMonstruo = new CartaMonstruo(500,0,3);
 		
-		oponente.invocarMonstruoEnPosicionDeAtaque(unMonstruo);
-		
+		oponente.invocarMonstruoEnPosicionDeDefensa(unMonstruo);
 		jugador.invocarMonstruoEnPosicionDeAtaque(jinzo7);
 		
-		jugador.atacarDirectoALaVidaCon(1);
+		//Hay un monstruo en defensa, un monstruo usual no podria atacar directamente al oponente.
+
+		jinzo7.atacarA(oponente);
+		
 		//JINZO#7: Me permite atacar los puntos de vida del oponente directamente.
 		
 		assertEquals(7500, oponente.getPuntosDeVida());

@@ -341,24 +341,16 @@ public class JugadorTest {
 	
 	
 	@Test
-	public void test16UnJugadorRecibeUnAtaqueDirecto() {
+	public void test16UnJugadorRecibeUnAtaqueDirecto() throws NoSePuedeRealizarAtaqueException {
 		
 		Jugador jugador = new Jugador();
 		
 		CampoDeJuego campo = new CampoDeJuego();
-		
 		jugador.asignarCampo(campo);
 		
-		CartaMonstruo unMonstruo = new CartaMonstruo(1000,400,2);
-		
-		try {
+		CartaMonstruo unMonstruo = new CartaMonstruo(1000,400,2);	
+		unMonstruo.atacarA(jugador);
 			
-			unMonstruo.atacarA(jugador);
-			
-		} catch (NoSePuedeRealizarAtaqueException error) {
-			
-		}
-		
 		assertEquals(7000, jugador.getPuntosDeVida());
 	}
 	
