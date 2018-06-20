@@ -7,7 +7,7 @@ public class CartaMonstruo {
 	protected Estrellas estrellas;
 	protected Modo modo;
 	protected Jugador duenio;
-	
+	protected String nombre;
 	
 	
 	public CartaMonstruo(int unAtaque, int unaDefensa, int unasEstrellas) {
@@ -19,6 +19,16 @@ public class CartaMonstruo {
 
 	}
 	
+	
+	public CartaMonstruo(int unAtaque, int unaDefensa, int unasEstrellas, String unNombre) {
+
+		ataque = unAtaque;
+		defensa = unaDefensa;
+		
+		estrellas = new Estrellas(unasEstrellas);
+		nombre = unNombre;
+		
+	}
 	
 	public int ataque() {
 		return (ataque);
@@ -147,6 +157,12 @@ public class CartaMonstruo {
 	protected boolean puedoAtacarDirectoA(Jugador enemigo) {
 		
 		return (!enemigo.tieneMonstruosEnElCampo());
+	}
+	
+	public static CartaMonstruo crearDragonBlancoDeOjosAzules() {
+		
+		CartaMonstruo dragonBlancoDeOjosAzules = new CartaMonstruo(3000, 2500, 8, "Dragon Blanco de Ojos Azules");
+		return dragonBlancoDeOjosAzules;
 	}
 	
 	
