@@ -1,10 +1,10 @@
 package modelo;
 
-public class CartaMagica {
+public class CartaMagica extends CartaMagiaOTrampa {
 	
 	private EstadoCarta estado;
 	
-	private Efecto efecto;
+
 	
 	
 	
@@ -13,9 +13,6 @@ public class CartaMagica {
 		efecto = unEfecto;
 	}
 	
-	public void invocarBocaAbajo() {
-		estado = new EstadoBocaAbajo();
-	}
 	
 	public boolean estaBocaAbajo() {
 		return estado.estaBocaAbajo();
@@ -23,10 +20,10 @@ public class CartaMagica {
 	
 	public void invocarBocaArriba() {
 		estado = new EstadoBocaArriba();
-		this.activarEfecto();
+		this.activar();
 	}
 	
-	public void activarEfecto() {
+	public void activar() {
 		
 		efecto.activarse();
 	}

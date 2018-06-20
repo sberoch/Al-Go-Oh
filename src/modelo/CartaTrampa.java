@@ -1,15 +1,12 @@
 package modelo;
 
-public class CartaTrampa {
+public class CartaTrampa extends CartaMagiaOTrampa {
 
-private EstadoCarta estado;
+
 	
-	public void invocarBocaAbajo() {
-		estado = new EstadoBocaAbajo();
-	}
-	
-	public boolean estaBocaAbajo() {
-		return estado.estaBocaAbajo();
+	public void activar() {
+		
+		efecto.activarse();
 	}
 	
 }

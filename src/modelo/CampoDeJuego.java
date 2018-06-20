@@ -6,6 +6,8 @@ public class CampoDeJuego {
 	
 	private LinkedList<CartaMonstruo> monstruosEnJuego = new LinkedList<CartaMonstruo>();
 	
+	private LinkedList<Carta> magiasYTrampasEnJuego = new LinkedList<Carta>();
+	
 	private CampoDeJuego campoEnemigo;
 
 	private CartaDeCampo cartaCampo = CartaDeCampo.crearCampoInicial();
@@ -184,6 +186,11 @@ public class CampoDeJuego {
 		return (!monstruosEnJuego.isEmpty());
 	}
 
+
+	public void jugarBocaAbajo(CartaMagiaOTrampa cartaTrampa) {
+		
+		
+	}
 
 
 	
