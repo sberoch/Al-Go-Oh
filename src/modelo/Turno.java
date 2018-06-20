@@ -20,7 +20,7 @@ public class Turno {
 		
 		if (!terminoElJuego) {
 			
-			jugador.tomarCartaDelMazo();
+			jugador.robarCartaDelMazo();
 			
 			if (jugador.gano()) {
 				

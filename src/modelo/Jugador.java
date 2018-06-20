@@ -94,7 +94,7 @@ public class Jugador {
 		return (cementerio.seEncuentra(unaCarta));
 	}
 
-	public void tomarCartaDelMazo() {
+	public void robarCartaDelMazo() {
 		
 		Carta cartaRobada = mazo.robar();
 		
@@ -124,6 +124,24 @@ public class Jugador {
 	public boolean gano() {
 		
 		return (mano.estaExodiaCompleto());
+	}
+
+
+	public boolean acaboSuMazo() {
+
+		return (mazo.estaVacio());
+	}
+
+
+	public Mano getMano() {
+		
+		return (mano);
+	}
+
+
+	public boolean perdio() {
+		
+		return (this.acaboSuMazo() || (puntosDeVida <= 0));
 	}
 		
 }

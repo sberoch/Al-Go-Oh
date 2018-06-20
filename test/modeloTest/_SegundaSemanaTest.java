@@ -8,6 +8,7 @@ import modelo.CartaCilindroMagico;
 import modelo.CartaDeCampo;
 import modelo.CartaMagica;
 import modelo.CartaMonstruo;
+import modelo.CartaRefuerzos;
 import modelo.CartaDragonDefinitivoDeOjosAzules;
 import modelo.CartaInsectoComeHombres;
 import modelo.Jugador;
@@ -276,9 +277,50 @@ public class _SegundaSemanaTest {
 	
 	
 	@Test
-	public void test13DevuelveTrueCuandoTieneExodiaCompleto() {
+	public void test11RefuerzosModificaElAtaqueDelMonstruoAtacado() throws Exception {
 		
-		Mano mano = new Mano();
+		Jugador jugador = new Jugador();
+		Jugador oponente = new Jugador();
+		
+		this.darlesCamposAJugadores(jugador, oponente);
+		
+		CartaMonstruo monstruoOponente = new CartaMonstruo(2000, 1300, 4);
+		CartaMonstruo monstruo = new CartaMonstruo(1600, 1300, 4);
+		
+		CartaTrampa refuerzos = new CartaRefuerzos();
+		jugador.invocarCartaTrampa(refuerzos);
+		
+		jugador.invocarMonstruoEnPosicionDeAtaque(monstruo);
+		
+		oponente.invocarMonstruoEnPosicionDeAtaque(monstruoOponente);
+		oponente.atacarConMonstruoAMonstruoEnemigoConPosiciones(1, 1);
+		
+		assertEquals(7900, oponente.getPuntosDeVida());
+		assertTrue(monstruoOponente.fueDestruida());
+		
+	}
+	
+	
+	@Test
+	public void test12JugadorPierdeCuandoSeAcabaSuMazo() {
+		
+		Jugador jugador = new Jugador();
+		
+		while (!jugador.acaboSuMazo()) {
+			
+			jugador.robarCartaDelMazo();
+		}
+		
+		assertTrue(jugador.perdio());
+	}
+	
+	
+	@Test
+	public void test13SeCompletoExodiaYGanaElJugador() {
+		
+		Jugador jugador = new Jugador();
+		
+		Mano mano = jugador.getMano();
 		
 		mano.agregarCarta(CartaMonstruo.crearBrazoIzquierdoExodia());
 		mano.agregarCarta(CartaMonstruo.crearBrazoDerechoExodia());
@@ -286,7 +328,7 @@ public class _SegundaSemanaTest {
 		mano.agregarCarta(CartaMonstruo.crearPiernaDerechaExodia());
 		mano.agregarCarta(CartaMonstruo.crearPiernaIzquierdaExodia());
 		
-		assertTrue(mano.estaExodiaCompleto());
+		assertTrue(jugador.gano());
 	}
 	
 	

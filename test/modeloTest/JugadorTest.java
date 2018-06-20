@@ -361,7 +361,7 @@ public class JugadorTest {
 		Jugador jugador = new Jugador();
 		
 		jugador.llenarMazo();
-		jugador.tomarCartaDelMazo();
+		jugador.robarCartaDelMazo();
 		
 		assertEquals(jugador.cartasEnMano(), 1);
 	}
