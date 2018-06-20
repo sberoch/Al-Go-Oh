@@ -1,7 +1,5 @@
 package modelo;
 
-import java.util.LinkedList;
-
 public class Jugador {
 	
 	private int puntosDeVida;
@@ -10,7 +8,7 @@ public class Jugador {
 	
 	private Cementerio cementerio;
 	
-	private LinkedList<Carta> mano;
+	private Mano mano;
 	
 	private MazoDeCartas mazo;
 	
@@ -25,7 +23,7 @@ public class Jugador {
 		
 		mazo = new MazoDeCartas();
 		
-		mano = new LinkedList<Carta>();
+		mano = new Mano();
 	}
 	
 	
@@ -95,7 +93,7 @@ public class Jugador {
 		
 		Carta cartaRobada = mazo.robar();
 		
-		mano.add(cartaRobada);
+		mano.agregarCarta(cartaRobada);
 		
 		if(mazo.estaVacio()) {
 			//mensaje de fin de partida. metodo de perder
@@ -103,7 +101,7 @@ public class Jugador {
 	}
 	
 	public int cartasEnMano() {
-		return (mano.size() );
+		return (mano.obtenerCantidadDeCartas() );
 	}
 
 	public void atacarDirectoALaVidaCon(int posicionDeMonstruo) {

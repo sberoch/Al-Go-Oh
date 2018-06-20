@@ -2,8 +2,6 @@ package modelo;
 
 public class CartaDeCampo extends Carta {
 	
-	private EstadoCarta estado;
-	
 	private EfectoDeCartaCampo efecto;
 	
 	
@@ -13,11 +11,6 @@ public class CartaDeCampo extends Carta {
 		efecto = unEfecto;
 	}
 	
-	
-	public boolean estaBocaAbajo() {
-		
-		return estado.estaBocaAbajo();
-	}
 	
 	public void invocarBocaArriba(Jugador unJugador, CampoDeJuego unCampo) {
 		
@@ -69,7 +62,7 @@ public class CartaDeCampo extends Carta {
 
 	public void invocarBocaAbajo(Jugador unJugador, CampoDeJuego unCampo) throws ModoDeInvocacionInvalidoParaEstaCartaException {
 		
-		throw new ModoDeInvocacionInvalidoParaEstaCartaException();
+		throw (new ModoDeInvocacionInvalidoParaEstaCartaException());
 		
 	}
 
