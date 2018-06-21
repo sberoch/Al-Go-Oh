@@ -1,4 +1,4 @@
-package modelo;
+package modelo.estados;
 
 public class EstadoBocaAbajo implements EstadoCarta {
 

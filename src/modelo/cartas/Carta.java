@@ -1,4 +1,8 @@
-package modelo;
+package modelo.cartas;
+
+import modelo.CampoDeJuego;
+import modelo.Jugador;
+import modelo.estados.EstadoCarta;
 
 public abstract class Carta {
 	

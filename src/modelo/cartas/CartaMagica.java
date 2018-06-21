@@ -1,4 +1,12 @@
-package modelo;
+package modelo.cartas;
+
+import modelo.CampoDeJuego;
+import modelo.Jugador;
+import modelo.efectos.Efecto;
+import modelo.efectos.EfectoAgujeroNegro;
+import modelo.efectos.EfectoFisura;
+import modelo.efectos.EfectoOllaDeLaCodicia;
+import modelo.estados.EstadoBocaArriba;
 
 public class CartaMagica extends CartaMagiaOTrampa {
 	

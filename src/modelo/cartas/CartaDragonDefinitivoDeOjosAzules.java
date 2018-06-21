@@ -1,4 +1,7 @@
-package modelo;
+package modelo.cartas;
+
+import modelo.CampoDeJuego;
+import modelo.exceptions.NoHaySuficientesMonstruosException;
 
 public class CartaDragonDefinitivoDeOjosAzules extends CartaMonstruo {
 	

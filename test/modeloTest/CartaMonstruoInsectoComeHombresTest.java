@@ -6,9 +6,9 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import modelo.CampoDeJuego;
-import modelo.CartaMonstruo;
-import modelo.CartaInsectoComeHombres;
 import modelo.Jugador;
+import modelo.cartas.CartaInsectoComeHombres;
+import modelo.cartas.CartaMonstruo;
 
 public class CartaMonstruoInsectoComeHombresTest {
 

@@ -1,4 +1,8 @@
-package modelo;
+package modelo.cartas;
+
+import modelo.CampoDeJuego;
+import modelo.Jugador;
+import modelo.exceptions.ModoDeInvocacionInvalidoParaEstaCartaException;
 
 public class CartaTrampa extends CartaMagiaOTrampa {
 

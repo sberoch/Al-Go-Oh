@@ -8,13 +8,13 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import modelo.CartaMagica;
-import modelo.CartaMonstruo;
 import modelo.Jugador;
-import modelo.NoHaySuficientesMonstruosException;
-import modelo.NoSePuedeRealizarAtaqueException;
+import modelo.cartas.CartaDeCampo;
+import modelo.cartas.CartaMagica;
+import modelo.cartas.CartaMonstruo;
+import modelo.exceptions.NoHaySuficientesMonstruosException;
+import modelo.exceptions.NoSePuedeRealizarAtaqueException;
 import modelo.CampoDeJuego;
-import modelo.CartaDeCampo;
 
 public class JugadorTest {
 

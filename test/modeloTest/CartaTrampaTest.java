@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import modelo.CampoDeJuego;
-import modelo.CartaTrampa;
+import modelo.cartas.CartaTrampa;
 
 public class CartaTrampaTest {
 

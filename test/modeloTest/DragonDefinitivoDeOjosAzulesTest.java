@@ -3,9 +3,9 @@ package modeloTest;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 import modelo.CampoDeJuego;
-import modelo.CartaMonstruo;
-import modelo.CartaDragonDefinitivoDeOjosAzules;
 import modelo.Jugador;
+import modelo.cartas.CartaDragonDefinitivoDeOjosAzules;
+import modelo.cartas.CartaMonstruo;
 
 public class DragonDefinitivoDeOjosAzulesTest {
 

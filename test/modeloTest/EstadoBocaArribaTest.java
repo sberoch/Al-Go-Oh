@@ -1,8 +1,9 @@
 package modeloTest;
 
-import modelo.EstadoBocaArriba;
 import static org.junit.Assert.assertFalse;
 import org.junit.Test;
+
+import modelo.estados.EstadoBocaArriba;
 
 public class EstadoBocaArribaTest {
 

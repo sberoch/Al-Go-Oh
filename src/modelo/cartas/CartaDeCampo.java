@@ -1,4 +1,13 @@
-package modelo;
+package modelo.cartas;
+
+import modelo.CampoDeJuego;
+import modelo.Jugador;
+import modelo.efectos.EfectoCampoInicial;
+import modelo.efectos.EfectoDeCartaCampo;
+import modelo.efectos.EfectoSogen;
+import modelo.efectos.EfectoWasteland;
+import modelo.estados.EstadoBocaArriba;
+import modelo.exceptions.ModoDeInvocacionInvalidoParaEstaCartaException;
 
 public class CartaDeCampo extends Carta {
 	

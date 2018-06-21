@@ -1,4 +1,6 @@
-package modelo;
+package modelo.cartas;
+
+import modelo.Jugador;
 
 public class CartaJinzo7 extends CartaMonstruo {
 	

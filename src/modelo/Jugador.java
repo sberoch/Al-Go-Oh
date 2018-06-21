@@ -1,5 +1,11 @@
 package modelo;
 
+import modelo.cartas.Carta;
+import modelo.cartas.CartaDeCampo;
+import modelo.cartas.CartaMagica;
+import modelo.cartas.CartaMonstruo;
+import modelo.cartas.CartaTrampa;
+
 public class Jugador {
 	
 	private int puntosDeVida;

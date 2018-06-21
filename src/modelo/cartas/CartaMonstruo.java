@@ -1,4 +1,15 @@
-package modelo;
+package modelo.cartas;
+
+import modelo.CampoDeJuego;
+import modelo.Estrellas;
+import modelo.Jugador;
+import modelo.estados.EstadoBocaAbajo;
+import modelo.estados.EstadoBocaArriba;
+import modelo.exceptions.NoHaySuficientesMonstruosException;
+import modelo.exceptions.NoSePuedeRealizarAtaqueException;
+import modelo.modos.Modo;
+import modelo.modos.ModoDeAtaque;
+import modelo.modos.ModoDeDefensa;
 
 public class CartaMonstruo extends Carta {
 

@@ -3,6 +3,8 @@ package modelo;
 import java.util.Iterator;
 import java.util.LinkedList;
 
+import modelo.cartas.Carta;
+
 public class Mano {
 	
 	private LinkedList<Carta> mano = new LinkedList<Carta>();

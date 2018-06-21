@@ -4,6 +4,8 @@ package modelo;
 import java.util.Iterator;
 import java.util.LinkedList;
 
+import modelo.cartas.Carta;
+
 public class Cementerio {
 	
 	private LinkedList<Carta> cartas = new LinkedList<Carta>();

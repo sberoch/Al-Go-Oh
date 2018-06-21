@@ -1,4 +1,8 @@
-package modelo;
+package modelo.cartas;
+
+import modelo.CampoDeJuego;
+import modelo.Jugador;
+import modelo.estados.EstadoBocaAbajo;
 
 public abstract class CartaMagiaOTrampa extends Carta {
 	

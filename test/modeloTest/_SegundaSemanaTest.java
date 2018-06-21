@@ -4,17 +4,17 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import modelo.CampoDeJuego;
-import modelo.CartaCilindroMagico;
-import modelo.CartaDeCampo;
-import modelo.CartaMagica;
-import modelo.CartaMonstruo;
-import modelo.CartaRefuerzos;
-import modelo.CartaDragonDefinitivoDeOjosAzules;
-import modelo.CartaInsectoComeHombres;
 import modelo.Jugador;
 import modelo.Mano;
-import modelo.CartaJinzo7;
-import modelo.CartaTrampa;
+import modelo.cartas.CartaCilindroMagico;
+import modelo.cartas.CartaDeCampo;
+import modelo.cartas.CartaDragonDefinitivoDeOjosAzules;
+import modelo.cartas.CartaInsectoComeHombres;
+import modelo.cartas.CartaJinzo7;
+import modelo.cartas.CartaMagica;
+import modelo.cartas.CartaMonstruo;
+import modelo.cartas.CartaRefuerzos;
+import modelo.cartas.CartaTrampa;
 
 public class _SegundaSemanaTest {
 	

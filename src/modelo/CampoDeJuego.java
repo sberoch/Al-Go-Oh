@@ -3,6 +3,13 @@ package modelo;
 import java.util.Iterator;
 import java.util.LinkedList;
 
+import modelo.cartas.CartaDeCampo;
+import modelo.cartas.CartaMagiaOTrampa;
+import modelo.cartas.CartaMagica;
+import modelo.cartas.CartaMonstruo;
+import modelo.exceptions.NoHaySuficientesMonstruosException;
+import modelo.exceptions.NoSePuedeRealizarAtaqueException;
+
 public class CampoDeJuego {
 	
 	private LinkedList<CartaMonstruo> monstruosEnJuego = new LinkedList<CartaMonstruo>();

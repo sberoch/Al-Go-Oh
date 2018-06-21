@@ -1,4 +1,6 @@
-package modelo;
+package modelo.cartas;
+
+import modelo.estados.EstadoBocaArriba;
 
 public class CartaInsectoComeHombres extends CartaMonstruo {
 

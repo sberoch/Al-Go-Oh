@@ -1,4 +1,4 @@
-package modelo;
+package modelo.cartas;
 
 public class CartaCilindroMagico extends CartaTrampa {
 

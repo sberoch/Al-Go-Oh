@@ -1,4 +1,6 @@
-package modelo;
+package modelo.efectos;
+
+import modelo.CampoDeJuego;
 
 public class EfectoAgujeroNegro implements Efecto {
 

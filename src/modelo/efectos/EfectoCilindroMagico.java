@@ -1,4 +1,4 @@
-package modelo;
+package modelo.efectos;
 
 public class EfectoCilindroMagico implements Efecto {
 

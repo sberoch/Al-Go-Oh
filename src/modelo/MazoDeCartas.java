@@ -4,6 +4,14 @@ import java.util.Collections;
 import java.util.EmptyStackException;
 import java.util.Stack;
 
+import modelo.cartas.Carta;
+import modelo.cartas.CartaDeCampo;
+import modelo.cartas.CartaDragonDefinitivoDeOjosAzules;
+import modelo.cartas.CartaInsectoComeHombres;
+import modelo.cartas.CartaJinzo7;
+import modelo.cartas.CartaMagica;
+import modelo.cartas.CartaMonstruo;
+
 public class MazoDeCartas {
 	
 	

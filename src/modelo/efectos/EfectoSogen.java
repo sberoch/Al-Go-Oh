@@ -1,5 +1,7 @@
-package modelo;
-	
+package modelo.efectos;
+
+import modelo.cartas.CartaMonstruo;
+
 public class EfectoSogen implements EfectoDeCartaCampo {
 	
 	

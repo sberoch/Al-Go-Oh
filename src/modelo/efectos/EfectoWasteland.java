@@ -1,4 +1,6 @@
-package modelo;
+package modelo.efectos;
+
+import modelo.cartas.CartaMonstruo;
 
 public class EfectoWasteland implements EfectoDeCartaCampo {
 	

@@ -1,4 +1,4 @@
-package modelo;
+package modelo.modos;
 
 public class ModoDeDefensa implements Modo {
 

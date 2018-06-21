@@ -4,8 +4,9 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
-import modelo.Carta;
+
 import modelo.MazoDeCartas;
+import modelo.cartas.Carta;
 
 
 public class MazoTest {
