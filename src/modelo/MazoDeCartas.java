@@ -13,6 +13,7 @@ import modelo.cartas.CartaJinzo7;
 import modelo.cartas.CartaMagica;
 import modelo.cartas.CartaMonstruo;
 import modelo.cartas.CartaRefuerzos;
+import modelo.cartas.CreadorDeCartas;
 
 public class MazoDeCartas {
 	
@@ -22,18 +23,11 @@ public class MazoDeCartas {
 	
 	public void llenar(Jugador duenioDelMazo, CampoDeJuego campoDelDuenio) {
 		
+		//Cartas Campo
 		pilaDeCartas.push(CartaDeCampo.crearSogen());
 		pilaDeCartas.push(CartaDeCampo.crearWasteland());
 		
-		pilaDeCartas.push(CartaMonstruo.crearDragonBlancoDeOjosAzules());
-		pilaDeCartas.push(CartaMonstruo.crearDragonBlancoDeOjosAzules());
-		pilaDeCartas.push(CartaMonstruo.crearDragonBlancoDeOjosAzules());
-		pilaDeCartas.push(CartaMonstruo.crearCabezaDeExodia());
-		pilaDeCartas.push(CartaMonstruo.crearBrazoDerechoExodia());
-		pilaDeCartas.push(CartaMonstruo.crearBrazoIzquierdoExodia());
-		pilaDeCartas.push(CartaMonstruo.crearPiernaDerechaExodia());
-		pilaDeCartas.push(CartaMonstruo.crearPiernaIzquierdaExodia());
-		
+		//Cartas Monstruo Normales
 		pilaDeCartas.push(new CartaMonstruo(800, 600, 3, "HalloHallo"));
 		pilaDeCartas.push(new CartaMonstruo(1200, 900, 3, "Espinas De Darkworld"));
 		pilaDeCartas.push(new CartaMonstruo(500, 1200, 3, "Espadachin De Landstar"));
@@ -51,14 +45,29 @@ public class MazoDeCartas {
 		pilaDeCartas.push(new CartaMonstruo(1200, 3000, 6, "Neo Madoor De Aqua"));
 		pilaDeCartas.push(new CartaMonstruo(2500, 2100, 7, "Mago Oscuro"));
 		pilaDeCartas.push(new CartaMonstruo(2400, 2000, 7, "Dragon Negro De Ojos Rojos"));
+		
+		//Cartas Monstruo especiales
+		pilaDeCartas.push(CreadorDeCartas.crearDragonBlancoDeOjosAzules());
+		pilaDeCartas.push(CreadorDeCartas.crearDragonBlancoDeOjosAzules());
+		pilaDeCartas.push(CreadorDeCartas.crearDragonBlancoDeOjosAzules());
+		pilaDeCartas.push(CreadorDeCartas.crearCabezaDeExodia());
+		pilaDeCartas.push(CreadorDeCartas.crearBrazoDerechoExodia());
+		pilaDeCartas.push(CreadorDeCartas.crearBrazoIzquierdoExodia());
+		pilaDeCartas.push(CreadorDeCartas.crearPiernaDerechaExodia());
+		pilaDeCartas.push(CreadorDeCartas.crearPiernaIzquierdaExodia());
+		
+		//Cartas Monstruo con Efecto
 		pilaDeCartas.push(new CartaDragonDefinitivoDeOjosAzules());
 		pilaDeCartas.push(new CartaJinzo7());
 		pilaDeCartas.push(new CartaInsectoComeHombres());
+		
+		//Cartas Trampa
 		pilaDeCartas.push(new CartaCilindroMagico());
 		pilaDeCartas.push(new CartaRefuerzos());
 		pilaDeCartas.push(new CartaCilindroMagico());
 		pilaDeCartas.push(new CartaRefuerzos());
 		
+		//Cartas Magicas
 		pilaDeCartas.push(CartaMagica.crearOllaDeLaCodicia(duenioDelMazo));
 		pilaDeCartas.push(CartaMagica.crearOllaDeLaCodicia(duenioDelMazo));
 		pilaDeCartas.push(CartaMagica.crearAgujeroNegro(campoDelDuenio));

@@ -6,6 +6,7 @@ import modelo.CampoDeJuego;
 import modelo.Jugador;
 import modelo.cartas.CartaDragonDefinitivoDeOjosAzules;
 import modelo.cartas.CartaMonstruo;
+import modelo.cartas.CreadorDeCartas;
 
 public class DragonDefinitivoDeOjosAzulesTest {
 
@@ -16,9 +17,9 @@ public class DragonDefinitivoDeOjosAzulesTest {
 		
 		this.darleCampoA(jugador);
 		
-		CartaMonstruo primerDragon = CartaMonstruo.crearDragonBlancoDeOjosAzules();
-		CartaMonstruo segundoDragon = CartaMonstruo.crearDragonBlancoDeOjosAzules();
-		CartaMonstruo tercerDragon = CartaMonstruo.crearDragonBlancoDeOjosAzules();
+		CartaMonstruo primerDragon = CreadorDeCartas.crearDragonBlancoDeOjosAzules();
+		CartaMonstruo segundoDragon = CreadorDeCartas.crearDragonBlancoDeOjosAzules();
+		CartaMonstruo tercerDragon = CreadorDeCartas.crearDragonBlancoDeOjosAzules();
 		
 		this.invocarDosMonstruos(jugador);
 		jugador.invocarMonstruoEnPosicionDeAtaque(primerDragon);

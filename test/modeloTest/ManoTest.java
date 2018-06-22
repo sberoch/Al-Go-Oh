@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import modelo.Mano;
 import modelo.cartas.CartaMonstruo;
+import modelo.cartas.CreadorDeCartas;
 
 public class ManoTest {
 
@@ -16,7 +17,7 @@ public class ManoTest {
 		
 		Mano mano = new Mano();
 		
-		mano.agregarCarta(CartaMonstruo.crearBrazoIzquierdoExodia());
+		mano.agregarCarta(CreadorDeCartas.crearBrazoIzquierdoExodia());
 		
 		assertEquals(1, mano.obtenerCantidadDeCartas());
 	}
@@ -27,11 +28,11 @@ public class ManoTest {
 		
 		Mano mano = new Mano();
 		
-		mano.agregarCarta(CartaMonstruo.crearBrazoIzquierdoExodia());
-		mano.agregarCarta(CartaMonstruo.crearBrazoDerechoExodia());
-		mano.agregarCarta(CartaMonstruo.crearCabezaDeExodia());
-		mano.agregarCarta(CartaMonstruo.crearPiernaDerechaExodia());
-		mano.agregarCarta(CartaMonstruo.crearPiernaIzquierdaExodia());
+		mano.agregarCarta(CreadorDeCartas.crearBrazoIzquierdoExodia());
+		mano.agregarCarta(CreadorDeCartas.crearBrazoDerechoExodia());
+		mano.agregarCarta(CreadorDeCartas.crearCabezaDeExodia());
+		mano.agregarCarta(CreadorDeCartas.crearPiernaDerechaExodia());
+		mano.agregarCarta(CreadorDeCartas.crearPiernaIzquierdaExodia());
 		
 		assertTrue(mano.estaExodiaCompleto());
 	}

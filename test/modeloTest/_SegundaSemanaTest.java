@@ -15,6 +15,7 @@ import modelo.cartas.CartaMagica;
 import modelo.cartas.CartaMonstruo;
 import modelo.cartas.CartaRefuerzos;
 import modelo.cartas.CartaTrampa;
+import modelo.cartas.CreadorDeCartas;
 
 public class _SegundaSemanaTest {
 	
@@ -213,9 +214,9 @@ public class _SegundaSemanaTest {
 		
 		this.darleCampoA(jugador);
 		
-		CartaMonstruo primerDragon = CartaMonstruo.crearDragonBlancoDeOjosAzules();
-		CartaMonstruo segundoDragon = CartaMonstruo.crearDragonBlancoDeOjosAzules();
-		CartaMonstruo tercerDragon = CartaMonstruo.crearDragonBlancoDeOjosAzules();
+		CartaMonstruo primerDragon = CreadorDeCartas.crearDragonBlancoDeOjosAzules();
+		CartaMonstruo segundoDragon = CreadorDeCartas.crearDragonBlancoDeOjosAzules();
+		CartaMonstruo tercerDragon = CreadorDeCartas.crearDragonBlancoDeOjosAzules();
 		
 		this.invocarDosMonstruos(jugador);
 		jugador.invocarMonstruoEnPosicionDeAtaque(primerDragon);
@@ -322,11 +323,11 @@ public class _SegundaSemanaTest {
 		
 		Mano mano = jugador.getMano();
 		
-		mano.agregarCarta(CartaMonstruo.crearBrazoIzquierdoExodia());
-		mano.agregarCarta(CartaMonstruo.crearBrazoDerechoExodia());
-		mano.agregarCarta(CartaMonstruo.crearCabezaDeExodia());
-		mano.agregarCarta(CartaMonstruo.crearPiernaDerechaExodia());
-		mano.agregarCarta(CartaMonstruo.crearPiernaIzquierdaExodia());
+		mano.agregarCarta(CreadorDeCartas.crearBrazoIzquierdoExodia());
+		mano.agregarCarta(CreadorDeCartas.crearBrazoDerechoExodia());
+		mano.agregarCarta(CreadorDeCartas.crearCabezaDeExodia());
+		mano.agregarCarta(CreadorDeCartas.crearPiernaDerechaExodia());
+		mano.agregarCarta(CreadorDeCartas.crearPiernaIzquierdaExodia());
 		
 		assertTrue(jugador.gano());
 	}

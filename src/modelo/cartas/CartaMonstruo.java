@@ -192,45 +192,6 @@ public class CartaMonstruo extends Carta {
 	public void atacarATuDuenio() {
 		
 		duenio.recibirDanio(ataque);
-	}
-	
-	
-	
-	
-	
-	
-	
-	public static CartaMonstruo crearDragonBlancoDeOjosAzules() {
-		
-		CartaMonstruo dragonBlancoDeOjosAzules = new CartaMonstruo(3000, 2500, 8, "Dragon Blanco de Ojos Azules");
-		return dragonBlancoDeOjosAzules;
-	}
-	
-	
-	public static CartaMonstruo crearCabezaDeExodia() {
-		CartaMonstruo cabezaDeExodia = new CartaMonstruo(1000, 1000, 3, "Exodia, el Prohibido");
-		return cabezaDeExodia;
-	}
-	
-	public static CartaMonstruo crearBrazoIzquierdoExodia() {
-		CartaMonstruo brazoIzquierdo = new CartaMonstruo(200, 300, 1, "Brazo Izquierdo del Prohibido");		
-		return brazoIzquierdo;
-	}
-	
-	public static CartaMonstruo crearBrazoDerechoExodia() {
-		CartaMonstruo brazoDerecho = new CartaMonstruo(200, 300, 1, "Brazo Derecho del Prohibido");		
-		return brazoDerecho;
-	}
-	
-	public static CartaMonstruo crearPiernaIzquierdaExodia() {
-		CartaMonstruo piernaIzquierda = new CartaMonstruo(200, 300, 1, "Pierna Izquierda del Prohibido");		
-		return piernaIzquierda;
-	}
-	
-	public static CartaMonstruo crearPiernaDerechaExodia() {
-		CartaMonstruo piernaDerecha = new CartaMonstruo(200, 300, 1, "Pierna Derecha del Prohibido");
-		return piernaDerecha;
-	}
-	
+	}	
 	
 }	
