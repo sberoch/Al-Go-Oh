@@ -195,6 +195,11 @@ public class CartaMonstruo extends Carta {
 	}
 	
 	
+	
+	
+	
+	
+	
 	public static CartaMonstruo crearDragonBlancoDeOjosAzules() {
 		
 		CartaMonstruo dragonBlancoDeOjosAzules = new CartaMonstruo(3000, 2500, 8, "Dragon Blanco de Ojos Azules");
@@ -226,11 +231,6 @@ public class CartaMonstruo extends Carta {
 		CartaMonstruo piernaDerecha = new CartaMonstruo(200, 300, 1, "Pierna Derecha del Prohibido");
 		return piernaDerecha;
 	}
-
-
 	
 	
-	
-	
-	
-}
+}	

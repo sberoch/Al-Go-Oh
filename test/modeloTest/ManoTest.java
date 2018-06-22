@@ -35,5 +35,4 @@ public class ManoTest {
 		
 		assertTrue(mano.estaExodiaCompleto());
 	}
-	
 }

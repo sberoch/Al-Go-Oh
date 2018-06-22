@@ -152,7 +152,7 @@ public class CampoDeJuego {
 
 
 	public void recibirAtaqueDirectoDe(CartaMonstruo atacante) {
-		
+			
 		try {
 			
 			if (!this.activarTrampaEnAtaqueDirecto(atacante)) {
@@ -162,12 +162,12 @@ public class CampoDeJuego {
 			
 			
 		} catch (NoSePuedeRealizarAtaqueException error) {
-		
+			
 			//enviar cartel en UI
-		}
-	}
-
-
+		}	
+	}		
+			
+			
 	public void asignarDuenio(Jugador unJugador) {
 
 		duenio = unJugador;
