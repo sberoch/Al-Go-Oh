@@ -79,9 +79,10 @@ public class Main extends Application {
 		layout.setRight(right);
 		
 	 	Scene scene = new Scene(layout, 1600, 900);
+	 	
 	 	stage.setScene(scene);
 	 	
-	 	stage.setFullScreenExitHint("");
+	 	stage.setFullScreenExitHint("Presione ESC para salir de pantalla completa");
 	 	stage.setFullScreen(true);
 	 	
 	 	stage.show();
