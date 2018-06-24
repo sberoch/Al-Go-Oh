@@ -20,6 +20,14 @@ public class Mano {
 		return (mano.size());
 	}
 	
+	
+	public Carta obtenerCartaEnPosicion(int posicion) {
+		
+		
+		return(mano.get(posicion));
+	}
+	
+	
 	public boolean estaExodiaCompleto() {
 		
 		return (this.estaLaParteDeExodia("Exodia, el Prohibido") &&

@@ -1,16 +1,17 @@
 package modelo.cartas;
 
+import java.io.FileInputStream;
+
 import modelo.CampoDeJuego;
 import modelo.Jugador;
 import modelo.estados.EstadoCarta;
 
 public abstract class Carta {
 	
-	protected EstadoCarta estado;
-	
-	protected Jugador duenio;
-	
+	protected EstadoCarta estado;	
+	protected Jugador duenio;	
 	protected String nombre;
+	protected FileInputStream imagen;
 	
 	public abstract void invocarBocaAbajo(Jugador unJugador, CampoDeJuego unCampo) throws Exception;
 	
@@ -35,5 +36,10 @@ public abstract class Carta {
 	public boolean fueDestruida() {
 		
 		return (duenio.verificarSiEstaEnElCementerio(this));
+	}
+	
+	public FileInputStream getImagen() {
+		
+		return (imagen);
 	}
 }

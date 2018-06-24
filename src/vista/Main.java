@@ -9,6 +9,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import modelo.CampoDeJuego;
+import modelo.Jugador;
 
 public class Main extends Application {
 
@@ -17,39 +19,40 @@ public class Main extends Application {
 		launch(args);
 	}
 	
-	@Override
+
 	 public void start(Stage stage) throws Exception {
 		
 		stage.setTitle("AL-GO-OH");
+		
+		Jugador jugador = new Jugador();
+		Jugador oponente = new Jugador();
+		
+		CampoDeJuego campo = new CampoDeJuego();
+		CampoDeJuego campoEnemigo = new CampoDeJuego();
+		
+		campo.asignarCampoEnemigo(campoEnemigo);
+		campoEnemigo.asignarCampoEnemigo(campo);
+		
+		jugador.asignarCampo(campo);
+		oponente.asignarCampo(campoEnemigo);
+		
+		jugador.llenarMazo();
+		oponente.llenarMazo();
+		
+		oponente.robarCartaDelMazo();
+		oponente.robarCartaDelMazo();
+		
+		jugador.robarCartaDelMazo();
+		jugador.robarCartaDelMazo();
+		jugador.robarCartaDelMazo();
+		
 	 	
 		//Top
-		HBox top = new HBox();
-		top.setSpacing(10);
-		top.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;"
-		        + "-fx-border-width: 2;" + "-fx-border-insets: 5;"
-		        + "-fx-border-radius: 5;" + "-fx-border-color: blue;");
-		top.setAlignment(Pos.CENTER);
-		top.setMinHeight(150);
-		
-		Text textTop = new Text("Cartas del Enemigo (Mostradas boca abajo, solo para ver cantidad)");
-		textTop.setFill(Color.BLUE);
-		textTop.setStyle("-fx-font: 24 arial;");
-		top.getChildren().add(textTop);
+		HBox top = new VistaManoEnemiga(oponente);
 		
 		
 		//Bottom
-		HBox bottom = new HBox();
-		bottom.setSpacing(10);
-		bottom.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;"
-		        + "-fx-border-width: 2;" + "-fx-border-insets: 5;"
-		        + "-fx-border-radius: 5;" + "-fx-border-color: red;");
-		bottom.setAlignment(Pos.CENTER);
-		bottom.setMinHeight(200);
-		
-		Text textBottom = new Text("Mis cartas y mi mazo");
-		textBottom.setFill(Color.RED);
-		textBottom.setStyle("-fx-font: 24 arial;");
-		bottom.getChildren().add(textBottom);
+		HBox bottom = new VistaManoJugador(jugador);
 		
 		
 		//Center
@@ -75,7 +78,7 @@ public class Main extends Application {
 		right.setAlignment(Pos.CENTER);
 		right.setMinWidth(250);
 		
-		Text textRight = new Text("Cementerios");
+		Text textRight = new Text("Acercamiento de Carta y descripcion de efecto");
 		textRight.setFill(Color.ORANGE);
 		textRight.setStyle("-fx-font: 24 arial;");
 		right.getChildren().add(textRight);

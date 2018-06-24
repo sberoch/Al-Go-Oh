@@ -7,7 +7,7 @@ public class CartaDragonDefinitivoDeOjosAzules extends CartaMonstruo {
 	
 	public CartaDragonDefinitivoDeOjosAzules() {
 		
-		super(4500, 3800, 12, "Dragon Definitivo de Ojos Azules");
+		super(4500, 3800, 12, "Dragon Definitivo de Ojos Azules", "images/DragonDefinitivo.jpeg");
 	}
 	
 	

@@ -7,7 +7,7 @@ public class CartaInsectoComeHombres extends CartaMonstruo {
 	
 	public CartaInsectoComeHombres() {
 		
-		super(450, 600, 2, "Insecto Come Hombres");
+		super(450, 600, 2, "Insecto Come Hombres", "images/InsectoComeHombres.jpeg");
 	}
 	
 	

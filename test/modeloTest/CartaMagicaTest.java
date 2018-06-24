@@ -13,7 +13,7 @@ public class CartaMagicaTest {
 	public void test01invocarBocaAbajoLaDejaConEstadoBocaAbajo() {
 		
 		CampoDeJuego unCampo = new CampoDeJuego();
-		CartaMagica trampa = new CartaMagica(null);
+		CartaMagica trampa = new CartaMagica(null, null, "");
 		trampa.invocarBocaAbajo(null, unCampo);
 		
 		assertTrue(trampa.estaBocaAbajo());

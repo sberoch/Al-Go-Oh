@@ -1,5 +1,8 @@
 package modelo.cartas;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 import modelo.CampoDeJuego;
 import modelo.Estrellas;
 import modelo.Jugador;
@@ -28,13 +31,21 @@ public class CartaMonstruo extends Carta {
 	}
 	
 	
-	public CartaMonstruo(int unAtaque, int unaDefensa, int unasEstrellas, String unNombre) {
+	public CartaMonstruo(int unAtaque, int unaDefensa, int unasEstrellas, String unNombre, String direccionImagen) {
 
 		ataque = unAtaque;
 		defensa = unaDefensa;
 		
 		estrellas = new Estrellas(unasEstrellas);
 		nombre = unNombre;
+		
+		try {
+			
+			imagen = new FileInputStream(direccionImagen);
+			
+		} catch (FileNotFoundException e) {
+			
+		}
 		
 	}
 	

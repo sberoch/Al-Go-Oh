@@ -15,7 +15,7 @@ public class CartaDeCampo extends Carta {
 	
 	
 	
-	private CartaDeCampo(EfectoDeCartaCampo unEfecto) {
+	private CartaDeCampo(EfectoDeCartaCampo unEfecto, String unNombre, String direccionImagen) {
 		
 		efecto = unEfecto;
 	}
@@ -49,7 +49,7 @@ public class CartaDeCampo extends Carta {
 		
 		EfectoDeCartaCampo efecto = new EfectoCampoInicial();
 		
-		return (new CartaDeCampo(efecto));
+		return (new CartaDeCampo(efecto, null, ""));
 	}
 	
 	
@@ -57,7 +57,7 @@ public class CartaDeCampo extends Carta {
 		
 		EfectoDeCartaCampo efecto = new EfectoWasteland();
 		
-		return (new CartaDeCampo(efecto));
+		return (new CartaDeCampo(efecto, "Wasteland", "images/Wasteland.jpeg"));
 	}
 	
 	
@@ -65,7 +65,7 @@ public class CartaDeCampo extends Carta {
 		
 		EfectoDeCartaCampo efecto = new EfectoSogen();
 		
-		return (new CartaDeCampo(efecto));
+		return (new CartaDeCampo(efecto, "Sogen", "images/Sogen.jpeg"));
 	}
 
 
