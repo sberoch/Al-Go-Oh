@@ -1,8 +1,16 @@
 package vista;
 
+import java.io.FileInputStream;
+
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
@@ -77,6 +85,10 @@ public class Main extends Application {
 		layout.setBottom(bottom);
 		layout.setCenter(center);
 		layout.setRight(right);
+		
+		Image imagen = new Image(new FileInputStream("images/Background.jpeg"));
+		BackgroundImage fondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+		layout.setBackground(new Background(fondo));
 		
 	 	Scene scene = new Scene(layout, 1600, 900);
 	 	
