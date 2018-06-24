@@ -23,7 +23,7 @@ public class VistaManoEnemiga extends HBox {
 			
 			try {
 				
-				this.getChildren().add(new VistaCartaBocaAbajo());
+				this.getChildren().add(new VistaCartaBocaAbajo(100));
 				
 				this.setSpacing(10);
 				

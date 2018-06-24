@@ -1,8 +1,5 @@
 package modelo.cartas;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-
 import modelo.CampoDeJuego;
 import modelo.Jugador;
 import modelo.efectos.Efecto;
@@ -15,19 +12,13 @@ public class CartaMagica extends CartaMagiaOTrampa {
 	
 	private Efecto efecto;
 	
-	public CartaMagica(Efecto unEfecto, String unNombre, String direccionImagen) {
+	public CartaMagica(Efecto unEfecto, String unNombre, String direccionDeLaImagen) {
 		
 		efecto = unEfecto;
 		
 		nombre = unNombre;
 		
-		try {
-			
-			imagen = new FileInputStream(direccionImagen);
-			
-		} catch (FileNotFoundException e) {
-			
-		}
+		direccionImagen = direccionDeLaImagen;
 		
 		
 	}

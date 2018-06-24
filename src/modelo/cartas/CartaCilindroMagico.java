@@ -1,8 +1,5 @@
 package modelo.cartas;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-
 public class CartaCilindroMagico extends CartaTrampa {
 
 	
@@ -11,13 +8,7 @@ public class CartaCilindroMagico extends CartaTrampa {
 		
 		nombre = "Cilindro Magico";
 		
-		try {
-			
-			imagen = new FileInputStream("images/CilindroMagico.jpeg");
-			
-		} catch (FileNotFoundException e) {
-			
-		}
+		direccionImagen = "images/CilindroMagico.jpeg";
 		
 	}
 	

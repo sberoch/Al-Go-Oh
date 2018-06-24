@@ -9,13 +9,13 @@ import javafx.scene.image.ImageView;
 public class VistaCartaBocaAbajo extends ImageView {
 
 	
-	public VistaCartaBocaAbajo() throws FileNotFoundException {
+	public VistaCartaBocaAbajo(int altura) throws FileNotFoundException {
 		
 		this.setPreserveRatio(true);
 		
 		this.setImage(new Image(new FileInputStream("images/CartaBocaAbajo.png")));
 		
-		this.setFitHeight(100);
+		this.setFitHeight(altura);
 
 	}
 	

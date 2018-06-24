@@ -1,7 +1,5 @@
 package modelo.cartas;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 public class CartaRefuerzos extends CartaTrampa {
 
 	
@@ -9,13 +7,7 @@ public class CartaRefuerzos extends CartaTrampa {
 		
 		nombre = "Refuerzos";
 		
-		try {
-			
-			imagen = new FileInputStream("images/Refuerzos.jpeg");
-			
-		} catch (FileNotFoundException e) {
-
-		}
+		direccionImagen = "images/Refuerzos.jpeg";
 	}
 	
 	public boolean activarEnAtaqueAMonstruo(CartaMonstruo atacante, CartaMonstruo atacado) {
