@@ -149,5 +149,10 @@ public class Jugador {
 		
 		return (this.acaboSuMazo() || (puntosDeVida <= 0));
 	}
+
+
+	public CampoDeJuego getCampo() {
+		return campo;
+	}
 		
 }

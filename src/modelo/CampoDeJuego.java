@@ -3,6 +3,7 @@ package modelo;
 import java.util.Iterator;
 import java.util.LinkedList;
 
+import modelo.cartas.Carta;
 import modelo.cartas.CartaDeCampo;
 import modelo.cartas.CartaMagiaOTrampa;
 import modelo.cartas.CartaMagica;
@@ -216,6 +217,13 @@ public class CampoDeJuego {
 	}
 	
 	
+	public int obtenerCantidadDeMagicas() {
+		
+		return (magiasYTrampasEnJuego.size());
+	}
+	
+	
+	
 	public void destruirUnMonstruo() {
 		
 		monstruosEnJuego.getLast().destruir();
@@ -286,6 +294,18 @@ public class CampoDeJuego {
 	public void destruirMonstruoDeMenorAtaqueDelOponente() {
 		
 		campoEnemigo.destruirMonstruoDeMenorAtaque();
+	}
+
+
+
+	public Carta obtenerCartaMagicaEnPosicion(int posicion) {
+		
+		return (magiasYTrampasEnJuego.get(posicion));
+	}
+	
+	public Carta obtenerCartaMonstruoEnPosicion(int posicion) {
+		
+		return (monstruosEnJuego.get(posicion));
 	}
 
 

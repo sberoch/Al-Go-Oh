@@ -3,7 +3,6 @@ package vista;
 import java.io.FileInputStream;
 
 import javafx.application.Application;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
@@ -13,11 +12,11 @@ import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import modelo.CampoDeJuego;
 import modelo.Jugador;
+import modelo.cartas.*;
 
 public class Main extends Application {
 
@@ -48,10 +47,20 @@ public class Main extends Application {
 		
 		oponente.robarCartaDelMazo();
 		oponente.robarCartaDelMazo();
+		oponente.robarCartaDelMazo();
+		oponente.robarCartaDelMazo();
+		oponente.invocarMonstruoEnPosicionDeAtaque(CreadorDeCartas.crearBrazoIzquierdoExodia());
+		oponente.invocarMonstruoEnPosicionDeDefensa(CreadorDeCartas.crearPiernaDerechaExodia());
+		oponente.invocarCartaTrampa(new CartaCilindroMagico());
+		
 		
 		jugador.robarCartaDelMazo();
 		jugador.robarCartaDelMazo();
 		jugador.robarCartaDelMazo();
+		jugador.invocarMonstruoEnPosicionDeAtaque(CreadorDeCartas.crearBrazoDerechoExodia());
+		jugador.invocarMonstruoEnPosicionDeDefensa(CreadorDeCartas.crearCabezaDeExodia());
+		jugador.invocarCartaTrampa(new CartaCilindroMagico());
+		jugador.invocarCartaTrampa(new CartaRefuerzos());
 		
 	 	
 		//Top
@@ -66,19 +75,21 @@ public class Main extends Application {
 		
 		
 		//Center
-		HBox center = new HBox();
+		VBox center = new VistaCampoDeJuego(jugador, oponente, right);
+		
+		
+		/*HBox center = new HBox();
 		center.setSpacing(10);
 		center.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;"
-		        + "-fx-border-width: 2;" + "-fx-border-insets: 5;"
-		        + "-fx-border-radius: 5;" + "-fx-border-color: green;");
+				+ "-fx-border-width: 2;" + "-fx-border-insets: 5;"
+				+ "-fx-border-radius: 5;" + "-fx-border-color: green;");
 		center.setAlignment(Pos.CENTER);
 		
 		Text textCenter = new Text("Todas las cartas en juego");
 		textCenter.setFill(Color.GREEN);
 		textCenter.setStyle("-fx-font: 24 arial;");
 		center.getChildren().add(textCenter);
-		
-		
+		*/
 		
 		BorderPane layout = new BorderPane();
 		layout.setTop(top);

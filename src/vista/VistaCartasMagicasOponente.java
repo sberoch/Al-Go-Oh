@@ -10,15 +10,11 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import modelo.Jugador;
 
-public class VistaManoEnemiga extends HBox {
+public class VistaCartasMagicasOponente extends HBox {
 	
-	
-	
-
-	public VistaManoEnemiga(Jugador oponente) {
+	public VistaCartasMagicasOponente(Jugador oponente) {
 		
-		int cantidadDeCartas = oponente.cartasEnMano();
-		
+		int cantidadDeCartas = oponente.getCampo().obtenerCantidadDeMagicas();
 		
 		for (int i = 0; i < cantidadDeCartas; i++) {
 			
@@ -32,6 +28,8 @@ public class VistaManoEnemiga extends HBox {
 				
 				this.setSpacing(10);
 				
+				this.setAlignment(Pos.CENTER);
+				
 				this.setPadding(new Insets(10));
 				
 			} catch (FileNotFoundException e) {
@@ -44,5 +42,5 @@ public class VistaManoEnemiga extends HBox {
 			}
 		}
 	}
-	
+
 }

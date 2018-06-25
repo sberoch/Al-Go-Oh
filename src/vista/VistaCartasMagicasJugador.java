@@ -4,33 +4,32 @@ import java.io.FileNotFoundException;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import modelo.CampoDeJuego;
 import modelo.Jugador;
+import modelo.cartas.Carta;
 
-public class VistaManoEnemiga extends HBox {
+public class VistaCartasMagicasJugador extends HBox {
 	
-	
-	
-
-	public VistaManoEnemiga(Jugador oponente) {
+	public VistaCartasMagicasJugador(Jugador jugador, VistaInfoDeCarta acercamiento) {
 		
-		int cantidadDeCartas = oponente.cartasEnMano();
+		CampoDeJuego campo = jugador.getCampo();
 		
+		int cantidadDeCartas = campo.obtenerCantidadDeMagicas();
 		
 		for (int i = 0; i < cantidadDeCartas; i++) {
 			
 			try {
 				
-				ImageView vistaDeCarta = new VistaCartaBocaAbajo(100);
+				Carta cartaActual = campo.obtenerCartaMagicaEnPosicion(i);
 				
-				vistaDeCarta.setRotate(180);
-				
-				this.getChildren().add(vistaDeCarta);
+				this.getChildren().add(new VistaCartaBocaAbajo(cartaActual, 100, acercamiento));
 				
 				this.setSpacing(10);
+				
+				this.setAlignment(Pos.CENTER);
 				
 				this.setPadding(new Insets(10));
 				
@@ -44,5 +43,4 @@ public class VistaManoEnemiga extends HBox {
 			}
 		}
 	}
-	
 }

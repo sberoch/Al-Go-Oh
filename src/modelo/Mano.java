@@ -23,7 +23,6 @@ public class Mano {
 	
 	public Carta obtenerCartaEnPosicion(int posicion) {
 		
-		
 		return(mano.get(posicion));
 	}
 	
