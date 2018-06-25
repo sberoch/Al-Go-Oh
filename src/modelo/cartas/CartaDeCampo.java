@@ -15,9 +15,13 @@ public class CartaDeCampo extends Carta {
 	
 	
 	
-	private CartaDeCampo(EfectoDeCartaCampo unEfecto, String unNombre, String direccionImagen) {
+	private CartaDeCampo(EfectoDeCartaCampo unEfecto, String unNombre, String direccionDeImagen) {
 		
 		efecto = unEfecto;
+		
+		nombre = unNombre;
+		
+		direccionImagen = direccionDeImagen;
 	}
 	
 	

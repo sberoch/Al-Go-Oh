@@ -11,7 +11,6 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import modelo.CampoDeJuego;
@@ -57,6 +56,8 @@ public class Main extends Application {
 		jugador.robarCartaDelMazo();
 		jugador.robarCartaDelMazo();
 		jugador.robarCartaDelMazo();
+		jugador.robarCartaDelMazo();
+
 		jugador.invocarMonstruoEnPosicionDeAtaque(CreadorDeCartas.crearBrazoDerechoExodia());
 		jugador.invocarMonstruoEnPosicionDeDefensa(CreadorDeCartas.crearCabezaDeExodia());
 		jugador.invocarCartaTrampa(new CartaCilindroMagico());
@@ -64,32 +65,20 @@ public class Main extends Application {
 		
 	 	
 		//Top
-		VistaManoEnemiga top = new VistaManoEnemiga(oponente);
+		BorderPane top = new VistaHUDJugador(oponente);
 		
 		//Right
 		VistaInfoDeCarta right = new VistaInfoDeCarta();
 		
 		
 		//Bottom
-		HBox bottom = new VistaManoJugador(jugador, right);
+		BorderPane bottom = new VistaHUDJugador(jugador, right);
+		
 		
 		
 		//Center
 		VBox center = new VistaCampoDeJuego(jugador, oponente, right);
 		
-		
-		/*HBox center = new HBox();
-		center.setSpacing(10);
-		center.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;"
-				+ "-fx-border-width: 2;" + "-fx-border-insets: 5;"
-				+ "-fx-border-radius: 5;" + "-fx-border-color: green;");
-		center.setAlignment(Pos.CENTER);
-		
-		Text textCenter = new Text("Todas las cartas en juego");
-		textCenter.setFill(Color.GREEN);
-		textCenter.setStyle("-fx-font: 24 arial;");
-		center.getChildren().add(textCenter);
-		*/
 		
 		BorderPane layout = new BorderPane();
 		layout.setTop(top);

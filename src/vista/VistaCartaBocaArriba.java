@@ -3,6 +3,7 @@ package vista;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
+import controlador.DragEnCartaDeLaMano;
 import controlador.MouseEncimaDeCartaHandler;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -11,7 +12,11 @@ import modelo.cartas.Carta;
 public class VistaCartaBocaArriba extends ImageView {
 
 	
+	private Carta carta;
+	
 	public VistaCartaBocaArriba(Carta unaCarta, int altura, VistaInfoDeCarta acercamiento) throws FileNotFoundException {
+		
+		carta = unaCarta;
 		
 		this.setPreserveRatio(true);
 		
@@ -20,6 +25,8 @@ public class VistaCartaBocaArriba extends ImageView {
 		this.setFitHeight(altura);
 		
 		this.setOnMouseEntered(new MouseEncimaDeCartaHandler(unaCarta, acercamiento));
+				
+		this.setOnDragDetected(new DragEnCartaDeLaMano(unaCarta, this));
 
 	}
 	
@@ -32,6 +39,12 @@ public class VistaCartaBocaArriba extends ImageView {
 		
 		this.setFitHeight(altura);
 
+	}
+
+
+	public Carta getCarta() {
+
+		return (carta);
 	}
 	
 }
