@@ -25,7 +25,6 @@ public class SeInvocaUnaCartaHandler implements EventHandler<DragEvent> {
 	public void handle(DragEvent evento) {
 		
 		
-		
 		VistaCartaBocaArriba vistaDeCartaInvocada = (VistaCartaBocaArriba) evento.getGestureSource();
 		
 		Carta cartaInvocada = vistaDeCartaInvocada.getCarta();
