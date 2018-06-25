@@ -9,8 +9,9 @@ public class SeQuiereInvocarUnaCartaHandler implements EventHandler<DragEvent> {
 
 	public void handle(DragEvent evento) {
 		
-        if (evento.getDragboard().getString() == "invocacion") {
-           
+    	
+        if (evento.getDragboard().getString() == "Invocacion") {
+        	
             evento.acceptTransferModes(TransferMode.ANY);
         }
         

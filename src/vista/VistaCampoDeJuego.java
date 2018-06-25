@@ -31,7 +31,7 @@ public class VistaCampoDeJuego extends VBox {
 		
 		this.setOnDragOver(new SeQuiereInvocarUnaCartaHandler());
 		
-		this.setOnDragDropped(new SeInvocaUnaCartaHandler(jugador, oponente, this));
+		this.setOnDragDropped(new SeInvocaUnaCartaHandler(jugador, this));
 		
 		jugadorActual = jugador;
 		
@@ -48,10 +48,14 @@ public class VistaCampoDeJuego extends VBox {
 		HBox cartasMonstruoOponente = new VistaCartasMonstruoOponente(oponenteActual, infoDeCarta);
 		HBox cartasMagicasJugador = new VistaCartasMagicasJugador(jugadorActual, infoDeCarta);
 		
+		this.getChildren().clear();
+		
+		
 		this.getChildren().add(cartasMagicasOponente);
 		this.getChildren().add(cartasMonstruoOponente);
 		this.getChildren().add(cartasMonstruoJugador);
 		this.getChildren().add(cartasMagicasJugador);
+		
 		
 	}
 	

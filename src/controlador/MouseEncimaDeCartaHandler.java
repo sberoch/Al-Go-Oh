@@ -2,7 +2,6 @@ package controlador;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;

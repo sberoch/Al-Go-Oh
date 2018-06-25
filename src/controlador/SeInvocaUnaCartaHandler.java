@@ -4,7 +4,6 @@ import javafx.event.EventHandler;
 import javafx.scene.input.DragEvent;
 import modelo.Jugador;
 import modelo.cartas.Carta;
-import modelo.cartas.CartaMonstruo;
 import vista.VistaCampoDeJuego;
 import vista.VistaCartaBocaArriba;
 
@@ -14,11 +13,9 @@ public class SeInvocaUnaCartaHandler implements EventHandler<DragEvent> {
 	
 	private Jugador duenio;
 	
-	private Jugador jugadorOpuesto;
-	
 	private VistaCampoDeJuego vistaCampo;
 
-	public SeInvocaUnaCartaHandler(Jugador jugador, Jugador oponente, VistaCampoDeJuego vistaCampoDeJuego) {
+	public SeInvocaUnaCartaHandler(Jugador jugador, VistaCampoDeJuego vistaCampoDeJuego) {
 
 		duenio = jugador;
 		
@@ -27,13 +24,15 @@ public class SeInvocaUnaCartaHandler implements EventHandler<DragEvent> {
 
 	public void handle(DragEvent evento) {
 		
-		VistaCartaBocaArriba vistaDeCartaInvocada = (VistaCartaBocaArriba) evento.getAcceptingObject();
+		
+		
+		VistaCartaBocaArriba vistaDeCartaInvocada = (VistaCartaBocaArriba) evento.getGestureSource();
 		
 		Carta cartaInvocada = vistaDeCartaInvocada.getCarta();
 		
 		try {
 			
-			duenio.invocarMonstruoEnPosicionDeAtaque((CartaMonstruo) cartaInvocada);
+			duenio.invocarCartaBocaArriba(cartaInvocada);
 			
 		} catch (Exception e) {
 

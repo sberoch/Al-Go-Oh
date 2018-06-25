@@ -33,6 +33,18 @@ public class Jugador {
 	}
 	
 	
+	public void invocarCartaBocaArriba(Carta carta) throws Exception {
+		
+		carta.invocarBocaArriba(this, campo);
+		
+	}
+	
+	public void invocarCartaBocaAbajo(Carta carta) throws Exception {
+		
+		carta.invocarBocaAbajo(this, campo);
+		
+	}
+	
 	public int getPuntosDeVida() {
 		
 		return puntosDeVida;
