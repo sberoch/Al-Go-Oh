@@ -90,11 +90,17 @@ public class Main extends Application {
 		BackgroundImage fondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
 		layout.setBackground(new Background(fondo));
 		
-	 	Scene scene = new Scene(layout, 1600, 900);
+	 	Scene escenaPrincipal = new Scene(layout, 1600, 900);
 	 	
-	 	stage.setScene(scene);
 	 	
-	 	stage.setFullScreenExitHint("Presione ESC para salir de pantalla completa");
+	 	ContenedorBienvenidos contenedorBienvenidos = new ContenedorBienvenidos(stage, escenaPrincipal);
+	 	
+	 	
+	 	Scene escenaBienvenidos = new Scene(contenedorBienvenidos, 1600, 900);
+	 	stage.setScene(escenaBienvenidos);
+
+	 	
+	 	stage.setFullScreenExitHint("");
 	 	stage.setFullScreen(true);
 	 	
 	 	stage.show();

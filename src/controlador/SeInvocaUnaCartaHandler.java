@@ -26,7 +26,7 @@ public class SeInvocaUnaCartaHandler implements EventHandler<DragEvent> {
 		
 		vistaCampo = vistaCampoDeJuego;
 		
-		String musicFile = "sounds/ataque.mp3";    
+		String musicFile = "sounds/ataque.wav";    
 		
 		Media sound = new Media(new File(musicFile).toURI().toString());
 		mediaPlayer = new MediaPlayer(sound);
