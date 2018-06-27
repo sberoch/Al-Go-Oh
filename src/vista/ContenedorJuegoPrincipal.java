@@ -57,25 +57,23 @@ public class ContenedorJuegoPrincipal extends BorderPane {
 	 	
 		//Top
 		BorderPane top = new VistaHUDJugador(oponente);
+		this.setTop(top);
 		
 		//Right
 		VistaInfoDeCarta right = new VistaInfoDeCarta();
+		this.setRight(right);
 		
 		
 		//Bottom
 		BorderPane bottom = new VistaHUDJugador(jugador, right);
+		this.setBottom(bottom);
 		
 		
 		
 		//Center
-		VBox center = new VistaCampoDeJuego(jugador, oponente, right);
-		
-		
-
-		this.setTop(top);
-		this.setBottom(bottom);
+		VBox center = new VistaCampoDeJuego(jugador, oponente, this);
 		this.setCenter(center);
-		this.setRight(right);
+		
 		
 		Image imagen = new Image(new FileInputStream("images/Background.jpeg"));
 		BackgroundImage fondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);

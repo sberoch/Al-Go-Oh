@@ -55,6 +55,13 @@ public class Mano {
 	}
 	
 	
+
+	public void removerCarta(Carta carta) {
+		
+		mano.remove(carta);
+	}
+	
+	
 	
 	
 }

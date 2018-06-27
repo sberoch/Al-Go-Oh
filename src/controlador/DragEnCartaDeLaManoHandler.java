@@ -8,7 +8,7 @@ import javafx.scene.input.TransferMode;
 import modelo.cartas.Carta;
 import vista.VistaCartaBocaArriba;
 
-public class DragEnCartaDeLaMano implements EventHandler<MouseEvent> {
+public class DragEnCartaDeLaManoHandler implements EventHandler<MouseEvent> {
 	
 	
 	Carta carta;
@@ -16,7 +16,7 @@ public class DragEnCartaDeLaMano implements EventHandler<MouseEvent> {
 	VistaCartaBocaArriba vista;
 	
 	
-	public DragEnCartaDeLaMano(Carta unaCarta, VistaCartaBocaArriba vistaCartaBocaArriba) {
+	public DragEnCartaDeLaManoHandler(Carta unaCarta, VistaCartaBocaArriba vistaCartaBocaArriba) {
 		
 		carta = unaCarta;
 		

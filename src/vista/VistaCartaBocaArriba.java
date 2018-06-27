@@ -2,8 +2,6 @@ package vista;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-
-import controlador.DragEnCartaDeLaMano;
 import controlador.MouseEncimaDeCartaHandler;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -25,8 +23,6 @@ public class VistaCartaBocaArriba extends ImageView {
 		this.setFitHeight(altura);
 		
 		this.setOnMouseEntered(new MouseEncimaDeCartaHandler(unaCarta, acercamiento));
-				
-		this.setOnDragDetected(new DragEnCartaDeLaMano(unaCarta, this));
 
 	}
 	

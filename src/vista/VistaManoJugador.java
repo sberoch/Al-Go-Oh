@@ -14,12 +14,28 @@ import modelo.cartas.Carta;
 public class VistaManoJugador extends HBox {
 
 	
+	private Mano mano;
+	
+	private VistaInfoDeCarta infoDeCarta;
+	
+	
+	
+	
 	public VistaManoJugador(Jugador jugador, VistaInfoDeCarta acercamiento) {
 		
-		int cantidadDeCartas = jugador.cartasEnMano();
+		mano = jugador.getMano();
 		
-		Mano mano = jugador.getMano();
+		infoDeCarta = acercamiento;
 		
+		this.actualizar();
+	}
+
+
+	public void actualizar() {
+		
+		this.getChildren().clear();
+		
+		int cantidadDeCartas = mano.obtenerCantidadDeCartas();
 		
 		for (int i = 0; i < cantidadDeCartas; i++) {
 			
@@ -27,7 +43,7 @@ public class VistaManoJugador extends HBox {
 				
 				Carta cartaActual = mano.obtenerCartaEnPosicion(i);
 				
-				this.getChildren().add(new VistaCartaBocaArriba(cartaActual, 100, acercamiento));
+				this.getChildren().add(new VistaCartaBocaArribaEnMano(cartaActual, 100, infoDeCarta));
 				
 				this.setSpacing(10);
 				
@@ -42,6 +58,7 @@ public class VistaManoJugador extends HBox {
 				this.getChildren().add(textTop);
 			}
 		}
+		
 	}
 	
 }

@@ -37,6 +37,8 @@ public class Jugador {
 		
 		carta.invocarBocaArriba(this, campo);
 		
+		mano.removerCarta(carta);
+		
 	}
 	
 	public void invocarCartaBocaAbajo(Carta carta) throws Exception {

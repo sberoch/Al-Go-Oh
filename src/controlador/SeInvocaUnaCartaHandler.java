@@ -11,6 +11,7 @@ import modelo.Jugador;
 import modelo.cartas.Carta;
 import vista.VistaCampoDeJuego;
 import vista.VistaCartaBocaArriba;
+import vista.VistaManoJugador;
 
 public class SeInvocaUnaCartaHandler implements EventHandler<DragEvent> {
 
@@ -19,12 +20,16 @@ public class SeInvocaUnaCartaHandler implements EventHandler<DragEvent> {
 	private Jugador duenio;
 	
 	private VistaCampoDeJuego vistaCampo;
+	
+	private VistaManoJugador vistaMano;
 
-	public SeInvocaUnaCartaHandler(Jugador jugador, VistaCampoDeJuego vistaCampoDeJuego) {
+	public SeInvocaUnaCartaHandler(Jugador jugador, VistaCampoDeJuego vistaCampoDeJuego, VistaManoJugador manoDeJugador) {
 
 		duenio = jugador;
 		
 		vistaCampo = vistaCampoDeJuego;
+		
+		vistaMano = manoDeJugador;
 		
 		String musicFile = "sounds/ataque.wav";    
 		
@@ -52,6 +57,7 @@ public class SeInvocaUnaCartaHandler implements EventHandler<DragEvent> {
 		
 		vistaCampo.actualizar();
 		
+		vistaMano.actualizar();		
 		
 	}
 	
