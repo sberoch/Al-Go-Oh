@@ -82,11 +82,7 @@ public class Jugador {
 		monstruo.invocarBocaAbajo(this, campo);
 		
 	}
-	
-	public void atacarConMonstruoAMonstruoEnemigoConPosiciones(int posicionAtacante, int posicionAtacado) {
-		
-		campo.atacarConMonstruoAEnemigo(posicionAtacante, posicionAtacado);
-	}
+
 	
 	public void invocarCartaMagicaBocaArriba(CartaMagica cartaMagica) {
 		

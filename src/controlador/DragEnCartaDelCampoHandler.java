@@ -7,25 +7,25 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
 import vista.VistaCartaBocaArriba;
 
-public class DragEnCartaDeLaManoHandler implements EventHandler<MouseEvent> {
-	
+public class DragEnCartaDelCampoHandler implements EventHandler<MouseEvent> {
+
 	
 	VistaCartaBocaArriba vista;
 	
 	
-	public DragEnCartaDeLaManoHandler(VistaCartaBocaArriba vistaCartaBocaArriba) {
+	public DragEnCartaDelCampoHandler(VistaCartaBocaArriba vistaCartaBocaArriba) {
 		
 		vista = vistaCartaBocaArriba;
 	}
 	
+	
 	public void handle(MouseEvent evento) {
-			
-		Dragboard dragDeCarta = vista.startDragAndDrop(TransferMode.MOVE);
+		
+		Dragboard dragDeCarta = vista.startDragAndDrop(TransferMode.ANY);
 		
 		ClipboardContent contenido = new ClipboardContent();
 		
-		contenido.putString("Invocacion");
-		//		contenido.putString("Invicacion"); ????????????????????????
+		contenido.putString("Ataque");
 		
 		contenido.putImage(vista.getImage());
 		
@@ -33,5 +33,5 @@ public class DragEnCartaDeLaManoHandler implements EventHandler<MouseEvent> {
 		
 		evento.consume();
 	}
-
+	
 }

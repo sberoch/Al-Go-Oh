@@ -15,9 +15,30 @@ import modelo.cartas.Carta;
 public class VistaCartasMonstruoOponente extends HBox {
 	
 	
-	public VistaCartasMonstruoOponente(Jugador jugador, VistaInfoDeCarta acercamiento) {
+	private CampoDeJuego campo;
+	
+	private VistaInfoDeCarta acercamiento;
+	
+	private ContenedorJuegoPrincipal vistaDelJuego;
+	
+	
+	public VistaCartasMonstruoOponente(Jugador jugador, ContenedorJuegoPrincipal vistaJuego) {
 		
-		CampoDeJuego campo = jugador.getCampo();
+		this.setMinHeight(110);
+		
+		acercamiento = (VistaInfoDeCarta) vistaJuego.getRight();
+		
+		campo = jugador.getCampo();
+		
+		vistaDelJuego = vistaJuego;
+		
+		this.actualizar();
+		
+	}
+
+	public void actualizar() {
+		
+		this.getChildren().clear();
 		
 		int cantidadDeCartas = campo.obtenerCantidadDeMonstruos();
 		
@@ -29,7 +50,7 @@ public class VistaCartasMonstruoOponente extends HBox {
 				
 				if(cartaActual.estaBocaAbajo()) {
 					
-					ImageView vistaDeCarta = new VistaCartaBocaAbajoEnDefensa(cartaActual, 100);
+					ImageView vistaDeCarta = new VistaCartaBocaAbajoEnDefensaEnCampoEnemigo(cartaActual, vistaDelJuego);
 					
 					vistaDeCarta.setRotate(180);
 					
@@ -37,7 +58,7 @@ public class VistaCartasMonstruoOponente extends HBox {
 				
 				} else {
 					
-					ImageView vistaDeCarta = new VistaCartaBocaArriba(cartaActual, 100, acercamiento);
+					ImageView vistaDeCarta = new VistaCartaBocaArribaEnCampoEnemigo(cartaActual, acercamiento, vistaDelJuego);
 					
 					vistaDeCarta.setRotate(180);
 					

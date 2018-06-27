@@ -52,7 +52,7 @@ public class JugadorTest {
 		jugador.invocarMonstruoEnPosicionDeAtaque(monstruoDelJugador);
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruoDelOponente);
 		
-		oponente.atacarConMonstruoAMonstruoEnemigoConPosiciones(1, 1);
+		monstruoDelOponente.atacarA(monstruoDelJugador);
 		
 		int esperado = 8000 - 200;
 		assertEquals(esperado, jugador.getPuntosDeVida());
@@ -75,7 +75,7 @@ public class JugadorTest {
 		jugador.invocarMonstruoEnPosicionDeAtaque(monstruoDelJugador);
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruoDelOponente);
 		
-		oponente.atacarConMonstruoAMonstruoEnemigoConPosiciones(1, 1);
+		monstruoDelOponente.atacarA(monstruoDelJugador);
 		
 		int esperado = 8000 - 200;
 		assertEquals(esperado, oponente.getPuntosDeVida());
@@ -97,7 +97,7 @@ public class JugadorTest {
 		jugador.invocarMonstruoEnPosicionDeAtaque(monstruoDelJugador);
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruoDelOponente);
 		
-		oponente.atacarConMonstruoAMonstruoEnemigoConPosiciones(1, 1);
+		monstruoDelOponente.atacarA(monstruoDelJugador);
 		
 		assertTrue(monstruoDelJugador.fueDestruida());
 		assertTrue(monstruoDelOponente.fueDestruida());
@@ -122,7 +122,7 @@ public class JugadorTest {
 		jugador.invocarMonstruoEnPosicionDeDefensa(monstruoDelJugador);
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruoDelOponente);
 		
-		oponente.atacarConMonstruoAMonstruoEnemigoConPosiciones(1, 1);
+		monstruoDelOponente.atacarA(monstruoDelJugador);
 		
 		assertEquals(8000, jugador.getPuntosDeVida());
 		
@@ -143,7 +143,7 @@ public class JugadorTest {
 		jugador.invocarMonstruoEnPosicionDeDefensa(monstruoDelJugador);
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruoDelOponente);
 		
-		oponente.atacarConMonstruoAMonstruoEnemigoConPosiciones(1, 1);
+		monstruoDelOponente.atacarA(monstruoDelJugador);
 		
 		assertEquals(8000, oponente.getPuntosDeVida());
 		

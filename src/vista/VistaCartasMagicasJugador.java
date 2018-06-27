@@ -2,6 +2,8 @@ package vista;
 
 import java.io.FileNotFoundException;
 
+import controlador.SeInvocaUnaCartaHandler;
+import controlador.SeQuiereInvocarUnaCartaHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.layout.HBox;
@@ -12,10 +14,29 @@ import modelo.Jugador;
 import modelo.cartas.Carta;
 
 public class VistaCartasMagicasJugador extends HBox {
+
 	
-	public VistaCartasMagicasJugador(Jugador jugador, VistaInfoDeCarta acercamiento) {
+	private CampoDeJuego campo;
+	
+	private VistaInfoDeCarta acercamiento;
+	
+	
+	
+	public VistaCartasMagicasJugador(Jugador jugador, ContenedorJuegoPrincipal vistaJuego) {
+
+		this.setMinHeight(110);
 		
-		CampoDeJuego campo = jugador.getCampo();
+		acercamiento = (VistaInfoDeCarta) vistaJuego.getRight();
+		
+		campo = jugador.getCampo();
+		
+		this.actualizar();
+		
+	}
+
+	public void actualizar() {
+		
+		this.getChildren().clear();
 		
 		int cantidadDeCartas = campo.obtenerCantidadDeMagicas();
 		
@@ -42,5 +63,6 @@ public class VistaCartasMagicasJugador extends HBox {
 				this.getChildren().add(textTop);
 			}
 		}
+		
 	}
 }

@@ -9,8 +9,18 @@ import modelo.Jugador;
 
 public class VistaPuntosDeVida extends HBox {
 	
+	private Jugador jugador;
 	
-	public VistaPuntosDeVida(Jugador jugador) {
+	public VistaPuntosDeVida(Jugador jugadorVisto) {
+		
+		jugador = jugadorVisto;
+		
+		this.actualizar();
+	}
+
+	public void actualizar() {
+		
+		this.getChildren().clear();
 		
 		Text vida = new Text();
 		
@@ -29,7 +39,6 @@ public class VistaPuntosDeVida extends HBox {
 		this.setMinWidth(250);
 
 		this.getChildren().add(vida);
-		
 		
 	}
 

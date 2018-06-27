@@ -12,7 +12,7 @@ public class VistaCartaBocaArribaEnMano extends VistaCartaBocaArriba {
 		
 		super(unaCarta, altura, acercamiento);
 		
-		this.setOnDragDetected(new DragEnCartaDeLaManoHandler(unaCarta, this));
+		this.setOnDragDetected(new DragEnCartaDeLaManoHandler(this));
 		
 	}
 

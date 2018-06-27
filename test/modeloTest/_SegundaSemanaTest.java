@@ -243,13 +243,17 @@ public class _SegundaSemanaTest {
 		
 		this.darlesCamposAJugadores(jugador, oponente);
 		
+		CartaMonstruo insecto = new CartaInsectoComeHombres();
+		
 		CartaMonstruo monstruoOponente = new CartaMonstruo(2000, 1300, 4);
 		
-		jugador.invocarMonstruoEnPosicionDeDefensa(new CartaInsectoComeHombres());
+		jugador.invocarMonstruoEnPosicionDeDefensa(insecto);
 		
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruoOponente);
 		
-		oponente.atacarConMonstruoAMonstruoEnemigoConPosiciones(1, 1);
+		CampoDeJuego campo = oponente.getCampo();
+		
+		campo.atacarAMonstruoCon(insecto, monstruoOponente);
 		
 		assertTrue(monstruoOponente.fueDestruida());
 		
@@ -294,7 +298,10 @@ public class _SegundaSemanaTest {
 		jugador.invocarMonstruoEnPosicionDeAtaque(monstruo);
 		
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruoOponente);
-		oponente.atacarConMonstruoAMonstruoEnemigoConPosiciones(1, 1);
+		
+		CampoDeJuego campo = oponente.getCampo();
+		
+		campo.atacarConMonstruoAEnemigo(monstruoOponente, monstruo);
 		
 		assertEquals(7900, oponente.getPuntosDeVida());
 		assertTrue(monstruoOponente.fueDestruida());

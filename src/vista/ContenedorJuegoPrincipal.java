@@ -13,6 +13,8 @@ import javafx.scene.layout.VBox;
 import modelo.CampoDeJuego;
 import modelo.Jugador;
 import modelo.cartas.CartaCilindroMagico;
+import modelo.cartas.CartaJinzo7;
+import modelo.cartas.CartaMagica;
 import modelo.cartas.CartaRefuerzos;
 import modelo.cartas.CreadorDeCartas;
 
@@ -41,7 +43,7 @@ public class ContenedorJuegoPrincipal extends BorderPane {
 		oponente.robarCartaDelMazo();
 		oponente.invocarMonstruoEnPosicionDeAtaque(CreadorDeCartas.crearBrazoIzquierdoExodia());
 		oponente.invocarMonstruoEnPosicionDeDefensa(CreadorDeCartas.crearPiernaDerechaExodia());
-		oponente.invocarCartaTrampa(new CartaCilindroMagico());
+		oponente.invocarCartaBocaAbajo(CartaMagica.crearAgujeroNegro(campoEnemigo));
 		
 		
 		jugador.robarCartaDelMazo();
@@ -49,8 +51,7 @@ public class ContenedorJuegoPrincipal extends BorderPane {
 		jugador.robarCartaDelMazo();
 		jugador.robarCartaDelMazo();
 
-		jugador.invocarMonstruoEnPosicionDeAtaque(CreadorDeCartas.crearBrazoDerechoExodia());
-		jugador.invocarMonstruoEnPosicionDeDefensa(CreadorDeCartas.crearCabezaDeExodia());
+		jugador.invocarMonstruoEnPosicionDeAtaque(new CartaJinzo7());
 		jugador.invocarCartaTrampa(new CartaCilindroMagico());
 		jugador.invocarCartaTrampa(new CartaRefuerzos());
 		

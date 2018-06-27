@@ -12,7 +12,23 @@ import modelo.Jugador;
 
 public class VistaCartasMagicasOponente extends HBox {
 	
-	public VistaCartasMagicasOponente(Jugador oponente) {
+	private Jugador oponente;
+	
+	
+	
+	public VistaCartasMagicasOponente(Jugador oponenteActual) {
+		
+		oponente = oponenteActual;
+		
+		this.setMinHeight(110);
+		
+		this.actualizar();
+		
+	}
+
+	public void actualizar() {
+		
+		this.getChildren().clear();
 		
 		int cantidadDeCartas = oponente.getCampo().obtenerCantidadDeMagicas();
 		

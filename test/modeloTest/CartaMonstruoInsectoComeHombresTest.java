@@ -20,13 +20,17 @@ public class CartaMonstruoInsectoComeHombresTest {
 		
 		this.darlesCamposAJugadores(jugador, oponente);
 		
+		CartaMonstruo insecto = new CartaInsectoComeHombres();
+		
 		CartaMonstruo monstruoOponente = new CartaMonstruo(2000, 1300, 4);
 		
-		jugador.invocarMonstruoEnPosicionDeDefensa(new CartaInsectoComeHombres());
+		jugador.invocarMonstruoEnPosicionDeDefensa(insecto);
 		
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruoOponente);
 		
-		oponente.atacarConMonstruoAMonstruoEnemigoConPosiciones(1, 1);
+		CampoDeJuego campo = oponente.getCampo();
+		
+		campo.atacarAMonstruoCon(insecto, monstruoOponente);
 		
 		assertTrue(monstruoOponente.fueDestruida());
 		

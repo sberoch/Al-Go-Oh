@@ -10,7 +10,14 @@ import modelo.cartas.Carta;
 
 public class VistaCartaBocaAbajoEnDefensa extends ImageView {
 
+	
+	private Carta carta;
+	
+	
+	
 	public VistaCartaBocaAbajoEnDefensa(Carta unaCarta, int ancho, VistaInfoDeCarta acercamiento) throws FileNotFoundException {
+		
+		carta = unaCarta;
 		
 		this.setPreserveRatio(true);
 		
@@ -29,5 +36,11 @@ public class VistaCartaBocaAbajoEnDefensa extends ImageView {
 		this.setImage(new Image(new FileInputStream("images/CartaBocaAbajoDefensa.png")));
 		
 		this.setFitWidth(ancho);
+	}
+	
+	
+	public Carta getCarta() {
+		
+		return (carta);
 	}
 }

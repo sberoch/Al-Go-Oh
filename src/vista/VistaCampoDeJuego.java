@@ -2,7 +2,6 @@ package vista;
 
 import controlador.SeInvocaUnaCartaHandler;
 import controlador.SeQuiereInvocarUnaCartaHandler;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import modelo.Jugador;
@@ -14,21 +13,21 @@ public class VistaCampoDeJuego extends VBox {
 	
 	private Jugador oponenteActual;
 	
-	private VistaInfoDeCarta infoDeCarta;
+	VistaCartasMagicasOponente cartasMagicasOponente;
+	VistaCartasMonstruoJugador cartasMonstruoJugador;
+	VistaCartasMonstruoOponente cartasMonstruoOponente;
+	VistaCartasMagicasJugador cartasMagicasJugador;
 	
-	
-	public VistaCampoDeJuego(Jugador jugador, Jugador oponente, ContenedorJuegoPrincipal contenedorJuegoPrincipal) {
+	public VistaCampoDeJuego(Jugador jugador, Jugador oponente, ContenedorJuegoPrincipal vistaJuego) {
+
+		jugadorActual = jugador;
 		
-		VistaInfoDeCarta acercamiento = (VistaInfoDeCarta) contenedorJuegoPrincipal.getRight();
+		oponenteActual = oponente;
 		
-		VistaHUDJugador contenedorDeManoDeJugador = (VistaHUDJugador) contenedorJuegoPrincipal.getBottom();
-		
-		VistaManoJugador manoDeJugador = (VistaManoJugador) contenedorDeManoDeJugador.getLeft();
-		
-		HBox cartasMagicasOponente = new VistaCartasMagicasOponente(oponente);
-		HBox cartasMonstruoJugador = new VistaCartasMonstruoJugador(jugador, acercamiento);
-		HBox cartasMonstruoOponente = new VistaCartasMonstruoOponente(oponente, acercamiento);
-		HBox cartasMagicasJugador = new VistaCartasMagicasJugador(jugador, acercamiento);
+		cartasMagicasOponente = new VistaCartasMagicasOponente(oponenteActual);
+		cartasMonstruoJugador = new VistaCartasMonstruoJugador(jugadorActual, vistaJuego);
+		cartasMonstruoOponente = new VistaCartasMonstruoOponente(oponenteActual, vistaJuego);
+		cartasMagicasJugador = new VistaCartasMagicasJugador(jugadorActual, vistaJuego);
 		
 		this.getChildren().add(cartasMagicasOponente);
 		this.getChildren().add(cartasMonstruoOponente);
@@ -37,30 +36,20 @@ public class VistaCampoDeJuego extends VBox {
 		
 		this.setOnDragOver(new SeQuiereInvocarUnaCartaHandler());
 		
+		VistaHUDJugador contenedorDeMano = (VistaHUDJugador) vistaJuego.getBottom();
+		
+		VistaManoJugador manoDeJugador = (VistaManoJugador) contenedorDeMano.getLeft();
+		
 		this.setOnDragDropped(new SeInvocaUnaCartaHandler(jugador, this, manoDeJugador));
-		
-		jugadorActual = jugador;
-		
-		oponenteActual = oponente;
-		
-		infoDeCarta = acercamiento;
 		
 	}
 
 	public void actualizar() {
-		
-		HBox cartasMagicasOponente = new VistaCartasMagicasOponente(oponenteActual);
-		HBox cartasMonstruoJugador = new VistaCartasMonstruoJugador(jugadorActual, infoDeCarta);
-		HBox cartasMonstruoOponente = new VistaCartasMonstruoOponente(oponenteActual, infoDeCarta);
-		HBox cartasMagicasJugador = new VistaCartasMagicasJugador(jugadorActual, infoDeCarta);
-		
-		this.getChildren().clear();
-		
-		
-		this.getChildren().add(cartasMagicasOponente);
-		this.getChildren().add(cartasMonstruoOponente);
-		this.getChildren().add(cartasMonstruoJugador);
-		this.getChildren().add(cartasMagicasJugador);
+				
+		cartasMagicasOponente.actualizar();
+		cartasMonstruoJugador.actualizar();
+		cartasMonstruoOponente.actualizar();
+		cartasMagicasJugador.actualizar();
 		
 		
 	}

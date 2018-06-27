@@ -62,27 +62,30 @@ public class CampoDeJuego {
 		monstruosEnJuego.clear();
 	}
 	
-	public void atacarConMonstruoAEnemigo(int posicionDeMonstruo, int posicionDeEnemigo) {
+	public void atacarConMonstruoAEnemigo(CartaMonstruo atacante, CartaMonstruo atacado) {
+
+		campoEnemigo.atacarAMonstruoCon(atacado, atacante);
 		
-		CartaMonstruo cartaAtacante = monstruosEnJuego.get(posicionDeMonstruo - 1);
-		
-		campoEnemigo.atacarAMonstruoCon(posicionDeEnemigo, cartaAtacante);
-		
-		if (cartaAtacante.fueDestruida()) {
+		if (atacante.fueDestruida()) {
 			
-			monstruosEnJuego.remove(posicionDeMonstruo - 1);
+			monstruosEnJuego.remove(atacante);
 		}
 		
 	}
 	
-	public void atacarAMonstruoCon(int posicionDeMonstruo, CartaMonstruo atacante) {
+	public void atacarAMonstruoCon(CartaMonstruo atacado, CartaMonstruo atacante) {
 		
-		CartaMonstruo cartaAtacada = monstruosEnJuego.get(posicionDeMonstruo - 1);
-		
-		if (!activarTrampaEnAtaque(atacante, cartaAtacada)) {
+		if (!activarTrampaEnAtaque(atacante, atacado)) {
 			
-			atacante.atacarA(cartaAtacada);
+			atacante.atacarA(atacado);
 		}
+		
+		if (atacado.fueDestruida()) {
+			
+			monstruosEnJuego.remove(atacado);
+		}
+		
+		
 	}
 
 	

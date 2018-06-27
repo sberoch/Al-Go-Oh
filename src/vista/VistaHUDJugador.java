@@ -8,6 +8,8 @@ public class VistaHUDJugador extends BorderPane {
 	
 	public VistaHUDJugador(Jugador jugador, VistaInfoDeCarta acercamiento) {
 		
+		
+		
 		HBox vistaMano = new VistaManoJugador(jugador, acercamiento);
 		
 		HBox vistaPuntosDeVida = new VistaPuntosDeVida(jugador);
