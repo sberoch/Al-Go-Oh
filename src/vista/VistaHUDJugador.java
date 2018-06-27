@@ -18,16 +18,5 @@ public class VistaHUDJugador extends BorderPane {
 		
 		this.setRight(vistaPuntosDeVida);
 	}
-		
-	public VistaHUDJugador(Jugador oponente) {
-		
-		HBox vistaMano = new VistaManoEnemiga(oponente);
-		
-		HBox vistaPuntosDeVida = new VistaPuntosDeVida(oponente);
-		
-		this.setLeft(vistaMano);
-		
-		this.setRight(vistaPuntosDeVida);
-	}
 
 }

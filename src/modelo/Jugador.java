@@ -125,9 +125,9 @@ public class Jugador {
 		return (mano.obtenerCantidadDeCartas() );
 	}
 
-	public void atacarDirectoALaVidaCon(int posicionDeMonstruo) {
+	public void atacarDirectoALaVidaCon(CartaMonstruo atacante) {
 		
-		campo.atacarALaVidaConMonstruoEnPosicion(posicionDeMonstruo);
+		campo.atacarALaVidaConMonstruoEnPosicion(atacante);
 	}
 
 

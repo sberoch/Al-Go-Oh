@@ -8,6 +8,7 @@ import modelo.cartas.CartaMonstruo;
 import vista.ContenedorJuegoPrincipal;
 import vista.VistaCampoDeJuego;
 import vista.VistaCartaBocaArribaEnCampoJugador;
+import vista.VistaHUDEnemigo;
 import vista.VistaHUDJugador;
 import vista.VistaPuntosDeVida;
 
@@ -41,7 +42,7 @@ public class SeAtacaEstaCartaHandler implements EventHandler<DragEvent> {
 		VistaHUDJugador contenedorDeVidaJugador = (VistaHUDJugador) vistaDelJuego.getBottom();
 		VistaPuntosDeVida vidaJugador = (VistaPuntosDeVida) contenedorDeVidaJugador.getRight();
 		
-		VistaHUDJugador contenedorDeVidaOponente = (VistaHUDJugador) vistaDelJuego.getTop();
+		VistaHUDEnemigo contenedorDeVidaOponente = (VistaHUDEnemigo) vistaDelJuego.getTop();
 		VistaPuntosDeVida vidaOponente = (VistaPuntosDeVida) contenedorDeVidaOponente.getRight();
 		
 		vistaCampoDeJuego.actualizar();

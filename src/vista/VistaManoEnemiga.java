@@ -1,7 +1,6 @@
 package vista;
 
 import java.io.FileNotFoundException;
-
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.image.ImageView;
@@ -43,6 +42,7 @@ public class VistaManoEnemiga extends HBox {
 				this.getChildren().add(textTop);
 			}
 		}
+		
 	}
 	
 }

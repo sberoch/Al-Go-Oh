@@ -274,7 +274,7 @@ public class _SegundaSemanaTest {
 		jugador.invocarCartaTrampa(cilindroMagico);
 		
 		oponente.invocarMonstruoEnPosicionDeAtaque(monstruoOponente);
-		oponente.atacarDirectoALaVidaCon(1);
+		oponente.atacarDirectoALaVidaCon(monstruoOponente);
 		
 		assertEquals(6000, oponente.getPuntosDeVida());
 		

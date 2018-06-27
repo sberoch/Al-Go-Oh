@@ -4,7 +4,7 @@ import javafx.event.EventHandler;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.TransferMode;
 
-public class SeQuiereAtacarEstaCartaHandler implements EventHandler<DragEvent> {
+public class SeQuiereAtacarHandler implements EventHandler<DragEvent> {
 	
 	
 	public void handle(DragEvent evento) {

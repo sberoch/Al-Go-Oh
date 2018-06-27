@@ -2,8 +2,6 @@ package vista;
 
 import java.io.FileNotFoundException;
 
-import controlador.SeInvocaUnaCartaHandler;
-import controlador.SeQuiereInvocarUnaCartaHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.layout.HBox;

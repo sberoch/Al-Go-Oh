@@ -146,9 +146,7 @@ public class CampoDeJuego {
 	}
 
 
-	public void atacarALaVidaConMonstruoEnPosicion(int posicionDeMonstruo) {
-		
-		CartaMonstruo atacante = monstruosEnJuego.get(posicionDeMonstruo - 1);
+	public void atacarALaVidaConMonstruoEnPosicion(CartaMonstruo atacante) {
 		
 		campoEnemigo.recibirAtaqueDirectoDe(atacante);
 		

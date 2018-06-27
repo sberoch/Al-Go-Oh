@@ -40,24 +40,28 @@ public class SeInvocaUnaCartaHandler implements EventHandler<DragEvent> {
 	public void handle(DragEvent evento) {
 		
 		
-		mediaPlayer.play();
-		mediaPlayer.seek(Duration.ZERO);
-		
-		VistaCartaBocaArriba vistaDeCartaInvocada = (VistaCartaBocaArriba) evento.getGestureSource();
-		
-		Carta cartaInvocada = vistaDeCartaInvocada.getCarta();
-		
-		try {
+		if (evento.getDragboard().getString() == "Invocacion") {
 			
-			duenio.invocarCartaBocaArriba(cartaInvocada);
+			mediaPlayer.play();
+			mediaPlayer.seek(Duration.ZERO);
 			
-		} catch (Exception e) {
+			VistaCartaBocaArriba vistaDeCartaInvocada = (VistaCartaBocaArriba) evento.getGestureSource();
+			
+			Carta cartaInvocada = vistaDeCartaInvocada.getCarta();
+			
+			try {
+				
+				duenio.invocarCartaBocaArriba(cartaInvocada);
+				
+			} catch (Exception e) {
 
+			}
+			
+			vistaCampo.actualizar();
+			
+			vistaMano.actualizar();		
+			
 		}
-		
-		vistaCampo.actualizar();
-		
-		vistaMano.actualizar();		
 		
 	}
 	

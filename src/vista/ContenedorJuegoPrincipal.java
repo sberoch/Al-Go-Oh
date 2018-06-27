@@ -15,6 +15,7 @@ import modelo.Jugador;
 import modelo.cartas.CartaCilindroMagico;
 import modelo.cartas.CartaJinzo7;
 import modelo.cartas.CartaMagica;
+import modelo.cartas.CartaMonstruo;
 import modelo.cartas.CartaRefuerzos;
 import modelo.cartas.CreadorDeCartas;
 
@@ -42,6 +43,7 @@ public class ContenedorJuegoPrincipal extends BorderPane {
 		oponente.robarCartaDelMazo();
 		oponente.robarCartaDelMazo();
 		oponente.invocarMonstruoEnPosicionDeAtaque(CreadorDeCartas.crearBrazoIzquierdoExodia());
+		oponente.invocarMonstruoEnPosicionDeAtaque(new CartaMonstruo(1500, 1800, 4, "Gamma el Guerrero Magnetico", "images/GuerreroGamma.jpeg"));
 		oponente.invocarMonstruoEnPosicionDeDefensa(CreadorDeCartas.crearPiernaDerechaExodia());
 		oponente.invocarCartaBocaAbajo(CartaMagica.crearAgujeroNegro(campoEnemigo));
 		
@@ -57,7 +59,7 @@ public class ContenedorJuegoPrincipal extends BorderPane {
 		
 	 	
 		//Top
-		BorderPane top = new VistaHUDJugador(oponente);
+		BorderPane top = new VistaHUDEnemigo(oponente);
 		this.setTop(top);
 		
 		//Right
