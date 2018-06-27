@@ -17,12 +17,18 @@ public class VistaCartasMagicasJugador extends HBox {
 	private CampoDeJuego campo;
 	
 	private VistaInfoDeCarta acercamiento;
+
+	private VistaJuegoPrincipal vistaJuego;
 	
 	
 	
-	public VistaCartasMagicasJugador(Jugador jugador, ContenedorJuegoPrincipal vistaJuego) {
+	
+	
+	public VistaCartasMagicasJugador(Jugador jugador, VistaJuegoPrincipal vistaDelJuego) {
 
 		this.setMinHeight(110);
+		
+		vistaJuego = vistaDelJuego;
 		
 		acercamiento = (VistaInfoDeCarta) vistaJuego.getRight();
 		
@@ -44,7 +50,7 @@ public class VistaCartasMagicasJugador extends HBox {
 				
 				Carta cartaActual = campo.obtenerCartaMagicaEnPosicion(i);
 				
-				this.getChildren().add(new VistaCartaBocaAbajo(cartaActual, 100, acercamiento));
+				this.getChildren().add(new VistaCartaBocaAbajoJugador(cartaActual, 100, acercamiento, campo, vistaJuego));
 				
 				this.setSpacing(10);
 				

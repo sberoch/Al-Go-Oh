@@ -1,23 +1,38 @@
 package controlador;
 
+import java.io.File;
+
 import javafx.event.EventHandler;
 import javafx.scene.input.DragEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
 import modelo.CampoDeJuego;
 import modelo.cartas.CartaMonstruo;
+import vista.VistaJuegoPrincipal;
 import vista.VistaCartaBocaArribaEnCampoJugador;
-import vista.VistaPuntosDeVida;
 
 public class SeAtacaDirectoHandler implements EventHandler<DragEvent> {
 
 	
-	private VistaPuntosDeVida vistaVida;
+	private VistaJuegoPrincipal vistaJuego;
+	private MediaPlayer mediaPlayer;
 
-	public SeAtacaDirectoHandler(VistaPuntosDeVida vistaPuntosDeVida) {
+	public SeAtacaDirectoHandler(VistaJuegoPrincipal vistaDelJuego) {
 		
-		vistaVida = vistaPuntosDeVida;
+		vistaJuego = vistaDelJuego;
+		
+		String musicFile = "sounds/ataque.wav";    
+		
+		Media sound = new Media(new File(musicFile).toURI().toString());
+		mediaPlayer = new MediaPlayer(sound);
+		
 	}
 
 	public void handle(DragEvent evento) {
+		
+		mediaPlayer.play();
+		mediaPlayer.seek(Duration.ZERO);
 		
 		VistaCartaBocaArribaEnCampoJugador vistaDeCartaAtacante = (VistaCartaBocaArribaEnCampoJugador) evento.getGestureSource();
 		
@@ -27,7 +42,7 @@ public class SeAtacaDirectoHandler implements EventHandler<DragEvent> {
 		
 		campoDeAtacante.atacarALaVidaConMonstruoEnPosicion(atacante);
 		
-		vistaVida.actualizar();
+		vistaJuego.actualizar();
 		
 	}
 	

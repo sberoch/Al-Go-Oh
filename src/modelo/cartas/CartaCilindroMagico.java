@@ -17,6 +17,8 @@ public class CartaCilindroMagico extends CartaTrampa {
 		
 		atacante.atacarATuDuenio();
 		
+		this.destruir();
+		
 		return (true);
 	}
 	
@@ -24,6 +26,8 @@ public class CartaCilindroMagico extends CartaTrampa {
 	public boolean activarEnAtaqueDirecto(CartaMonstruo atacante) {
 		
 		atacante.atacarATuDuenio();
+		
+		this.destruir();
 		
 		return (true);
 	}

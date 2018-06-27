@@ -60,4 +60,10 @@ public class CartaMagica extends CartaMagiaOTrampa {
 	
 		return (new CartaMagica(efecto, "Fisura", "images/Fisura.jpeg"));
 	}
+
+	
+	public boolean esMagica() {
+		
+		return (true);
+	}
 }

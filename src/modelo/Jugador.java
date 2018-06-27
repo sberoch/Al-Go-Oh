@@ -45,6 +45,8 @@ public class Jugador {
 		
 		carta.invocarBocaAbajo(this, campo);
 		
+		mano.removerCarta(carta);
+		
 	}
 	
 	public int getPuntosDeVida() {

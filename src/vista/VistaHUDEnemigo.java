@@ -8,11 +8,14 @@ import modelo.Jugador;
 public class VistaHUDEnemigo extends BorderPane {
 
 	
-	public VistaHUDEnemigo(Jugador oponente) {
+	private VistaManoEnemiga vistaMano;
+	private VistaPuntosDeVida vistaPuntosDeVida;
+
+	public VistaHUDEnemigo(Jugador oponente, VistaJuegoPrincipal vistaJuego) {
 		
-		VistaManoEnemiga vistaMano = new VistaManoEnemiga(oponente);
+		vistaMano = new VistaManoEnemiga(oponente);
 		
-		VistaPuntosDeVida vistaPuntosDeVida = new VistaPuntosDeVida(oponente);
+		vistaPuntosDeVida = new VistaPuntosDeVida(oponente);
 		
 		this.setLeft(vistaMano);
 		
@@ -20,6 +23,11 @@ public class VistaHUDEnemigo extends BorderPane {
 		
 		this.setOnDragOver(new SeQuiereAtacarHandler());
 		
-		this.setOnDragDropped(new SeAtacaDirectoHandler(vistaPuntosDeVida));
+		this.setOnDragDropped(new SeAtacaDirectoHandler(vistaJuego));
+	}
+
+	public void actualizar() {
+		
+		vistaPuntosDeVida.actualizar();
 	}
 }

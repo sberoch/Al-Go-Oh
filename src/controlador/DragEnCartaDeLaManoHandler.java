@@ -19,19 +19,27 @@ public class DragEnCartaDeLaManoHandler implements EventHandler<MouseEvent> {
 	}
 	
 	public void handle(MouseEvent evento) {
-			
+		
 		Dragboard dragDeCarta = vista.startDragAndDrop(TransferMode.MOVE);
 		
 		ClipboardContent contenido = new ClipboardContent();
 		
-		contenido.putString("Invocacion");
-		//		contenido.putString("Invicacion"); ????????????????????????
+		if(evento.isSecondaryButtonDown()) {
+			
+			contenido.putString("Invocacion boca abajo");
+			
+		} else { 
+			
+			contenido.putString("Invocacion");
+		
+		}
 		
 		contenido.putImage(vista.getImage());
 		
 		dragDeCarta.setContent(contenido);
 		
 		evento.consume();
+		
 	}
 
 }

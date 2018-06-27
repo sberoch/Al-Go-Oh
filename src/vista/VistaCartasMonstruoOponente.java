@@ -19,10 +19,10 @@ public class VistaCartasMonstruoOponente extends HBox {
 	
 	private VistaInfoDeCarta acercamiento;
 	
-	private ContenedorJuegoPrincipal vistaDelJuego;
+	private VistaJuegoPrincipal vistaDelJuego;
 	
 	
-	public VistaCartasMonstruoOponente(Jugador jugador, ContenedorJuegoPrincipal vistaJuego) {
+	public VistaCartasMonstruoOponente(Jugador jugador, VistaJuegoPrincipal vistaJuego) {
 		
 		this.setMinHeight(110);
 		

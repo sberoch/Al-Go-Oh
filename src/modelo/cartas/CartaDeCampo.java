@@ -81,4 +81,11 @@ public class CartaDeCampo extends Carta {
 
 
 
+	public boolean esMagica() {
+	
+		return (false);
+	}
+
+
+
 }

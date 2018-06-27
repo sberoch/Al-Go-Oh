@@ -8,7 +8,7 @@ import modelo.cartas.Carta;
 
 public class VistaCartaBocaAbajoEnDefensaEnCampoEnemigo extends VistaCartaBocaAbajoEnDefensa {
 
-	public VistaCartaBocaAbajoEnDefensaEnCampoEnemigo(Carta unaCarta, ContenedorJuegoPrincipal vistaJuego) throws FileNotFoundException {
+	public VistaCartaBocaAbajoEnDefensaEnCampoEnemigo(Carta unaCarta, VistaJuegoPrincipal vistaJuego) throws FileNotFoundException {
 		
 		super(unaCarta, 100);
 		

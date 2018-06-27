@@ -15,6 +15,8 @@ public abstract class Carta {
 	
 	public abstract void invocarBocaArriba(Jugador unJugador, CampoDeJuego unCampo) throws Exception;
 	
+	public abstract boolean esMagica();
+
 	public boolean tieneDeNombre(String unNombre) {
 		
 		return (nombre == unNombre);
@@ -45,4 +47,5 @@ public abstract class Carta {
 		
 		return (nombre);
 	}
+
 }

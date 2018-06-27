@@ -21,7 +21,7 @@ public class VistaCartasMonstruoJugador extends HBox {
 	
 	
 	
-	public VistaCartasMonstruoJugador(Jugador jugador, ContenedorJuegoPrincipal vistaJuego) {
+	public VistaCartasMonstruoJugador(Jugador jugador, VistaJuegoPrincipal vistaJuego) {
 
 		this.setMinHeight(110);
 		

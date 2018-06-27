@@ -3,7 +3,7 @@ package vista;
 import controlador.SeInvocaUnaCartaHandler;
 import controlador.SeQuiereInvocarUnaCartaHandler;
 import javafx.scene.layout.VBox;
-
+import javafx.stage.Stage;
 import modelo.Jugador;
 
 public class VistaCampoDeJuego extends VBox {
@@ -18,7 +18,7 @@ public class VistaCampoDeJuego extends VBox {
 	VistaCartasMonstruoOponente cartasMonstruoOponente;
 	VistaCartasMagicasJugador cartasMagicasJugador;
 	
-	public VistaCampoDeJuego(Jugador jugador, Jugador oponente, ContenedorJuegoPrincipal vistaJuego) {
+	public VistaCampoDeJuego(Jugador jugador, Jugador oponente, VistaJuegoPrincipal vistaJuego, Stage stage) {
 
 		jugadorActual = jugador;
 		
@@ -31,16 +31,13 @@ public class VistaCampoDeJuego extends VBox {
 		
 		this.getChildren().add(cartasMagicasOponente);
 		this.getChildren().add(cartasMonstruoOponente);
+		this.getChildren().add(new BotoneraDeTurno(jugador, oponente, stage));
 		this.getChildren().add(cartasMonstruoJugador);
 		this.getChildren().add(cartasMagicasJugador);
 		
 		this.setOnDragOver(new SeQuiereInvocarUnaCartaHandler());
 		
-		VistaHUDJugador contenedorDeMano = (VistaHUDJugador) vistaJuego.getBottom();
-		
-		VistaManoJugador manoDeJugador = (VistaManoJugador) contenedorDeMano.getLeft();
-		
-		this.setOnDragDropped(new SeInvocaUnaCartaHandler(jugador, this, manoDeJugador));
+		this.setOnDragDropped(new SeInvocaUnaCartaHandler(jugador, vistaJuego));
 		
 	}
 

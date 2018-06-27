@@ -39,6 +39,16 @@ public class CampoDeJuego {
 	}
 	
 	
+	public void activarCartaMagica(CartaMagica unaCarta) {
+		
+		unaCarta.activar();
+		
+		unaCarta.destruir();
+		
+		magiasYTrampasEnJuego.remove(unaCarta);
+	}
+	
+	
 	public void destruirTodosLosMonstruos() {
 		
 		for (CartaMonstruo monstruo : monstruosEnJuego) {
@@ -95,11 +105,19 @@ public class CampoDeJuego {
 		
 		boolean seActivo = false;
 		
+		CartaMagiaOTrampa cartaActual = null;
+		
 		while (iterator.hasNext() && !seActivo) {
 			
-			CartaMagiaOTrampa cartaActual = iterator.next();
+			cartaActual = iterator.next();
 			
 			seActivo = cartaActual.activarEnAtaqueAMonstruo(atacante, atacado);
+		
+		}
+		
+		if(seActivo) {
+			
+			magiasYTrampasEnJuego.remove(cartaActual);	
 		}
 		
 		return (seActivo);
@@ -112,13 +130,20 @@ public class CampoDeJuego {
 		
 		boolean seActivo = false;
 		
+		CartaMagiaOTrampa cartaActual = null;
+		
 		while (iterator.hasNext() && !seActivo) {
 			
-			CartaMagiaOTrampa cartaActual = iterator.next();
+			cartaActual = iterator.next();
 			
 			seActivo = cartaActual.activarEnAtaqueDirecto(atacante);
 		}
 		
+		if(seActivo) {
+			
+			magiasYTrampasEnJuego.remove(cartaActual);	
+		}
+
 		return (seActivo);
 	}
 

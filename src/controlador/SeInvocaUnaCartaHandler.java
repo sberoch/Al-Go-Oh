@@ -9,29 +9,25 @@ import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 import modelo.Jugador;
 import modelo.cartas.Carta;
-import vista.VistaCampoDeJuego;
+import vista.VistaJuegoPrincipal;
 import vista.VistaCartaBocaArriba;
-import vista.VistaManoJugador;
 
 public class SeInvocaUnaCartaHandler implements EventHandler<DragEvent> {
 
 	private MediaPlayer mediaPlayer;
 	
 	private Jugador duenio;
-	
-	private VistaCampoDeJuego vistaCampo;
-	
-	private VistaManoJugador vistaMano;
 
-	public SeInvocaUnaCartaHandler(Jugador jugador, VistaCampoDeJuego vistaCampoDeJuego, VistaManoJugador manoDeJugador) {
+	private VistaJuegoPrincipal vistaJuego;
+	
 
+	public SeInvocaUnaCartaHandler(Jugador jugador, VistaJuegoPrincipal vistaDelJuego) {
+		
 		duenio = jugador;
 		
-		vistaCampo = vistaCampoDeJuego;
+		vistaJuego = vistaDelJuego;
 		
-		vistaMano = manoDeJugador;
-		
-		String musicFile = "sounds/ataque.wav";    
+		String musicFile = "sounds/magia.mp3";    
 		
 		Media sound = new Media(new File(musicFile).toURI().toString());
 		mediaPlayer = new MediaPlayer(sound);
@@ -40,7 +36,8 @@ public class SeInvocaUnaCartaHandler implements EventHandler<DragEvent> {
 	public void handle(DragEvent evento) {
 		
 		
-		if (evento.getDragboard().getString() == "Invocacion") {
+		if (evento.getDragboard().getString() == "Invocacion" ||
+			evento.getDragboard().getString() == "Invocacion boca abajo") {
 			
 			mediaPlayer.play();
 			mediaPlayer.seek(Duration.ZERO);
@@ -51,15 +48,21 @@ public class SeInvocaUnaCartaHandler implements EventHandler<DragEvent> {
 			
 			try {
 				
-				duenio.invocarCartaBocaArriba(cartaInvocada);
+				if(evento.getDragboard().getString() == "Invocacion boca abajo") {
+					
+					duenio.invocarCartaBocaAbajo(cartaInvocada);
+					
+				} else {
+					
+					duenio.invocarCartaBocaArriba(cartaInvocada);
+				
+				}
 				
 			} catch (Exception e) {
 
 			}
 			
-			vistaCampo.actualizar();
-			
-			vistaMano.actualizar();		
+			vistaJuego.actualizar();
 			
 		}
 		

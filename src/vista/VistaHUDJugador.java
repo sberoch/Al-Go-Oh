@@ -1,22 +1,28 @@
 package vista;
 
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 import modelo.Jugador;
 
 public class VistaHUDJugador extends BorderPane {
 	
+	private VistaManoJugador vistaMano;
+	private VistaPuntosDeVida vistaPuntosDeVida;
+
 	public VistaHUDJugador(Jugador jugador, VistaInfoDeCarta acercamiento) {
 		
+		vistaMano = new VistaManoJugador(jugador, acercamiento);
 		
-		
-		HBox vistaMano = new VistaManoJugador(jugador, acercamiento);
-		
-		HBox vistaPuntosDeVida = new VistaPuntosDeVida(jugador);
+		vistaPuntosDeVida = new VistaPuntosDeVida(jugador);
 		
 		this.setLeft(vistaMano);
 		
 		this.setRight(vistaPuntosDeVida);
+	}
+
+	public void actualizar() {
+		
+		vistaMano.actualizar();
+		vistaPuntosDeVida.actualizar();
 	}
 
 }

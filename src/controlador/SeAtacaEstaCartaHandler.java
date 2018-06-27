@@ -1,33 +1,45 @@
 package controlador;
 
+import java.io.File;
+
 import javafx.event.EventHandler;
 import javafx.scene.input.DragEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
 import modelo.CampoDeJuego;
 import modelo.cartas.Carta;
 import modelo.cartas.CartaMonstruo;
-import vista.ContenedorJuegoPrincipal;
-import vista.VistaCampoDeJuego;
+import vista.VistaJuegoPrincipal;
 import vista.VistaCartaBocaArribaEnCampoJugador;
-import vista.VistaHUDEnemigo;
-import vista.VistaHUDJugador;
-import vista.VistaPuntosDeVida;
 
 public class SeAtacaEstaCartaHandler implements EventHandler<DragEvent> {
 	
 	
 	private CartaMonstruo atacado;
 	
-	private ContenedorJuegoPrincipal vistaDelJuego;
+	private VistaJuegoPrincipal vistaJuego;
+
+	private MediaPlayer mediaPlayer;
 	
-	public SeAtacaEstaCartaHandler(Carta unaCarta, ContenedorJuegoPrincipal vistaJuego) {
+	public SeAtacaEstaCartaHandler(Carta unaCarta, VistaJuegoPrincipal vistaDelJuego) {
 		
 		atacado = (CartaMonstruo) unaCarta;
 		
-		vistaDelJuego = vistaJuego;
+		vistaJuego = vistaDelJuego;
+		
+		String musicFile = "sounds/ataque.wav";    
+		
+		Media sound = new Media(new File(musicFile).toURI().toString());
+		mediaPlayer = new MediaPlayer(sound);
+		
 	}
 
 	
 	public void handle(DragEvent evento) {
+		
+		mediaPlayer.play();
+		mediaPlayer.seek(Duration.ZERO);
 		
 		VistaCartaBocaArribaEnCampoJugador vistaDeCartaAtacante = (VistaCartaBocaArribaEnCampoJugador) evento.getGestureSource();
 		
@@ -37,19 +49,7 @@ public class SeAtacaEstaCartaHandler implements EventHandler<DragEvent> {
 		
 		campoDeAtacante.atacarConMonstruoAEnemigo(atacante, atacado);
 		
-		VistaCampoDeJuego vistaCampoDeJuego = (VistaCampoDeJuego) vistaDelJuego.getCenter();
-		
-		VistaHUDJugador contenedorDeVidaJugador = (VistaHUDJugador) vistaDelJuego.getBottom();
-		VistaPuntosDeVida vidaJugador = (VistaPuntosDeVida) contenedorDeVidaJugador.getRight();
-		
-		VistaHUDEnemigo contenedorDeVidaOponente = (VistaHUDEnemigo) vistaDelJuego.getTop();
-		VistaPuntosDeVida vidaOponente = (VistaPuntosDeVida) contenedorDeVidaOponente.getRight();
-		
-		vistaCampoDeJuego.actualizar();
-		
-		vidaJugador.actualizar();
-		
-		vidaOponente.actualizar();
+		vistaJuego.actualizar();
 	}
 
 }
