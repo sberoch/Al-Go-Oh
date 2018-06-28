@@ -329,7 +329,7 @@ public class CampoDeJuego {
 		return (magiasYTrampasEnJuego.get(posicion));
 	}
 	
-	public Carta obtenerCartaMonstruoEnPosicion(int posicion) {
+	public CartaMonstruo obtenerCartaMonstruoEnPosicion(int posicion) {
 		
 		return (monstruosEnJuego.get(posicion));
 	}

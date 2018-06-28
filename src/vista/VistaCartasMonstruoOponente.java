@@ -11,7 +11,7 @@ import javafx.scene.text.Text;
 import modelo.CampoDeJuego;
 import modelo.Jugador;
 import modelo.Turno;
-import modelo.cartas.Carta;
+import modelo.cartas.CartaMonstruo;
 
 public class VistaCartasMonstruoOponente extends HBox {
 	
@@ -51,7 +51,7 @@ public class VistaCartasMonstruoOponente extends HBox {
 			
 			try {
 				
-				Carta cartaActual = campo.obtenerCartaMonstruoEnPosicion(i);
+				CartaMonstruo cartaActual = campo.obtenerCartaMonstruoEnPosicion(i);
 				
 				if(cartaActual.estaBocaAbajo()) {
 					
@@ -66,6 +66,11 @@ public class VistaCartasMonstruoOponente extends HBox {
 					ImageView vistaDeCarta = new VistaCartaBocaArribaEnCampoEnemigo(cartaActual, acercamiento, vistaDelJuego, turno);
 					
 					vistaDeCarta.setRotate(180);
+					
+					if (cartaActual.estaEnPosicionDeDefensa()) {
+						
+						vistaDeCarta.setRotate(90);
+					}
 					
 					this.getChildren().add(vistaDeCarta);
 				}
