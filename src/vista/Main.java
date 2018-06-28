@@ -53,10 +53,10 @@ public class Main extends Application {
 	 	Scene escenaPrincipal = new Scene(contenedorPrincipal, 1600, 900);
 	 	
 	 	
-	// 	ContenedorHackearEscenarios contenedorHackear = new ContenedorHackearEscenarios(stage, escenaPrincipal);
-	//	Scene escenaHackear = new Scene(contenedorHackear, 1600, 900);
+	 	ContenedorHackearEscenarios contenedorHackear = new ContenedorHackearEscenarios(stage, escenaPrincipal);
+		Scene escenaHackear = new Scene(contenedorHackear, 1600, 900);
 	 	
-	 	ContenedorBienvenidos contenedorBienvenidos = new ContenedorBienvenidos(stage, escenaPrincipal/*, escenaHackear*/);
+	 	ContenedorBienvenidos contenedorBienvenidos = new ContenedorBienvenidos(stage, escenaPrincipal, escenaHackear);
 	 	Scene escenaBienvenidos = new Scene(contenedorBienvenidos, 1600, 900);
 	 	
 	 	stage.setScene(escenaBienvenidos);

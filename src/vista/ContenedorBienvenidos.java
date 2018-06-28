@@ -29,7 +29,7 @@ public class ContenedorBienvenidos extends VBox {
 	Stage stage;
 	private MediaPlayer mediaPlayer;
 	
-    public ContenedorBienvenidos(Stage stage, Scene escenaPrincipal/*, Scene escenaHackear*/) throws FileNotFoundException {
+    public ContenedorBienvenidos(Stage stage, Scene escenaPrincipal, Scene escenaHackear) throws FileNotFoundException {
 
         super();
 
@@ -76,8 +76,8 @@ public class ContenedorBienvenidos extends VBox {
         botonHackear.setMinSize(160, 60);
         botonHackear.setText("Hackear");
 
-   //   BotonEntrarHandler botonHackearHandler = new BotonEntrarHandler(stage, escenaHackear, mediaPlayer);
-   //   botonHackear.setOnAction(botonHackearHandler);
+        BotonEntrarHandler botonHackearHandler = new BotonEntrarHandler(stage, escenaHackear, mediaPlayer);
+        botonHackear.setOnAction(botonHackearHandler);
         
   
         HBox botonera = new HBox(botonEntrar, botonHackear);

@@ -22,7 +22,7 @@ public class SeAtacaDirectoHandler implements EventHandler<DragEvent> {
 		
 		vistaJuego = vistaDelJuego;
 		
-		String musicFile = "sounds/ataque.wav";    
+		String musicFile = "sounds/ataque.mp3";    
 		
 		Media sound = new Media(new File(musicFile).toURI().toString());
 		mediaPlayer = new MediaPlayer(sound);

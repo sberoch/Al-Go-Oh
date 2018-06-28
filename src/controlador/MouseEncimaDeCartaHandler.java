@@ -25,7 +25,7 @@ public class MouseEncimaDeCartaHandler implements EventHandler<MouseEvent> {
 		infoDeCarta = acercamiento;
 
 
-		String musicFile = "sounds/interaccion_con_carta.wav";    
+		String musicFile = "sounds/interaccion_con_carta.mp3";    
 		
 		Media sound = new Media(new File(musicFile).toURI().toString());
 		mediaPlayer = new MediaPlayer(sound);
