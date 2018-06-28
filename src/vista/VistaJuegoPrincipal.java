@@ -1,7 +1,9 @@
 package vista;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
@@ -11,6 +13,7 @@ import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import modelo.Jugador;
+import modelo.Turno;
 
 public class VistaJuegoPrincipal extends BorderPane {
 	
@@ -19,10 +22,22 @@ public class VistaJuegoPrincipal extends BorderPane {
 	private VistaInfoDeCarta vistaInfoDeCarta;
 	private VistaHUDJugador vistaHUDJugador;
 	private VistaCampoDeJuego vistaCampoDeJuego;
+	private Jugador jugadorActual;
+	private Jugador oponenteActual;
+	private Stage stageActual;
+	private Turno turno;
 
 	public VistaJuegoPrincipal(Stage stage, Jugador jugador, Jugador oponente) throws Exception {
 		
 	 	
+		jugadorActual = jugador;
+		oponenteActual = oponente;
+		stageActual = stage;
+		turno = new Turno();
+		
+		
+		
+		
 		//Top
 		vistaHUDEnemigo = new VistaHUDEnemigo(oponente, this);
 		this.setTop(vistaHUDEnemigo);
@@ -33,13 +48,13 @@ public class VistaJuegoPrincipal extends BorderPane {
 		
 		
 		//Bottom
-		vistaHUDJugador = new VistaHUDJugador(jugador, vistaInfoDeCarta);
+		vistaHUDJugador = new VistaHUDJugador(jugador, vistaInfoDeCarta, turno);
 		this.setBottom(vistaHUDJugador);
 		
 		
 		
 		//Center
-		vistaCampoDeJuego = new VistaCampoDeJuego(jugador, oponente, this, stage);
+		vistaCampoDeJuego = new VistaCampoDeJuego(jugador, oponente, this, stage, turno);
 		this.setCenter(vistaCampoDeJuego);
 		
 		
@@ -55,7 +70,23 @@ public class VistaJuegoPrincipal extends BorderPane {
 		vistaHUDEnemigo.actualizar();
 		vistaHUDJugador.actualizar();
 		vistaCampoDeJuego.actualizar();
+		if(jugadorActual.gano() || oponenteActual.perdio()) {
 		
+			PantallaGanador ganaste = null;
+			
+			try {
+				
+				ganaste = new PantallaGanador(stageActual);
+				
+			} catch (FileNotFoundException e) {
+
+			}
+			
+			
+			stageActual.setScene(new Scene(ganaste, 1600, 900));
+			
+			stageActual.setFullScreen(true);
+		}
 	}
 	
 	

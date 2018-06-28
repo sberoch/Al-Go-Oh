@@ -5,10 +5,11 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import modelo.Jugador;
+import modelo.Turno;
 
 public class BotoneraDeTurno extends HBox {
 
-	public BotoneraDeTurno(Jugador jugadorAcutal, Jugador oponenteActual, Stage stage) {
+	public BotoneraDeTurno(Jugador jugadorAcutal, Jugador oponenteActual, Stage stage, Turno turno) {
 		
 		Button botonPasarTurno = new Button();
         

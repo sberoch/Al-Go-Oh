@@ -18,6 +18,8 @@ public class CartaRefuerzos extends CartaTrampa {
 		
 		this.destruir();
 		
+		atacado.aumentarAtaque(-500);
+		
 		return (true);
 	}
 	

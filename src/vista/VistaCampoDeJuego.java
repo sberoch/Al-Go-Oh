@@ -5,6 +5,7 @@ import controlador.SeQuiereInvocarUnaCartaHandler;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import modelo.Jugador;
+import modelo.Turno;
 
 public class VistaCampoDeJuego extends VBox {
 	
@@ -13,16 +14,20 @@ public class VistaCampoDeJuego extends VBox {
 	
 	private Jugador oponenteActual;
 	
-	VistaCartasMagicasOponente cartasMagicasOponente;
-	VistaCartasMonstruoJugador cartasMonstruoJugador;
-	VistaCartasMonstruoOponente cartasMonstruoOponente;
-	VistaCartasMagicasJugador cartasMagicasJugador;
+	private VistaCartasMagicasOponente cartasMagicasOponente;
+	private VistaCartasMonstruoJugador cartasMonstruoJugador;
+	private VistaCartasMonstruoOponente cartasMonstruoOponente;
+	private VistaCartasMagicasJugador cartasMagicasJugador;
+
+	private Turno turno;
 	
-	public VistaCampoDeJuego(Jugador jugador, Jugador oponente, VistaJuegoPrincipal vistaJuego, Stage stage) {
+	public VistaCampoDeJuego(Jugador jugador, Jugador oponente, VistaJuegoPrincipal vistaJuego, Stage stage, Turno turnoActual) {
 
 		jugadorActual = jugador;
 		
 		oponenteActual = oponente;
+		
+		turno = turnoActual;
 		
 		cartasMagicasOponente = new VistaCartasMagicasOponente(oponenteActual);
 		cartasMonstruoJugador = new VistaCartasMonstruoJugador(jugadorActual, vistaJuego);
@@ -31,7 +36,7 @@ public class VistaCampoDeJuego extends VBox {
 		
 		this.getChildren().add(cartasMagicasOponente);
 		this.getChildren().add(cartasMonstruoOponente);
-		this.getChildren().add(new BotoneraDeTurno(jugador, oponente, stage));
+		this.getChildren().add(new BotoneraDeTurno(jugador, oponente, stage, turno));
 		this.getChildren().add(cartasMonstruoJugador);
 		this.getChildren().add(cartasMagicasJugador);
 		

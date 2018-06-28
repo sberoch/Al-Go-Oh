@@ -191,16 +191,17 @@ public class CartaMonstruo extends Carta {
 		}
 	}
 
+	
 	public void atacarATuDuenio() {
 		
 		duenio.recibirDanio(ataque);
 	}
 
 
-	
 	public boolean esMagica() {
 		
 		return (false);
-	}	
+	}
+
 	
 }	

@@ -1,9 +1,9 @@
 package vista;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-
-import controlador.BotonEntrarEventHandler;
+import controlador.BotonEntrarHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -15,6 +15,8 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -24,7 +26,8 @@ import javafx.stage.Stage;
 public class ContenedorBienvenidos extends VBox {
 	
 	Stage stage;
-
+	//private MediaPlayer mediaPlayer;
+	
     public ContenedorBienvenidos(Stage stage, Scene proximaEscena) throws FileNotFoundException {
 
         super();
@@ -54,10 +57,15 @@ public class ContenedorBienvenidos extends VBox {
         texto.setStrokeWidth(4);
         texto.setStroke(Color.ORANGE);
 
-        BotonEntrarEventHandler botonEntrarHandler = new BotonEntrarEventHandler(stage, proximaEscena);
+        BotonEntrarHandler botonEntrarHandler = new BotonEntrarHandler(stage, proximaEscena, null);
         botonEntrar.setOnAction(botonEntrarHandler);
 
         this.getChildren().addAll(texto, botonEntrar);
+        
+        //String musicFile = "sounds/MusicaInicio.mp3";
+        //Media sound = new Media(new File(musicFile).toURI().toString());
+		//mediaPlayer = new MediaPlayer(sound);
+		//mediaPlayer.play();
+}
 }
 
-}

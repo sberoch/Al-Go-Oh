@@ -3,36 +3,87 @@ package modelo;
 public class Turno {
 
 	
-	private Jugador jugador;
+	private boolean puedoInvocarUnMonstruo;
 	
-	private static boolean terminoElJuego;
+	private boolean puedoInvocarUnaCartaMagica;
+	
+	private boolean puedoAtacar;
+	
+	private boolean puedoPasarAFaseDeAtaque;
+	
+	private boolean puedoPasarAFaseFinal;
 	
 	
-	public Turno(Jugador unJugador) {
+	public Turno() {
 		
-		jugador = unJugador;
+		puedoInvocarUnMonstruo = true;
 		
-		terminoElJuego = false;
+		puedoInvocarUnaCartaMagica = true;
+		
+		puedoAtacar = false;
+		
+		puedoPasarAFaseDeAtaque = true;
+		
+		puedoPasarAFaseFinal = true;
+	}
+	
+	public boolean sePuedeActivarCartaMagica() {
+		
+		return (puedoInvocarUnaCartaMagica);
 	}
 	
 	
-	public void jugar() {
+	public boolean sePuedeInvocarUnMonstruo() {
 		
-		if (!terminoElJuego) {
-			
-			jugador.robarCartaDelMazo();
-			
-			if (jugador.gano()) {
-				
-				terminoElJuego = true;
-			}
-		}
+		return (puedoInvocarUnMonstruo);
+	}
+	
+	public boolean sePuedeAtacar() {
+		
+		return (puedoAtacar);
+	}
+	
+	
+	public boolean sePuedePasarAFaseDeAtaque() {
+		
+		return (puedoPasarAFaseDeAtaque);
+	}
+	
+	
+	public boolean sePuedePasarAFaseFinal() {
+		
+		return (puedoPasarAFaseFinal);
+	}
+	
+	
+	public void seInvocaUnMOnstruo() {
+		
+		puedoInvocarUnMonstruo = false;
+	}
+	
+	
+	public void pasarAFaseDeAtaque() {
+		
+		puedoInvocarUnMonstruo = false;
+		
+		puedoAtacar = true;
+		
+		puedoInvocarUnaCartaMagica = false;
+		
+		puedoPasarAFaseDeAtaque = false;
+	}
+	
+	public void pasarAFaseFinal() {
+		
+		puedoInvocarUnMonstruo = false;
+		
+		puedoAtacar = false;
+		
+		puedoInvocarUnaCartaMagica = true;
+		
+		puedoPasarAFaseDeAtaque = false;
+		
+		puedoPasarAFaseFinal = false;
 	}
 
-
-	public boolean seTerminoElJuego() {
-		
-		return (terminoElJuego);
-	}
-	
 }
