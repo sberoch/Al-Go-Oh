@@ -10,6 +10,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import modelo.CampoDeJuego;
 import modelo.Jugador;
+import modelo.Turno;
 import modelo.cartas.Carta;
 
 public class VistaCartasMonstruoOponente extends HBox {
@@ -20,9 +21,13 @@ public class VistaCartasMonstruoOponente extends HBox {
 	private VistaInfoDeCarta acercamiento;
 	
 	private VistaJuegoPrincipal vistaDelJuego;
+
+	private Turno turno;
 	
 	
-	public VistaCartasMonstruoOponente(Jugador jugador, VistaJuegoPrincipal vistaJuego) {
+	public VistaCartasMonstruoOponente(Jugador jugador, VistaJuegoPrincipal vistaJuego, Turno turnoActual) {
+		
+		turno = turnoActual;
 		
 		this.setMinHeight(110);
 		
@@ -50,7 +55,7 @@ public class VistaCartasMonstruoOponente extends HBox {
 				
 				if(cartaActual.estaBocaAbajo()) {
 					
-					ImageView vistaDeCarta = new VistaCartaBocaAbajoEnDefensaEnCampoEnemigo(cartaActual, vistaDelJuego);
+					ImageView vistaDeCarta = new VistaCartaBocaAbajoEnDefensaEnCampoEnemigo(cartaActual, vistaDelJuego, turno);
 					
 					vistaDeCarta.setRotate(180);
 					
@@ -58,7 +63,7 @@ public class VistaCartasMonstruoOponente extends HBox {
 				
 				} else {
 					
-					ImageView vistaDeCarta = new VistaCartaBocaArribaEnCampoEnemigo(cartaActual, acercamiento, vistaDelJuego);
+					ImageView vistaDeCarta = new VistaCartaBocaArribaEnCampoEnemigo(cartaActual, acercamiento, vistaDelJuego, turno);
 					
 					vistaDeCarta.setRotate(180);
 					

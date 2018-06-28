@@ -9,6 +9,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import modelo.Jugador;
 import modelo.Mano;
+import modelo.Turno;
 import modelo.cartas.Carta;
 
 public class VistaManoJugador extends HBox {
@@ -17,11 +18,15 @@ public class VistaManoJugador extends HBox {
 	private Mano mano;
 	
 	private VistaInfoDeCarta infoDeCarta;
+
+	private Turno turno;
 	
 	
 	
 	
-	public VistaManoJugador(Jugador jugador, VistaInfoDeCarta acercamiento) {
+	public VistaManoJugador(Jugador jugador, VistaInfoDeCarta acercamiento, Turno turnoActual) {
+		
+		turno = turnoActual;
 		
 		mano = jugador.getMano();
 		
@@ -43,7 +48,7 @@ public class VistaManoJugador extends HBox {
 				
 				Carta cartaActual = mano.obtenerCartaEnPosicion(i);
 				
-				this.getChildren().add(new VistaCartaBocaArribaEnMano(cartaActual, 100, infoDeCarta));
+				this.getChildren().add(new VistaCartaBocaArribaEnMano(cartaActual, 100, infoDeCarta, turno));
 				
 				this.setSpacing(10);
 				

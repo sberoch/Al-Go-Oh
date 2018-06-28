@@ -203,5 +203,11 @@ public class CartaMonstruo extends Carta {
 		return (false);
 	}
 
+
+	public boolean esMonstruo() {
+		
+		return (true);
+	}
+
 	
 }	

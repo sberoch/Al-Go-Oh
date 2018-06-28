@@ -19,4 +19,10 @@ public abstract class CartaTrampa extends CartaMagiaOTrampa {
 		return (false);
 	}
 	
+	
+	public boolean esMonstruo() {
+		
+		return (false);
+	}
+	
 }

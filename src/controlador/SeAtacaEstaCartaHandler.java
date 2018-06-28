@@ -8,6 +8,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 import modelo.CampoDeJuego;
+import modelo.Turno;
 import modelo.cartas.Carta;
 import modelo.cartas.CartaMonstruo;
 import vista.VistaJuegoPrincipal;
@@ -21,8 +22,13 @@ public class SeAtacaEstaCartaHandler implements EventHandler<DragEvent> {
 	private VistaJuegoPrincipal vistaJuego;
 
 	private MediaPlayer mediaPlayer;
+
+	private Turno turno;
 	
-	public SeAtacaEstaCartaHandler(Carta unaCarta, VistaJuegoPrincipal vistaDelJuego) {
+	
+	public SeAtacaEstaCartaHandler(Carta unaCarta, VistaJuegoPrincipal vistaDelJuego, Turno turnoActual) {
+		
+		turno = turnoActual;
 		
 		atacado = (CartaMonstruo) unaCarta;
 		
@@ -42,14 +48,17 @@ public class SeAtacaEstaCartaHandler implements EventHandler<DragEvent> {
 		mediaPlayer.seek(Duration.ZERO);
 		
 		VistaCartaBocaArribaEnCampoJugador vistaDeCartaAtacante = (VistaCartaBocaArribaEnCampoJugador) evento.getGestureSource();
-		
+			
 		CartaMonstruo atacante = (CartaMonstruo) vistaDeCartaAtacante.getCarta();
-		
+			
 		CampoDeJuego campoDeAtacante = vistaDeCartaAtacante.getCampo();
-		
+			
 		campoDeAtacante.atacarConMonstruoAEnemigo(atacante, atacado);
 		
+		turno.atacaLaCarta(atacante);
+			
 		vistaJuego.actualizar();
+		
 	}
 
 }

@@ -48,4 +48,6 @@ public abstract class Carta {
 		return (nombre);
 	}
 
+	public abstract boolean esMonstruo();
+
 }

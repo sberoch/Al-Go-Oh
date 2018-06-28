@@ -66,4 +66,10 @@ public class CartaMagica extends CartaMagiaOTrampa {
 		
 		return (true);
 	}
+
+
+	public boolean esMonstruo() {
+		
+		return (false);
+	}
 }

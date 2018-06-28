@@ -9,6 +9,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import modelo.CampoDeJuego;
 import modelo.Jugador;
+import modelo.Turno;
 import modelo.cartas.Carta;
 
 public class VistaCartasMonstruoJugador extends HBox {
@@ -17,12 +18,16 @@ public class VistaCartasMonstruoJugador extends HBox {
 	private CampoDeJuego campo;
 	
 	private VistaInfoDeCarta acercamiento;
-	
-	
-	
-	
-	public VistaCartasMonstruoJugador(Jugador jugador, VistaJuegoPrincipal vistaJuego) {
 
+	private Turno turno;
+	
+	
+	
+	
+	public VistaCartasMonstruoJugador(Jugador jugador, VistaJuegoPrincipal vistaJuego, Turno turnoActual) {
+
+		turno = turnoActual;
+		
 		this.setMinHeight(110);
 		
 		acercamiento = (VistaInfoDeCarta) vistaJuego.getRight();
@@ -50,7 +55,7 @@ public class VistaCartasMonstruoJugador extends HBox {
 				
 				} else {
 					
-					this.getChildren().add(new VistaCartaBocaArribaEnCampoJugador(cartaActual, acercamiento, campo));
+					this.getChildren().add(new VistaCartaBocaArribaEnCampoJugador(cartaActual, acercamiento, campo, turno));
 				}
 				
 				this.setSpacing(10);

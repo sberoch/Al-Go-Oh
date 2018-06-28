@@ -1,5 +1,10 @@
 package modelo;
 
+import java.util.LinkedList;
+
+import modelo.cartas.Carta;
+import modelo.cartas.CartaMonstruo;
+
 public class Turno {
 
 	
@@ -13,6 +18,8 @@ public class Turno {
 	
 	private boolean puedoPasarAFaseFinal;
 	
+	private LinkedList<Carta> cartasQueAtacaron;
+	
 	
 	public Turno() {
 		
@@ -25,18 +32,10 @@ public class Turno {
 		puedoPasarAFaseDeAtaque = true;
 		
 		puedoPasarAFaseFinal = true;
-	}
-	
-	public boolean sePuedeActivarCartaMagica() {
 		
-		return (puedoInvocarUnaCartaMagica);
+		cartasQueAtacaron = new LinkedList<Carta>();
 	}
 	
-	
-	public boolean sePuedeInvocarUnMonstruo() {
-		
-		return (puedoInvocarUnMonstruo);
-	}
 	
 	public boolean sePuedeAtacar() {
 		
@@ -84,6 +83,42 @@ public class Turno {
 		puedoPasarAFaseDeAtaque = false;
 		
 		puedoPasarAFaseFinal = false;
+	}
+
+	public boolean puedoInvocar(Carta cartaInvocada) {
+		
+		boolean puedoInvocar;
+		
+		if (cartaInvocada.esMonstruo()) {
+			
+			puedoInvocar = puedoInvocarUnMonstruo;
+			
+			
+		} else {
+			
+			puedoInvocar = puedoInvocarUnaCartaMagica;
+		}
+		
+		return (puedoInvocar);
+	}
+
+
+	public boolean puedeAtacar(Carta unaCarta) {
+		
+		if (puedoAtacar && !cartasQueAtacaron.contains(unaCarta)) {
+			
+			return (true);
+			
+		} else {
+			
+			return (false);
+		}
+	}
+
+
+	public void atacaLaCarta(CartaMonstruo atacante) {
+		
+		cartasQueAtacaron.add(atacante);
 	}
 
 }

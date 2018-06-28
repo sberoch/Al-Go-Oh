@@ -8,6 +8,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 import modelo.Jugador;
+import modelo.Turno;
 import modelo.cartas.Carta;
 import vista.VistaJuegoPrincipal;
 import vista.VistaCartaBocaArriba;
@@ -19,9 +20,13 @@ public class SeInvocaUnaCartaHandler implements EventHandler<DragEvent> {
 	private Jugador duenio;
 
 	private VistaJuegoPrincipal vistaJuego;
+
+	private Turno turno;
 	
 
-	public SeInvocaUnaCartaHandler(Jugador jugador, VistaJuegoPrincipal vistaDelJuego) {
+	public SeInvocaUnaCartaHandler(Jugador jugador, VistaJuegoPrincipal vistaDelJuego, Turno turnoActual) {
+		
+		turno = turnoActual;
 		
 		duenio = jugador;
 		
@@ -46,17 +51,14 @@ public class SeInvocaUnaCartaHandler implements EventHandler<DragEvent> {
 			
 			Carta cartaInvocada = vistaDeCartaInvocada.getCarta();
 			
+			if (cartaInvocada.esMonstruo()) {
+				
+				turno.seInvocaUnMOnstruo();
+			}
+			
 			try {
-				
-				if(evento.getDragboard().getString() == "Invocacion boca abajo") {
-					
-					duenio.invocarCartaBocaAbajo(cartaInvocada);
-					
-				} else {
-					
-					duenio.invocarCartaBocaArriba(cartaInvocada);
-				
-				}
+			
+				this.intentarInvocar(cartaInvocada, evento);
 				
 			} catch (Exception e) {
 
@@ -69,6 +71,21 @@ public class SeInvocaUnaCartaHandler implements EventHandler<DragEvent> {
 	}
 	
 	
+	private void intentarInvocar(Carta cartaInvocada, DragEvent evento) throws Exception {
+			
+		if(evento.getDragboard().getString() == "Invocacion boca abajo") {
+				
+			duenio.invocarCartaBocaAbajo(cartaInvocada);
+				
+		} else {
+				
+			duenio.invocarCartaBocaArriba(cartaInvocada);
+			
+		}
+		
+		
+	}
 	
+}	
 
-}
+

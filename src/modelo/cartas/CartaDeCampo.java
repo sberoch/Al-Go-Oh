@@ -87,5 +87,11 @@ public class CartaDeCampo extends Carta {
 	}
 
 
+	public boolean esMonstruo() {
+		
+		return (false);
+	}
+
+
 
 }
