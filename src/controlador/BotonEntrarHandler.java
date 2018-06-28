@@ -29,7 +29,7 @@ public class BotonEntrarHandler implements EventHandler<ActionEvent> {
         this.stage = stage;
         this.proximaEscena = proximaEscena;
         
-        String musicFile = "sounds/entrar_al_juego.wav";
+        String musicFile = "sounds/entrar_al_juego.mp3";
 		Media sound = new Media(new File(musicFile).toURI().toString());
 		mediaPlayer = new MediaPlayer(sound);
         
@@ -42,7 +42,7 @@ public class BotonEntrarHandler implements EventHandler<ActionEvent> {
     	mediaPlayer.seek(Duration.ZERO);
     	mediaPlayer.play();
     	
-    	String musicFile = "sounds/MusicaBackground.mp3";
+    	String musicFile = "sounds/MusicaInicio.mp3";
     	AudioClip musicaDeFondo = new AudioClip(new File(musicFile).toURI().toString());
     	musicaDeFondo.play();
 

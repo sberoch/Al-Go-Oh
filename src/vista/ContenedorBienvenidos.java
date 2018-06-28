@@ -14,6 +14,7 @@ import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -28,7 +29,7 @@ public class ContenedorBienvenidos extends VBox {
 	Stage stage;
 	private MediaPlayer mediaPlayer;
 	
-    public ContenedorBienvenidos(Stage stage, Scene proximaEscena) throws FileNotFoundException {
+    public ContenedorBienvenidos(Stage stage, Scene escenaPrincipal, Scene escenaHackear) throws FileNotFoundException {
 
         super();
 
@@ -40,14 +41,11 @@ public class ContenedorBienvenidos extends VBox {
         Image imagen = new Image(new FileInputStream("images/CartaBocaAbajoDefensa.png"));
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
         this.setBackground(new Background(imagenDeFondo));
-
-        Button botonEntrar = new Button();
         
-        botonEntrar.setStyle("-fx-background-color: #FF0000;\n"
-        		+ "-fx-text-fill: #FFFFFF;\n"
-        		+ "-fx-font-size: 16px");
-        botonEntrar.setMinSize(160, 60);
-        botonEntrar.setText("Entrar");
+        String musicFile = "sounds/MusicaInicio.mp3";
+        Media sound = new Media(new File(musicFile).toURI().toString());
+        mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
 
         Text texto = new Text();
         
@@ -56,17 +54,38 @@ public class ContenedorBienvenidos extends VBox {
         texto.setFill(Color.RED);
         texto.setStrokeWidth(4);
         texto.setStroke(Color.ORANGE);
-
-        String musicFile = "sounds/MusicaInicio.mp3";
-        Media sound = new Media(new File(musicFile).toURI().toString());
-        mediaPlayer = new MediaPlayer(sound);
-        mediaPlayer.play();
- 
-        BotonEntrarHandler botonEntrarHandler = new BotonEntrarHandler(stage, proximaEscena, mediaPlayer);
-        botonEntrar.setOnAction(botonEntrarHandler);
-
-        this.getChildren().addAll(texto, botonEntrar);
         
+        
+        Button botonEntrar = new Button();
+        
+        botonEntrar.setStyle("-fx-background-color: #FF0000;\n"
+        		+ "-fx-text-fill: #FFFFFF;\n"
+        		+ "-fx-font-size: 16px");
+        botonEntrar.setMinSize(160, 60);
+        botonEntrar.setText("Entrar");
+
+        BotonEntrarHandler botonEntrarHandler = new BotonEntrarHandler(stage, escenaPrincipal, mediaPlayer);
+        botonEntrar.setOnAction(botonEntrarHandler);
+        
+        
+        Button botonHackear = new Button();
+        
+        botonHackear.setStyle("-fx-background-color: #FF0000;\n"
+        		+ "-fx-text-fill: #FFFFFF;\n"
+        		+ "-fx-font-size: 16px");
+        botonHackear.setMinSize(160, 60);
+        botonHackear.setText("Hackear");
+
+        BotonEntrarHandler botonHackearHandler = new BotonEntrarHandler(stage, escenaHackear, mediaPlayer);
+        botonHackear.setOnAction(botonHackearHandler);
+        
+  
+        HBox botonera = new HBox(botonEntrar, botonHackear);
+        botonera.setAlignment(Pos.CENTER);
+        botonera.setSpacing(30);
+        this.getChildren().addAll(texto, botonera);
+        
+    }
 }
-}
+
 
