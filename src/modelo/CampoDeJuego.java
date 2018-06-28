@@ -307,7 +307,12 @@ public class CampoDeJuego {
 			
 			for (CartaMonstruo monstruo : monstruosEnJuego) {
 				
-				monstruoADestruir = monstruo.cartaConMenosAtaqueCon(monstruoADestruir);
+				if (!monstruo.estaBocaAbajo()) {
+					
+					monstruoADestruir = monstruo.cartaConMenosAtaqueCon(monstruoADestruir);
+					
+				}
+				
 			}
 			
 			monstruoADestruir.destruir();
@@ -332,6 +337,13 @@ public class CampoDeJuego {
 	public CartaMonstruo obtenerCartaMonstruoEnPosicion(int posicion) {
 		
 		return (monstruosEnJuego.get(posicion));
+	}
+
+
+
+	public CartaDeCampo getCartaDeCampo() {
+		
+		return (cartaCampo);
 	}
 
 

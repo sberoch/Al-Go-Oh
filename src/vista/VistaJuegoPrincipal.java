@@ -2,6 +2,7 @@ package vista;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.concurrent.TimeUnit;
 
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -37,14 +38,14 @@ public class VistaJuegoPrincipal extends BorderPane {
 		
 		jugadorActual.robarCartaDelMazo();
 		
-		
-		//Top
-		vistaHUDEnemigo = new VistaHUDEnemigo(oponente, this);
-		this.setTop(vistaHUDEnemigo);
-		
 		//Right
 		vistaInfoDeCarta = new VistaInfoDeCarta();
 		this.setRight(vistaInfoDeCarta);
+		
+		//Top
+		vistaHUDEnemigo = new VistaHUDEnemigo(oponente, this, turno, vistaInfoDeCarta);
+		this.setTop(vistaHUDEnemigo);
+		
 		
 		
 		//Bottom
@@ -72,16 +73,26 @@ public class VistaJuegoPrincipal extends BorderPane {
 		vistaHUDEnemigo.actualizar();
 		vistaHUDJugador.actualizar();
 		vistaCampoDeJuego.actualizar();
+		
 		if(jugadorActual.gano() || oponenteActual.perdio()) {
 		
 			PantallaGanador ganaste = null;
 			
 			try {
 				
+				
 				ganaste = new PantallaGanador(stageActual);
 				
 			} catch (FileNotFoundException e) {
 
+			}
+			
+			try {
+				
+				TimeUnit.SECONDS.sleep(3);
+				
+			} catch (InterruptedException e1) {
+				
 			}
 			
 			stageActual.setScene(new Scene(ganaste, 1600, 900));
@@ -90,6 +101,7 @@ public class VistaJuegoPrincipal extends BorderPane {
 		
 		} else if(jugadorActual.perdio() || oponenteActual.gano()) {
 			
+			
 			PantallaDerrota perdiste = null;
 			
 			try {
@@ -97,6 +109,14 @@ public class VistaJuegoPrincipal extends BorderPane {
 				perdiste = new PantallaDerrota(stageActual);
 			
 			} catch (FileNotFoundException e) {
+				
+			}
+			
+			try {
+				
+				TimeUnit.SECONDS.sleep(3);
+				
+			} catch (InterruptedException e1) {
 				
 			}
 		

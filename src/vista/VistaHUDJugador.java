@@ -13,7 +13,7 @@ public class VistaHUDJugador extends BorderPane {
 		
 		vistaMano = new VistaManoJugador(jugador, acercamiento, turno);
 		
-		vistaPuntosDeVida = new VistaPuntosDeVida(jugador);
+		vistaPuntosDeVida = new VistaPuntosDeVida(jugador, acercamiento);
 		
 		this.setLeft(vistaMano);
 		

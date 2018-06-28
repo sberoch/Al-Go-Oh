@@ -42,9 +42,9 @@ public class BotonEntrarHandler implements EventHandler<ActionEvent> {
     	mediaPlayer.seek(Duration.ZERO);
     	mediaPlayer.play();
     	
-    	String musicFile = "sounds/MusicaInicio.mp3";
-    	AudioClip musicaDeFondo = new AudioClip(new File(musicFile).toURI().toString());
-    	musicaDeFondo.play();
+   // 	String musicFile = "sounds/MusicaInicio.mp3";
+   // 	AudioClip musicaDeFondo = new AudioClip(new File(musicFile).toURI().toString());
+   // 	musicaDeFondo.play();
 
     	stage.setScene(proximaEscena);
         stage.setFullScreenExitHint("");
