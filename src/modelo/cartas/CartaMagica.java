@@ -72,4 +72,14 @@ public class CartaMagica extends CartaMagiaOTrampa {
 		
 		return (false);
 	}
+	
+	public int ataque() {
+		
+		return 0;
+	}
+	
+	public int defensa() {
+		
+		return 0;
+	}
 }

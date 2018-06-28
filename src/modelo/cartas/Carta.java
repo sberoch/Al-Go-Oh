@@ -49,5 +49,9 @@ public abstract class Carta {
 	}
 
 	public abstract boolean esMonstruo();
+	
+	public abstract int ataque();
+
+	public abstract int defensa();
 
 }

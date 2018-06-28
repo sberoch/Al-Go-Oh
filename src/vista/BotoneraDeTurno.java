@@ -4,12 +4,12 @@ import controlador.PasarAFaseDeAtaqueHandler;
 import controlador.PasarAFaseFinalHandler;
 import controlador.PasarDeTurnoHandler;
 import javafx.scene.control.Button;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import modelo.Jugador;
 import modelo.Turno;
 
-public class BotoneraDeTurno extends HBox {
+public class BotoneraDeTurno extends VBox {
 
 	
 	private Jugador jugador;
@@ -45,10 +45,10 @@ public class BotoneraDeTurno extends HBox {
 		
 		Button botonPasarTurno = new Button();
         
-        botonPasarTurno.setStyle("-fx-background-color: #111111;\n"
+        botonPasarTurno.setStyle("-fx-background-color: #AA0000;\n"
         		+ "-fx-text-fill: #FFFFFF;\n"
         		+ "-fx-font-size: 22px");
-        botonPasarTurno.setMinSize(160, 60);
+        botonPasarTurno.setMinSize(200, 60);
         botonPasarTurno.setText("Pasar turno");
         
         botonPasarTurno.setOnAction(new PasarDeTurnoHandler(stage, jugadorActual, oponenteActual));
@@ -64,7 +64,7 @@ public class BotoneraDeTurno extends HBox {
 		botonPasarAFaseDeAtaque.setStyle("-fx-background-color: #222222;\n"
 				+ "-fx-text-fill: #FFFFFF;\n"
 				+ "-fx-font-size: 22px");
-		botonPasarAFaseDeAtaque.setMinSize(160, 60);
+		botonPasarAFaseDeAtaque.setMinSize(200, 60);
 		botonPasarAFaseDeAtaque.setText("Fase de ataque");
 		
 		botonPasarAFaseDeAtaque.setOnAction(new PasarAFaseDeAtaqueHandler(turno, vistaJuego));
@@ -86,7 +86,7 @@ public class BotoneraDeTurno extends HBox {
 		botonPasarAFaseFinal.setStyle("-fx-background-color: #222222;\n"
 				+ "-fx-text-fill: #FFFFFF;\n"
 				+ "-fx-font-size: 22px");
-		botonPasarAFaseFinal.setMinSize(160, 60);
+		botonPasarAFaseFinal.setMinSize(200, 60);
 		botonPasarAFaseFinal.setText("Fase final");
 		
 		botonPasarAFaseFinal.setOnAction(new PasarAFaseFinalHandler(turno, vistaJuego));
