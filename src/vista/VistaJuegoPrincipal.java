@@ -35,7 +35,7 @@ public class VistaJuegoPrincipal extends BorderPane {
 		stageActual = stage;
 		turno = new Turno();
 		
-		
+		jugadorActual.robarCartaDelMazo();
 		
 		
 		//Top
@@ -62,6 +62,8 @@ public class VistaJuegoPrincipal extends BorderPane {
 		BackgroundImage fondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
 		this.setBackground(new Background(fondo));
 		
+		this.actualizar();
+		
 		
 	}
 
@@ -82,10 +84,26 @@ public class VistaJuegoPrincipal extends BorderPane {
 
 			}
 			
-			
 			stageActual.setScene(new Scene(ganaste, 1600, 900));
 			
 			stageActual.setFullScreen(true);
+		
+		} else if(jugadorActual.perdio() || oponenteActual.gano()) {
+			
+			PantallaDerrota perdiste = null;
+			
+			try {
+			
+				perdiste = new PantallaDerrota(stageActual);
+			
+			} catch (FileNotFoundException e) {
+				
+			}
+		
+			stageActual.setScene(new Scene(perdiste, 1600, 900));
+			
+			stageActual.setFullScreen(true);
+		
 		}
 	}
 	

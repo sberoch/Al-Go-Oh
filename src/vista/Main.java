@@ -5,11 +5,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import modelo.CampoDeJuego;
 import modelo.Jugador;
-import modelo.cartas.CartaCilindroMagico;
-import modelo.cartas.CartaJinzo7;
-import modelo.cartas.CartaMonstruo;
-import modelo.cartas.CartaRefuerzos;
-import modelo.cartas.CreadorDeCartas;
 
 
 public class Main extends Application {
@@ -45,21 +40,14 @@ public class Main extends Application {
 		otroJugador.robarCartaDelMazo();
 		otroJugador.robarCartaDelMazo();
 		otroJugador.robarCartaDelMazo();
-		otroJugador.invocarMonstruoEnPosicionDeAtaque(CreadorDeCartas.crearBrazoIzquierdoExodia());
-		otroJugador.invocarMonstruoEnPosicionDeAtaque(new CartaMonstruo(1500, 1800, 4, "Gamma el Guerrero Magnetico", "images/GuerreroGamma.jpeg"));
-		otroJugador.invocarMonstruoEnPosicionDeDefensa(CreadorDeCartas.crearPiernaDerechaExodia());
-		otroJugador.invocarCartaBocaAbajo(new CartaCilindroMagico());
+		otroJugador.robarCartaDelMazo();
 		
 
 		unJugador.robarCartaDelMazo();
 		unJugador.robarCartaDelMazo();
 		unJugador.robarCartaDelMazo();
 		unJugador.robarCartaDelMazo();
-		unJugador.robarCartaDelMazo();
-
-		unJugador.invocarMonstruoEnPosicionDeAtaque(new CartaJinzo7());
-		unJugador.invocarCartaTrampa(new CartaCilindroMagico());
-		unJugador.invocarCartaTrampa(new CartaRefuerzos());
+		
 		
 		VistaJuegoPrincipal contenedorPrincipal = new VistaJuegoPrincipal(stage, unJugador, otroJugador);
 	 	Scene escenaPrincipal = new Scene(contenedorPrincipal, 1600, 900);
