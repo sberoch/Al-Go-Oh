@@ -3,21 +3,24 @@ package vista;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
+import controlador.CambiarDeModoHandler;
 import controlador.MouseEncimaDeCartaHandler;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import modelo.Turno;
 import modelo.cartas.Carta;
+import modelo.cartas.CartaMonstruo;
 
 public class VistaCartaBocaAbajoEnDefensa extends ImageView {
 
 	
-	private Carta carta;
+	private CartaMonstruo carta;
 	
 	
 	
-	public VistaCartaBocaAbajoEnDefensa(Carta unaCarta, int ancho, VistaInfoDeCarta acercamiento) throws FileNotFoundException {
+	public VistaCartaBocaAbajoEnDefensa(Carta unaCarta, int ancho, VistaInfoDeCarta acercamiento, Turno turno, VistaJuegoPrincipal vistaJuego) throws FileNotFoundException {
 		
-		carta = unaCarta;
+		carta = (CartaMonstruo) unaCarta;
 		
 		this.setPreserveRatio(true);
 		
@@ -26,6 +29,11 @@ public class VistaCartaBocaAbajoEnDefensa extends ImageView {
 		this.setOnMouseEntered(new MouseEncimaDeCartaHandler(unaCarta, acercamiento));
 		
 		this.setFitWidth(ancho);
+		
+		if (turno.puedeCambiarDeModo(carta)) {
+			
+			this.setOnMousePressed(new CambiarDeModoHandler(carta, vistaJuego, turno));
+		}
 
 	}
 

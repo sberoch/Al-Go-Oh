@@ -20,6 +20,10 @@ public class Turno {
 	
 	private LinkedList<Carta> cartasQueAtacaron;
 	
+	private LinkedList<Carta> cartasQueCambiaronDeModo;
+
+	private boolean puedoCambiarDeModo;
+	
 	
 	public Turno() {
 		
@@ -33,7 +37,11 @@ public class Turno {
 		
 		puedoPasarAFaseFinal = true;
 		
+		puedoCambiarDeModo = true;
+		
 		cartasQueAtacaron = new LinkedList<Carta>();
+		
+		cartasQueCambiaronDeModo = new LinkedList<Carta>();
 	}
 	
 	
@@ -55,9 +63,11 @@ public class Turno {
 	}
 	
 	
-	public void seInvocaUnMOnstruo() {
+	public void seInvocaUnMonstruo(Carta monstruoInvocado) {
 		
 		puedoInvocarUnMonstruo = false;
+		
+		cartasQueCambiaronDeModo.add(monstruoInvocado);
 	}
 	
 	
@@ -70,6 +80,8 @@ public class Turno {
 		puedoInvocarUnaCartaMagica = false;
 		
 		puedoPasarAFaseDeAtaque = false;
+		
+		puedoCambiarDeModo = false;
 	}
 	
 	public void pasarAFaseFinal() {
@@ -83,6 +95,8 @@ public class Turno {
 		puedoPasarAFaseDeAtaque = false;
 		
 		puedoPasarAFaseFinal = false;
+		
+		puedoCambiarDeModo = true;
 	}
 
 	public boolean puedoInvocar(Carta cartaInvocada) {
@@ -119,6 +133,26 @@ public class Turno {
 	public void atacaLaCarta(CartaMonstruo atacante) {
 		
 		cartasQueAtacaron.add(atacante);
+	}
+
+
+	public boolean puedeCambiarDeModo(CartaMonstruo unaCarta) {
+		
+		if (puedoCambiarDeModo && !cartasQueCambiaronDeModo.contains(unaCarta)) {
+			
+			return (true);
+			
+		} else {
+			
+			return (false);
+		}
+
+	}
+
+
+	public void seCambioDeModoLaCarta(CartaMonstruo carta) {
+		
+		cartasQueCambiaronDeModo.add(carta);
 	}
 
 }

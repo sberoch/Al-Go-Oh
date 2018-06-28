@@ -90,5 +90,7 @@ public class VistaCartasMonstruoOponente extends HBox {
 				this.getChildren().add(textTop);
 			}
 		}
+		
+		this.setSpacing(10);
 	}
 }

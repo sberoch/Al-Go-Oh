@@ -208,6 +208,14 @@ public class CartaMonstruo extends Carta {
 		
 		return (true);
 	}
+	
+	
+	public void cambiarDeModo() {
+		
+		modo = modo.cambiar(ataque, defensa);
+		
+		estado = new EstadoBocaArriba();
+	}
 
 	
 }	

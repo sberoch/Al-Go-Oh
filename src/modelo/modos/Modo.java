@@ -16,6 +16,8 @@ public interface Modo {
 	public void aumentarAtaque(int unAtaque);
 	
 	public void aumentarDefensa(int unaDefensa);
+	
+	public Modo cambiar(int ataque, int defensa);
 
 	
 }

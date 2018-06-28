@@ -54,4 +54,10 @@ public class ModoDeDefensa implements Modo {
 	}
 
 
+	public Modo cambiar(int ataque, int defensa) {
+		
+		return (new ModoDeAtaque(ataque));
+	}
+
+
 }

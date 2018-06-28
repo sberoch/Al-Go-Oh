@@ -53,7 +53,7 @@ public class SeInvocaUnaCartaHandler implements EventHandler<DragEvent> {
 			
 			if (cartaInvocada.esMonstruo()) {
 				
-				turno.seInvocaUnMOnstruo();
+				turno.seInvocaUnMonstruo(cartaInvocada);
 			}
 			
 			try {

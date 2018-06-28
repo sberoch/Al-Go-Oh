@@ -21,16 +21,20 @@ public class VistaCartasMonstruoJugador extends HBox {
 
 	private Turno turno;
 	
+	private VistaJuegoPrincipal vistaJuego;
 	
 	
 	
-	public VistaCartasMonstruoJugador(Jugador jugador, VistaJuegoPrincipal vistaJuego, Turno turnoActual) {
+	
+	public VistaCartasMonstruoJugador(Jugador jugador, VistaJuegoPrincipal vistaDelJuego, Turno turnoActual) {
 
+		vistaJuego = vistaDelJuego;
+		
 		turno = turnoActual;
 		
 		this.setMinHeight(110);
 		
-		acercamiento = (VistaInfoDeCarta) vistaJuego.getRight();
+		acercamiento = (VistaInfoDeCarta) vistaDelJuego.getRight();
 
 		campo = jugador.getCampo();
 		
@@ -51,11 +55,11 @@ public class VistaCartasMonstruoJugador extends HBox {
 				
 				if(cartaActual.estaBocaAbajo()) {
 					
-					this.getChildren().add(new VistaCartaBocaAbajoEnDefensa(cartaActual, 100, acercamiento));
+					this.getChildren().add(new VistaCartaBocaAbajoEnDefensa(cartaActual, 100, acercamiento, turno, vistaJuego));
 				
 				} else {
 					
-					VistaCartaBocaArribaEnCampoJugador vistaCarta = new VistaCartaBocaArribaEnCampoJugador(cartaActual, acercamiento, campo, turno);
+					VistaCartaBocaArribaEnCampoJugador vistaCarta = new VistaCartaBocaArribaEnCampoJugador(cartaActual, acercamiento, campo, turno, vistaJuego);
 					
 					if (cartaActual.estaEnPosicionDeDefensa()) {
 						
@@ -80,6 +84,8 @@ public class VistaCartasMonstruoJugador extends HBox {
 				this.getChildren().add(textTop);
 			}
 		}
+		
+		this.setSpacing(10);
 	}
 
 }

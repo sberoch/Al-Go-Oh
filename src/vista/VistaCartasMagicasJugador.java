@@ -68,5 +68,6 @@ public class VistaCartasMagicasJugador extends HBox {
 			}
 		}
 		
+		this.setSpacing(10);
 	}
 }

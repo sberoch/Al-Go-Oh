@@ -57,6 +57,8 @@ public class VistaCartasMagicasOponente extends HBox {
 				this.getChildren().add(textTop);
 			}
 		}
+		
+		this.setSpacing(10);
 	}
 
 }

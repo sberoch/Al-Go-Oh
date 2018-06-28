@@ -53,6 +53,13 @@ public class ModoDeAtaque implements Modo {
 	public void aumentarDefensa(int unaDefensa) {
 		
 	}
+
+
+
+	public Modo cambiar(int ataque, int defensa) {
+		
+		return (new ModoDeDefensa(defensa));
+	}
 	
 	
 }
