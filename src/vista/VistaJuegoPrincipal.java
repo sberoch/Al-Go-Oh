@@ -35,7 +35,7 @@ public class VistaJuegoPrincipal extends BorderPane {
 		stageActual = stage;
 		turno = new Turno();
 		
-		
+		jugadorActual.robarCartaDelMazo();
 		
 		
 		//Top
