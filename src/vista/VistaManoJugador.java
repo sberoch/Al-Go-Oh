@@ -56,7 +56,7 @@ public class VistaManoJugador extends HBox {
 				
 			} catch (FileNotFoundException e) {
 				
-				this.setAlignment(Pos.CENTER);
+				this.setAlignment(Pos.CENTER_LEFT);
 				
 				Text textTop = new Text("Error");
 				textTop.setFill(Color.RED);

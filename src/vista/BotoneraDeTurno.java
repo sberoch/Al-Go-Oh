@@ -47,8 +47,8 @@ public class BotoneraDeTurno extends VBox {
         
         botonPasarTurno.setStyle("-fx-background-color: #AA0000;\n"
         		+ "-fx-text-fill: #FFFFFF;\n"
-        		+ "-fx-font-size: 22px");
-        botonPasarTurno.setMinSize(200, 60);
+        		+ "-fx-font-size: 16px");
+        botonPasarTurno.setMinSize(200, 30);
         botonPasarTurno.setText("Pasar turno");
         
         botonPasarTurno.setOnAction(new PasarDeTurnoHandler(stage, jugadorActual, oponenteActual));
@@ -63,8 +63,8 @@ public class BotoneraDeTurno extends VBox {
 		
 		botonPasarAFaseDeAtaque.setStyle("-fx-background-color: #222222;\n"
 				+ "-fx-text-fill: #FFFFFF;\n"
-				+ "-fx-font-size: 22px");
-		botonPasarAFaseDeAtaque.setMinSize(200, 60);
+				+ "-fx-font-size: 16px");
+		botonPasarAFaseDeAtaque.setMinSize(200, 35);
 		botonPasarAFaseDeAtaque.setText("Fase de ataque");
 		
 		botonPasarAFaseDeAtaque.setOnAction(new PasarAFaseDeAtaqueHandler(turno, vistaJuego));
@@ -85,8 +85,8 @@ public class BotoneraDeTurno extends VBox {
 		
 		botonPasarAFaseFinal.setStyle("-fx-background-color: #222222;\n"
 				+ "-fx-text-fill: #FFFFFF;\n"
-				+ "-fx-font-size: 22px");
-		botonPasarAFaseFinal.setMinSize(200, 60);
+				+ "-fx-font-size: 16px");
+		botonPasarAFaseFinal.setMinSize(200, 30);
 		botonPasarAFaseFinal.setText("Fase final");
 		
 		botonPasarAFaseFinal.setOnAction(new PasarAFaseFinalHandler(turno, vistaJuego));

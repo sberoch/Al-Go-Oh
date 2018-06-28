@@ -5,22 +5,26 @@ import java.io.File;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+
+
 public class BotonEntrarHandler implements EventHandler<ActionEvent> {
 
-    Stage stage;
-    Scene proximaEscena;
-	MediaPlayer mediaPlayer;
+    private Stage stage;
+    private Scene proximaEscena;
+	private MediaPlayer mediaPlayer;
+	private MediaPlayer musicaAnterior;
 
 
     
     public BotonEntrarHandler(Stage stage, Scene proximaEscena, MediaPlayer mediaPlayerAnterior) {
     	
-    	//musicaAnterior = mediaPlayerAnterior;
+    	musicaAnterior = mediaPlayerAnterior;
     	
         this.stage = stage;
         this.proximaEscena = proximaEscena;
@@ -31,14 +35,18 @@ public class BotonEntrarHandler implements EventHandler<ActionEvent> {
         
     }
 
-    
     public void handle(ActionEvent actionEvent) {
     	
+    	musicaAnterior.dispose();
     	
     	mediaPlayer.seek(Duration.ZERO);
     	mediaPlayer.play();
     	
-        stage.setScene(proximaEscena);
+    	String musicFile = "sounds/MusicaBackground.mp3";
+    	AudioClip musicaDeFondo = new AudioClip(new File(musicFile).toURI().toString());
+    	musicaDeFondo.play();
+
+    	stage.setScene(proximaEscena);
         stage.setFullScreenExitHint("");
         stage.setFullScreen(true);
         

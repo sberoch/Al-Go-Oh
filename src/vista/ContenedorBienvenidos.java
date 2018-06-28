@@ -26,7 +26,7 @@ import javafx.stage.Stage;
 public class ContenedorBienvenidos extends VBox {
 	
 	Stage stage;
-	//private MediaPlayer mediaPlayer;
+	private MediaPlayer mediaPlayer;
 	
     public ContenedorBienvenidos(Stage stage, Scene proximaEscena) throws FileNotFoundException {
 
@@ -57,15 +57,16 @@ public class ContenedorBienvenidos extends VBox {
         texto.setStrokeWidth(4);
         texto.setStroke(Color.ORANGE);
 
-        BotonEntrarHandler botonEntrarHandler = new BotonEntrarHandler(stage, proximaEscena, null);
+        String musicFile = "sounds/MusicaInicio.mp3";
+        Media sound = new Media(new File(musicFile).toURI().toString());
+        mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
+ 
+        BotonEntrarHandler botonEntrarHandler = new BotonEntrarHandler(stage, proximaEscena, mediaPlayer);
         botonEntrar.setOnAction(botonEntrarHandler);
 
         this.getChildren().addAll(texto, botonEntrar);
         
-        //String musicFile = "sounds/MusicaInicio.mp3";
-        //Media sound = new Media(new File(musicFile).toURI().toString());
-		//mediaPlayer = new MediaPlayer(sound);
-		//mediaPlayer.play();
 }
 }
 
