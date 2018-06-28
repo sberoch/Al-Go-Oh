@@ -62,6 +62,8 @@ public class VistaJuegoPrincipal extends BorderPane {
 		BackgroundImage fondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
 		this.setBackground(new Background(fondo));
 		
+		this.actualizar();
+		
 		
 	}
 
