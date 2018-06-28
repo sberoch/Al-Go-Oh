@@ -29,7 +29,7 @@ public class ContenedorBienvenidos extends VBox {
 	Stage stage;
 	private MediaPlayer mediaPlayer;
 	
-    public ContenedorBienvenidos(Stage stage, Scene escenaPrincipal, Scene escenaHackear) throws FileNotFoundException {
+    public ContenedorBienvenidos(Stage stage, Scene escenaPrincipal) throws FileNotFoundException {
 
         super();
 
@@ -67,23 +67,9 @@ public class ContenedorBienvenidos extends VBox {
         BotonEntrarHandler botonEntrarHandler = new BotonEntrarHandler(stage, escenaPrincipal, mediaPlayer);
         botonEntrar.setOnAction(botonEntrarHandler);
         
-        
-        Button botonHackear = new Button();
-        
-        botonHackear.setStyle("-fx-background-color: #FF0000;\n"
-        		+ "-fx-text-fill: #FFFFFF;\n"
-        		+ "-fx-font-size: 16px");
-        botonHackear.setMinSize(160, 60);
-        botonHackear.setText("Hackear");
 
-        BotonEntrarHandler botonHackearHandler = new BotonEntrarHandler(stage, escenaHackear, mediaPlayer);
-        botonHackear.setOnAction(botonHackearHandler);
-        
-  
-        HBox botonera = new HBox(botonEntrar, botonHackear);
-        botonera.setAlignment(Pos.CENTER);
-        botonera.setSpacing(30);
-        this.getChildren().addAll(texto, botonera);
+     
+        this.getChildren().addAll(texto, botonEntrar);
         
     }
 }
