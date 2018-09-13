@@ -171,27 +171,21 @@ public class CampoDeJuego {
 	}
 
 
-	public void atacarALaVidaConMonstruoEnPosicion(CartaMonstruo atacante) {
+	public void atacarALaVidaConMonstruoEnPosicion(CartaMonstruo atacante) throws NoSePuedeRealizarAtaqueException {
 		
 		campoEnemigo.recibirAtaqueDirectoDe(atacante);
 		
 	}
 
 
-	public void recibirAtaqueDirectoDe(CartaMonstruo atacante) {
+	public void recibirAtaqueDirectoDe(CartaMonstruo atacante) throws NoSePuedeRealizarAtaqueException {
 			
-		try {
-			
-			if (!this.activarTrampaEnAtaqueDirecto(atacante)) {
+
+		if (!this.activarTrampaEnAtaqueDirecto(atacante)) {
 				
-				atacante.atacarA(duenio);
-			}
-			
-			
-		} catch (NoSePuedeRealizarAtaqueException error) {
-			
-			//enviar cartel en UI
-		}	
+			atacante.atacarA(duenio);
+		}
+
 	}		
 			
 			

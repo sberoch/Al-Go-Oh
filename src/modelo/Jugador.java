@@ -5,6 +5,7 @@ import modelo.cartas.CartaDeCampo;
 import modelo.cartas.CartaMagica;
 import modelo.cartas.CartaMonstruo;
 import modelo.cartas.CartaTrampa;
+import modelo.exceptions.NoSePuedeRealizarAtaqueException;
 
 public class Jugador {
 	
@@ -129,7 +130,13 @@ public class Jugador {
 
 	public void atacarDirectoALaVidaCon(CartaMonstruo atacante) {
 		
-		campo.atacarALaVidaConMonstruoEnPosicion(atacante);
+		try {
+			
+			campo.atacarALaVidaConMonstruoEnPosicion(atacante);
+			
+		} catch (NoSePuedeRealizarAtaqueException e) {
+			
+		}
 	}
 
 
